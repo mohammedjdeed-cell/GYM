@@ -1,0 +1,25 @@
+{
+  "name": "Gold's Gym Dual Portal",
+  "short_name": "GGPortal",
+  "description": "Premium 8-Week Training Companion with Dual-Profile Support.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#FFC72C",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+```
