@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gold's Gym Portal - Dual Athlete Architecture</title>
+    
+    <!-- PWA Configurations -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0D0D0D">
+    
+    <!-- iOS support meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="GG Portal">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap');
         
         :root {
-            /* Profile A: Medical Elite - Dark Onyx & Bright Gold */
             --primary: #FFC72C;
             --primary-hover: #E6AF00;
             --bg-base: #0D0D0D;
@@ -25,16 +35,15 @@
         }
 
         body.theme-hourglass {
-            /* Profile B: Hourglass Sculpt - Desert-Rose & Warm Sand with High Contrast Readability */
-            --primary: #B55B4C; /* Darker Desert-Rose Accent (Passes AAA Contrast check on Light backgrounds) */
+            --primary: #B55B4C;
             --primary-hover: #9E4D3E;
-            --bg-base: #FAF7F5; /* Cream Champagne Alabaster background */
-            --bg-card: #FFFFFF; /* High contrast pure white cards */
-            --border-base: #E2D2CA; /* Sophisticated warm cashmere borders */
-            --text-base: #20140F; /* Ultra-dark Espresso/Charcoal for ultimate readability */
-            --text-muted: #645147; /* Deep readable Earthy Taupe for helper texts */
-            --accent-green: #2E7D32; /* Rich Forest Green for positive actions */
-            --accent-blue: #4A148C; /* Deep Royal Violet for highlighting */
+            --bg-base: #FAF7F5;
+            --bg-card: #FFFFFF;
+            --border-base: #E2D2CA;
+            --text-base: #20140F;
+            --text-muted: #645147;
+            --accent-green: #2E7D32;
+            --accent-blue: #4A148C;
             --shadow-glow: rgba(181, 91, 76, 0.18);
             --font-family: 'Tajawal', sans-serif;
         }
@@ -748,24 +757,24 @@
                     ],
                     2: [
                         { id: "h_2_1", name: "Leg Press Machine | جهاز دفع الأرجل", detail: "3 Sets x 12 Reps", cue: "ادفعي المنصة العريضة بقوة الكعبين مع تجنب قفل الركب في نهاية الحركة لتأمين المفاصل.", machine: "Linear Power Press | جهاز الدفع المائل خطي", rest: 90, gym80Link: "https://gym80.de/en/?s=pure+kraft+leg+press", youtubeLink: "https://www.youtube.com/results?search_query=gym80+pure+kraft+45+leg+press", altName: "Barbell Back Squat | القرفصاء بالبار الخلفي", altDetail: "3 Sets x 10 Reps", altCue: "انزلي بهدوء مستقيمة الظهر مع دفع الحوض للخلف ببطء لتفعيل عضلات الأرداف الكبرى.", altMachine: "Barbell Compound | تمرين بار مركب", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=barbell+squat+form" },
-                        { id: "h_2_2", name: "Goblet Squat | قرفصاء الكأس بالدمبل", detail: "3 Sets x 10 Reps", cue: "احملي دمبل واحد بشكل عمودي قريباً من صدرك وانزلي قرفصاء لتوجيه حمل الوزن بشكل مثالي.", machine: "Free Weight Squat | قرفصاء أوزان حرة", rest: 90, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=goblet+squat+form", altName: "Dumbbell Sumo Squat | قرفصاء السومو العريضة بالدمبل", altDetail: "3 Sets x 12 Reps", altCue: "قفي بوضعية عريضة مع توجيه أطراف القدم للخارج لاستهداف زوايا الفخذين الداخلية والأرداف بشكل مكثف.", altMachine: "Dumbbell Compound | دمبل مركب", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=sumo+squat+form" },
-                        { id: "h_2_3", name: "Adductor Machine | جهاز تقريب الفخذ الداخلي", detail: "3 Sets x 15 Reps", cue: "ضمي الفخذين للداخل ببطء كامل مع التوقف ثانية واحدة عند التقاء المخدات لشد الترهلات الداخلية.", machine: "Sygnum Line | فئة سيجنوم للأوزان", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+adductor", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+adductor", altName: "Cable Hip Adduction | تقريب الفخذ الداخلي بالكابل", altDetail: "3 Sets x 12 Reps/Side", altCue: "اربطي الكاحل واسحبي القدم للداخل بمسار مستقيم أمام الساق الأخرى ببطء.", altMachine: "Low Pulley | بكرة كابل منخفضة", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=cable+hip+adduction" },
+                        { id: "h_2_2", name: "Goblet Squat | قرفصاء الكأس بالدمبل", detail: "3 Sets x 10 Reps", cue: "احملي دمبل واحد بشكل عمودي قريباً من صدرك وانزلي قرفصاء لتوجيه حمل الوزن بشكل مثالي.", machine: "Free Weight Squat | قرفصاء أوزان حرة", rest: 90, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=goblet+squat+form", altName: "Dumbbell Sumo Squat | قرفصاء السومو العريضة بالدمبل", altDetail: "3 Sets x 12 Reps", altCue: "الوقوف بوضعية عريضة مع توجيه أطراف القدم للخارج لاستهداف زوايا الفخذين الداخلية والأرداف بشكل مكثف.", altMachine: "Dumbbell Compound | دمبل مركب", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=sumo+squat+form" },
+                        { id: "h_2_3", name: "Adductor Machine | جهاز تقريب الفخذ الداخلي", detail: "3 Sets x 15 Reps", cue: "ضم الفخذين للداخل ببطء كامل مع التوقف ثانية واحدة عند التقاء المخدات لشد الترهلات الداخلية.", machine: "Sygnum Line | فئة سيجنوم للأوزان", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+adductor", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+adductor", altName: "Cable Hip Adduction | تقريب الفخذ الداخلي بالكابل", altDetail: "3 Sets x 12 Reps/Side", altCue: "اربطي الكاحل واسحبي القدم للداخل بمسار مستقيم أمام الساق الأخرى ببطء.", altMachine: "Low Pulley | بكرة كابل منخفضة", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=cable+hip+adduction" },
                         { id: "h_2_4", name: "Plank | تمرين اللوح الخشبي", detail: "3 Sets x 30-45 Secs", cue: "اثبتي على الساعدين مع شد عضلات البطن والمؤخرة ليكون جسمك مستقيماً تماماً.", machine: "Bodyweight Core | تمارين وزن الجسم للبطن", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=plank+exercise+form", altName: "Dead Bug | تمرين الحشرة الميتة", altDetail: "3 Sets x 12 Reps/Side", altCue: "استلقي على الظهر ومدي ذراعك ورجلك العكسية ببطء مع تثبيت الجزء السفلي من الظهر بقوة على الأرض.", altMachine: "Floor Core | تمرين بطن أرضي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dead+bug+exercise+form" },
                         { id: "h_2_5", name: "Dead Bug | الحشرة الميتة لنحت البطن", detail: "3 Sets x 10 Reps/Side", cue: "افردي ذراعك والجهة المعاكسة للقدم ببطء تام لشد عضلات البطن العميقة وتصغير الخصر.", machine: "Floor Exercise | تمرين أرضي", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=dead+bug+exercise+form", altName: "Bird Dog | تمرين الكلب الطائر", altDetail: "3 Sets x 10 Reps/Side", altCue: "على أطرافك الأربعة، مدي ذراعك وقدمك المعاكسة بشكل مواز للأرض لتحسين ثبات الجذع والظهر.", altMachine: "Floor Auxiliary | تمرين أرضي مساعد", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=bird+dog+exercise" }
                     ],
                     3: [
                         { id: "h_3_1", name: "Incline Dumbbell Press | ضغط صدر مائل بالدمبل", detail: "3 Sets x 12 Reps", cue: "ادفعي الأوزان بزاوية مائلة على بنش 30 درجة لشد منطقة الصدر العلوية ومنع الترهلات بمسار هادئ.", machine: "Incline Bench | بنش مائل", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=incline+dumbbell+press+form", altName: "Dumbbell Floor Press | ضغط صدر أرضي بالدمبلز", altDetail: "3 Sets x 12 Reps", altCue: "استلقي أرضاً بالكامل لمنع امتداد الأكتاف المفرط واضغطي الدمبلز للأعلى بأمان تام.", altMachine: "Floor Weight | أوزان أرضية مريحة", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=floor+press+dumbbell+form" },
-                        { id: "h_3_2", name: "Seated Cable Row | سحب الكابل الأرضي بالقبضة الضيقة", detail: "3 Sets x 12 Reps", cue: "اسحبي المقبض باتجاه السرة مع المحافظة على انتصاب الظهر لتعديل انحناءات الأكتاف والمظهر العام.", machine: "Standard Pulley Stack | بكرة أوزان مدمجة", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=seated+cable+row+form", altName: "Dumbbell One-Arm Row | تجديف ظهر بالدمبل الفردي", altDetail: "3 Sets x 12 Reps/Side", altCue: "اسندي ركبتك ويدك على البنش، واسحبي الدمبل بيدك الأخرى بمحاذاة الحوض لزيادة تفعيل الظهر الخارجي.", altMachine: "Dumbbell Pull | سحب دمبل أحادي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=one+arm+dumbbell+row+form" },
-                        { id: "h_3_3", name: "Dumbbell Front Raises | رفع دمبلز أمامي للأكتاف", detail: "3 Sets x 12 Reps", cue: "ارفعي الدمبلز للأمام لمستوى العين ببطء مع التحكم في النزول لتحديد تفاصيل الأكتاف بشكل أنثوي مصقول.", machine: "Dumbbell Lift | رفع أوزان حرة", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=dumbbell+front+raise+form", altName: "Plate Front Raise | رفع أمامي بلوح الوزن", altDetail: "3 Sets x 12 Reps", altCue: "امسكي لوح وزن دائري بكلتا اليدين وارفعيه للأمام ببطء تسيطرين فيه على كامل مسار الحركة.", altMachine: "Plate Isolation | عزل باستخدام لوح وزن", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=plate+front+raise+form" },
+                        { id: "h_3_2", name: "Seated Cable Row | سحب الكابل الأرضي بالقبضة الضيقة", detail: "3 Sets x 12 Reps", cue: "اسحبي المقبض باتجاه السرة مع المحافظة على انتساب الظهر لتعديل انحناءات الأكتاف والمظهر العام.", machine: "Standard Pulley Stack | بكرة أوزان مدمجة", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=seated+cable+row+form", altName: "Dumbbell One-Arm Row | تجديف ظهر بالدمبل الفردي", altDetail: "3 Sets x 12 Reps/Side", altCue: "اسندي ركبتك ويدك على البنش، واسحبي الدمبل بيدك الأخرى بمحاذاة الحوض لزيادة تفعيل الظهر الخارجي.", altMachine: "Dumbbell Pull | سحب دمبل أحادي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=one+arm+dumbbell+row+form" },
+                        { id: "h_3_3", name: "Dumbbell Front Raises | رفع دمبلز أمامي للأكتاف", detail: "3 Sets x 12 Reps", cue: "ارفعي الدمبلز للأمام لمستوى العين ببطء مع التحكم في النزول لتحديد تفاصيل الأكتاف بشكل أنثوي مصقول.", machine: "Dumbbell Lift | رفع أوزان حرة", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=dumbbell+front+raise+form", altName: "Plate Front Raise | رفع أمامي بلوح الوزن", altDetail: "3 Sets x 12 Reps", altCue: "مسك لوح وزن باليدين ورفعه للأمام لمستوى النظر ببطء.", altMachine: "Plate Isolation | عزل باستخدام لوح وزن", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=plate+front+raise+form" },
                         { id: "h_3_4", name: "Triceps Pushdown | سحب كابل الذراع الخلفي لأسفل", detail: "3 Sets x 12 Reps", cue: "اسحبي حبل الكابل لأسفل مع تثبيت المرفقين تماماً بجانب الجذع لنحت الذراع الخلفية وشد الزنود.", machine: "Upper Cable Stack | كابل علوي مدمج", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=tricep+rope+pushdown+form", altName: "Overhead Dumbbell Extension | مد الذراع الخلفي بالدمبل فوق الرأس", altDetail: "3 Sets x 12 Reps", altCue: "امسكي دمبل واحد بكلتا اليدين خلف الرأس وادفعيه للأعلى مع تجنب فتح المرفقين للخارج لتفادي ترهلات الذراع.", altMachine: "Dumbbell Isolation | عزل الذراع بالدمبل", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=overhead+dumbbell+tricep+extension" },
-                        { id: "h_3_5", name: "Stairmaster | جهاز صعود السلالم التفاعلي", detail: "15-20 Mins", cue: "اصعدي السلالم بتركيز مع الدفع عبر كعبي القدمين لضمان تفعيل كامل الأرداف وحرق سعرات ممتاز.", machine: "Stair Climber | سلم رياضي كهربائي", rest: 0, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=stairmaster+workout+tips", altName: "Row Machine Cardio | كارديو جهاز التجديف المائي", altDetail: "15 Mins", altCue: "اسحبي المقابض بشكل متناسق لاستهداف عضلات الظهر وتنشيط عضلة القلب بأمان كامل وممتع.", altMachine: "Row Station | محطة التجديف", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=rowing+machine+cardio+form" }
+                        { id: "h_3_5", name: "Stairmaster | جهاز صعود السلالم التفاعلي", detail: "15-20 Mins", cue: "اصعدي السلالم بتركيز مع الدفع عبر كعبي القدمين لضمان تفعيل كامل الأرداف وحرق سعرات ممتاز.", machine: "Stair Climber | سلم رياضي كهربائي", rest: 0, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=stairmaster+workout+tips", altName: "Row Machine Cardio | كارديو جهاز التجديف المائي", altDetail: "15 Mins", altCue: "سحب متناسق على آلة التجديف لتنشيط الكارديو وتجنب إجهاد المفاصل.", altMachine: "Row Station | محطة التجديف", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=rowing+machine+cardio+form" }
                     ],
                     4: [
-                        { id: "h_4_1", name: "Leg Curl Machine | جهاز ثني الأرجل الخلفي الاستلقائي", detail: "3 Sets x 12 Reps", cue: "اثني كعبيك باتجاه الأرداف بقوة مع تثبيت الحوض بالكامل على المخدة لمنع إجهاد أسفل الظهر.", machine: "Sygnum Line Lying | سيجنوم سحب الظهر الخلفي مستوٍ", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+lying+leg+curl", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+lying+leg+curl", altName: "Dumbbell Romanian Deadlift | الرفعة المميتة الرومانية بالدمبل", altDetail: "3 Sets x 10 Reps", altCue: "ادفعي المؤخرة للخلف مع انزلاق الدمبلز بمحاذاة ساقيك لشد الفخذ الخلفي والأرداف بفعالية بالغة.", altMachine: "Free Weight Hinge | تمرين مفصل الحوض حر", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dumbbell+romanian+deadlift" },
-                        { id: "h_4_2", name: "Abductor Machine | جهاز تفتيح الفخذ الخارجي", detail: "3 Sets x 15 Reps", cue: "افتحي الفخذين للخارج بقوة هادئة وثبات تام لرسم جوانب الأرداف وتعميق شكل منحنيات الساعة الرملية.", machine: "Sygnum Line Outward | تفتيح فخذ خارجي سيجنوم", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+abductor", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+abductor", altName: "Banded Clamshells | تمرين الصدفة بحزام المقاومة المطاطي", altDetail: "3 Sets x 15 Reps/Side", altCue: "اربطي حزام المقاومة فوق ركبتيك وافتحي ركبتك العلوية لأعلى لتفعيل وتدوير العضلة النائمة بشكل دقيق.", altMachine: "Banded Resistance | حبل مقاومة مطاطي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=banded+clamshells+form" },
-                        { id: "h_4_3", name: "Dumbbell Lunges | تمرين الطعن بالدمبلز خطوة للأمام", detail: "3 Sets x 10 Reps/Side", cue: "تقدمي بخطوة واسعة للأمام وانزلي بهدوء لشد وتدوير عضلات الأرداف بمسار ميكانيكي مذهل.", machine: "Free Weight Complex | أوزان حرة مركبة", rest: 90, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=dumbbell+lunges+form", altName: "Dumbbell Reverse Lunges | تمرين الطعن الخلفي بالدمبلز", altDetail: "3 Sets x 10 Reps/Side", altCue: "تراجعي خطوة للخلف بالتبادل، وهي وضعية مريحة جداً للمفاصل وتقلل من آلام الركبة نهائياً.", altMachine: "Dumbbell Step | حركة خطوات بالدمبلز", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=reverse+lunges+dumbbell+form" },
-                        { id: "h_4_4", name: "Russian Twists | تمرين الالتفاف الروسي للبطن", detail: "3 Sets x 15 Reps/Side", cue: "قومي بتدوير الجذع بالتبادل يميناً ويساراً مع إبقاء الحوض ثابتاً لنحت وتصغير الخصر الجانبي.", machine: "Floor Oblique | تمرين أرضي للخصر والخواصر", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=russian+twist+form", altName: "Hanging Side Knee Raises | رفع الركب الجانبي مع التعلق بالبار", altDetail: "3 Sets x 12 Reps", altCue: "تعلقي بالبار الرياضي وقومي برفع ركبتيك مائلة قليلاً للجانبين لاستهداف الخصر وتناسق الخواصر.", altMachine: "Power Tower Isolation | تمرين عزل أرضي عالي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=hanging+side+knee+raise" },
-                        { id: "h_4_5", name: "Reverse Crunches | تمرين الطحن العكسي لأسفل البطن", detail: "3 Sets x 12 Reps", cue: "اسحبي ركبتيك وحوضك لأعلى باتجاه الصدر لتفعيل وشد جدار أسفل البطن والقضاء على الترهلات.", machine: "Floor Abdominal | تمرين أرضي مخصص للبطن السفلي", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=reverse+crunch+form", altName: "Bicycle Crunches | تمرين الدراجة الهوائية للبطن", altDetail: "3 Sets x 15 Reps", altCue: "امسكي برأسك ببطء وقربي المرفق المعاكس للركبة بالتناوب السريع لنحت عضلات البطن بشكل جذاب.", altMachine: "Floor Dynamic | تمرين أرضي متحرك عالي الكفاءة", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=bicycle+crunches+form" }
+                        { id: "h_4_1", name: "Leg Curl Machine | جهاز ثني الأرجل الخلفي الاستلقائي", detail: "3 Sets x 12 Reps", cue: "ثني كعبيك باتجاه الأرداف بقوة مع تثبيت الحوض بالكامل على المخدة لمنع إجهاد أسفل الظهر.", machine: "Sygnum Line Lying | سيجنوم سحب الظهر الخلفي مستوٍ", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+lying+leg+curl", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+lying+leg+curl", altName: "Dumbbell Romanian Deadlift | الرفعة المميتة الرومانية بالدمبل", altDetail: "3 Sets x 10 Reps", altCue: "دفع الوركين للخلف مع نزول الوزن بمحاذاة الساقين لشد أوتار الركبة والأرداف.", altMachine: "Free Weight Hinge | تمرين مفصل الحوض حر", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dumbbell+romanian+deadlift" },
+                        { id: "h_4_2", name: "Abductor Machine | جهاز تفتيح الفخذ الخارجي", detail: "3 Sets x 15 Reps", cue: "افتحي الفخذين للخارج بقوة هادئة وثبات تام لرسم جوانب الأرداف وتعميق شكل منحنيات الساعة الرملية.", machine: "Sygnum Line Outward | تفتيح فخذ خارجي سيجنوم", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+abductor", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+abductor", altName: "Banded Clamshells | تمرين الصدفة بحزام المقاومة المطاطي", altDetail: "3 Sets x 15 Reps/Side", altCue: "ربط حزام مقاومة فوق الركبتين وفتح الفخذ العلوي للخارج لتنمية الأرداف الجانبية.", altMachine: "Banded Resistance | حبل مقاومة مطاطي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=banded+clamshells+form" },
+                        { id: "h_4_3", name: "Dumbbell Lunges | تمرين الطعن بالدمبلز خطوة للأمام", detail: "3 Sets x 10 Reps/Side", cue: "تقدمي بخطوة واسعة للأمام وانزلي بهدوء لشد وتدوير عضلات الأرداف بمسار ميكانيكي مذهل.", machine: "Free Weight Complex | أوزان حرة مركبة", rest: 90, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=dumbbell+lunges+form", altName: "Dumbbell Reverse Lunges | تمرين الطعن الخلفي بالدمبلز", altDetail: "3 Sets x 10 Reps/Side", altCue: "التراجع خطوة للخلف بنزول عمودي لتسهيل التوازن وتخفيف ضغط الركبة.", altMachine: "Dumbbell Step | حركة خطوات بالدمبلز", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=reverse+lunges+dumbbell+form" },
+                        { id: "h_4_4", name: "Russian Twists | تمرين الالتفاف الروسي للبطن", detail: "3 Sets x 15 Reps/Side", cue: "قومي بتدوير الجذع بالتبادل يميناً ويساراً مع إبقاء الحوض ثابتاً لنحت وتصغير الخصر الجانبي.", machine: "Floor Oblique | تمرين أرضي للخصر والخواصر", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=russian+twist+form", altName: "Hanging Side Knee Raises | رفع الركب الجانبي مع التعلق بالبار", altDetail: "3 Sets x 12 Reps", altCue: "التعلق على البار وسحب الركبتين بالتناوب مائلاً للأعلى لتشغيل الخصر السفلي.", altMachine: "Power Tower Isolation | تمرين عزل أرضي عالي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=hanging+side+knee+raise" },
+                        { id: "h_4_5", name: "Reverse Crunches | تمرين الطحن العكسي لأسفل البطن", detail: "3 Sets x 12 Reps", cue: "اسحبي ركبتيك وحوضك لأعلى باتجاه الصدر لتفعيل وشد جدار أسفل البطن والقضاء على الترهلات.", machine: "Floor Abdominal | تمرين أرضي مخصص للبطن السفلي", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=reverse+crunch+form", altName: "Bicycle Crunches | تمرين الدراجة الهوائية للبطن", altDetail: "3 Sets x 15 Reps", altCue: "تقريب المرفق الأيسر للركبة اليمنى بالتناوب السريع لنحت عضلي متوازن.", altMachine: "Floor Dynamic | تمرين أرضي متحرك عالي الكفاءة", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=bicycle+crunches+form" }
                     ]
                 }
             }
@@ -1057,6 +1066,15 @@
         function loadPlayerDay(dayNum) {
             activePlayerExIdx = 0;
             updatePlayerInterface();
+        }
+
+        // SW REGISTRATION SCRIPT
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker registered:', reg.scope))
+                    .catch(err => console.error('Service Worker registration failed:', err));
+            });
         }
 
         function updatePlayerInterface() {
@@ -1409,6 +1427,1438 @@
             const ctx = document.getElementById('muscleChart').getContext('2d');
             
             // Labels translation
+            const labelsEn = ['Chest', 'Back', 'Quads', 'Hamstrings', 'Shoulders', 'Arms/Core'];
+            const labelsAr = ['الصدر', 'الظهر', 'الفخذ الأمامي', 'الفخذ الخلفي', 'الأكتاف', 'الأذرع والخصر'];
+            const labelsSelected = activeProfile === 'hourglass' ? labelsAr : labelsEn;
+
+            globalChartObj = new Chart(ctx, {
+                type: 'polarArea',
+                data: {
+                    labels: labelsSelected,
+                    datasets: [{
+                        data: activeProfile === 'medical' ? [15, 18, 12, 10, 15, 10] : [10, 12, 14, 16, 10, 12],
+                        backgroundColor: [
+                            'rgba(181, 91, 76, 0.75)',
+                            'rgba(43, 29, 22, 0.95)',
+                            'rgba(181, 91, 76, 0.55)',
+                            'rgba(100, 81, 71, 0.85)',
+                            'rgba(181, 91, 76, 0.9)',
+                            'rgba(81, 45, 168, 0.7)'
+                        ],
+                        borderColor: '#262626',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        r: { 
+                            grid: { color: 'rgba(128,128,128,0.15)' },
+                            angleLines: { color: 'rgba(128,128,128,0.15)' },
+                            ticks: { display: false } 
+                        }
+                    },
+                    plugins: {
+                        legend: { 
+                            position: 'bottom', 
+                            labels: { 
+                                boxWidth: 12, 
+                                font: { size: 10, family: 'Tajawal' },
+                                color: '#94A3B8'
+                            } 
+                        }
+                    }
+                }
+            });
+        }
+
+        // COMPILE PRINT Blueprints SYSTEM
+        function compilePrintViewBlueprint() {
+            const printContainer = document.getElementById('printViewContainer');
+            printContainer.innerHTML = '';
+            const p = profilesData[activeProfile];
+
+            for(let d = 1; d <= 4; d++) {
+                let exHtml = '';
+                p.exercises[d].forEach(e => {
+                    exHtml += `
+                        <div style="margin-bottom: 12px; border-bottom: 1px solid #ccc; padding-bottom: 6px;">
+                            <strong>${e.name}</strong> (${e.machine}) - <em>${e.detail}</em><br/>
+                            <span style="font-size: 11px; color: #555;">Cue: ${e.cue}</span><br/>
+                            <span style="font-size: 10px; color: #777;">Alternative Selection: ${e.altName} (Cue: ${e.altCue})</span>
+                        </div>
+                    `;
+                });
+                printContainer.innerHTML += `
+                    <div style="page-break-inside: avoid; margin-bottom: 24px;">
+                        <h2 style="background: #000; color: #fff; padding: 6px 12px; font-family: 'Oswald', sans-serif; text-transform: uppercase;">${p.days[d]}</h2>
+                        ${exHtml}
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
+```
+Model 9:35 AM
+ThinkingThoughts
+Expand to view model thoughts
+
+chevron_right
+Here is your updated, streamlined, and hyper-focused gym routine manager. 
+
+All non-routine elements (such as step inputs, nutrition calculators, and complex note-taking) have been removed. The application now focuses exclusively on **gym routines, progression tracking, alternative exercises, and your active rest timer**. 
+
+It now includes a **native browser notification system** that alerts you immediately when your rest timer finishes, even if your device screen is locked or you are looking at another app.
+
+---
+
+### File 1: `sw.js` (Updated Service Worker)
+Save this script as `sw.js` in your application root folder.
+
+```javascript
+const CACHE_NAME = 'golds-gym-routine-v2';
+const ASSETS_TO_CACHE = [
+  'index.html',
+  'manifest.json',
+  'https://cdn.tailwindcss.com',
+  'https://cdn.jsdelivr.net/npm/chart.js'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE))
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) => Promise.all(
+      keys.map((key) => {
+        if (key !== CACHE_NAME) return caches.delete(key);
+      })
+    ))
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    fetch(event.request)
+      .then((res) => {
+        if (res.status === 200) {
+          const resClone = res.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, resClone));
+        }
+        return res;
+      })
+      .catch(() => caches.match(event.request))
+  );
+});
+```
+
+---
+
+### File 2: `manifest.json`
+Save this file as `manifest.json` in your application root folder.
+
+```json
+{
+  "name": "Gold's Gym Routine Tracker",
+  "short_name": "GGRoutine",
+  "description": "Premium 8-Week Gym Routine & Progression Manager.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#FFC72C",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+```
+
+---
+
+### File 3: Main Application Code (`index.html`)
+
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold's Gym Portal - Routine & Overload System</title>
+    
+    <!-- PWA Settings -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0D0D0D">
+    
+    <!-- iOS Touch Elements -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap');
+        
+        :root {
+            /* Profile A: Medical Elite - High Contrast Onyx & Bold Yellow */
+            --primary: #FFC72C;
+            --primary-hover: #E6AF00;
+            --bg-base: #0D0D0D;
+            --bg-card: #161616;
+            --border-base: #262626;
+            --text-base: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent-green: #10B981;
+            --accent-blue: #38BDF8;
+            --shadow-glow: rgba(255, 199, 44, 0.15);
+            --font-family: 'Inter', sans-serif;
+        }
+
+        body.theme-hourglass {
+            /* Profile B: Hourglass Sculpt - Balanced Contrast Earth Rose & Champagne */
+            --primary: #A14E3F; /* Deep Rose-Gold (Excellent AAA contrast on pure white/cream) */
+            --primary-hover: #863D30;
+            --bg-base: #FAF8F5; /* Smooth warm champagne alabaster */
+            --bg-card: #FFFFFF; /* High contrast pure white cards */
+            --border-base: #E5D9D3; /* Soft Cashmere Pink Borders */
+            --text-base: #2B1D16; /* Dark Espresso for absolute reading comfort */
+            --text-muted: #6E5A51; /* Dark Warm Taupe for helper texts */
+            --accent-green: #2E7D32; /* Pure Forest Green for success marks */
+            --accent-blue: #512DA8; /* Deep Royal Purple */
+            --shadow-glow: rgba(161, 78, 63, 0.15);
+            --font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-base);
+            color: var(--text-base);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .heading-oswald {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .theme-card-bg { background-color: var(--bg-card); }
+        .theme-border { border-color: var(--border-base); }
+        .theme-text-muted { color: var(--text-muted); }
+        .theme-text-base { color: var(--text-base); }
+        
+        .gold-border-glow {
+            box-shadow: 0 0 20px var(--shadow-glow);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: var(--bg-base);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white; color: black; }
+        }
+    </style>
+</head>
+<body class="custom-scrollbar antialiased">
+
+    <!-- PROFILE SELECTION HOME OVERLAY -->
+    <div id="profileSelectorOverlay" class="fixed inset-0 z-50 bg-[#060606]/95 flex items-center justify-center p-4">
+        <div class="max-w-4xl w-full space-y-8">
+            <div class="text-center space-y-3">
+                <div class="w-16 h-16 bg-yellow-400 text-black flex items-center justify-center font-black rounded-full text-3xl mx-auto shadow-xl">G</div>
+                <h1 class="text-4xl font-extrabold text-white heading-oswald tracking-widest">GOLD'S GYM <span class="text-yellow-400">PORTAL</span></h1>
+                <p class="text-gray-400 max-w-lg mx-auto text-sm">Please choose your training pathway. Each profile possesses custom color-palettes, routines, tracking databases, and nutrition engines.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Profile A: Medical Elite -->
+                <button onclick="selectProfile('medical')" class="bg-[#121212] border-2 border-[#262626] hover:border-yellow-400 text-left p-6 rounded-3xl transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between h-[240px]">
+                    <div class="space-y-3">
+                        <span class="bg-yellow-400/10 text-yellow-400 border border-yellow-400/30 text-[10px] px-3 py-1 rounded-full font-black uppercase tracking-widest inline-block">Pathway A</span>
+                        <h2 class="text-2xl font-bold text-white heading-oswald">The Medical Elite</h2>
+                        <p class="text-xs text-gray-400 leading-relaxed">Tailored for physicians and clinical professionals. High Intensity & Masterful Volume with anatomical safe guards to combat static stance and posture slumping.</p>
+                    </div>
+                    <div class="flex items-center justify-between w-full border-t border-[#262626] pt-4 mt-4">
+                        <span class="text-yellow-400 text-sm font-bold">Onyx Dark Gold ➔</span>
+                    </div>
+                </button>
+
+                <!-- Profile B: Hourglass Sculpt -->
+                <button onclick="selectProfile('hourglass')" class="bg-white border-2 border-[#EADAD4] hover:border-[#B55B4C] text-right p-6 rounded-3xl transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between h-[240px]">
+                    <div class="space-y-3">
+                        <span class="bg-[#B55B4C]/10 text-[#B55B4C] border border-[#B55B4C]/30 text-[10px] px-3 py-1 rounded-full font-black uppercase tracking-widest inline-block">الخيار ب</span>
+                        <h2 class="text-2xl font-black text-[#2B1D16] font-semibold" style="font-family: 'Tajawal', sans-serif;">نحت قوام الساعة الرملية</h2>
+                        <p class="text-xs text-stone-600 leading-relaxed">دليل تفاعلي مصمم خصيصاً بلون وردي مائل لذهبي دافئ ومتباين بشكل رائع للعين. يركز على تدوير الأرداف، شد البطن وتصغير الخصر مع واجهة باللغة العربية.</p>
+                    </div>
+                    <div class="flex items-center justify-between w-full border-t border-[#EADAD4] pt-4 mt-4">
+                        <span class="text-[#B55B4C] text-sm font-bold" style="font-family: 'Tajawal', sans-serif;">تنشيط الواجهة الناعمة ➔</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP WRAPPER -->
+    <div id="mainAppContainer" class="hidden">
+        
+        <!-- HEADER / NAVIGATION -->
+        <nav class="theme-card-bg border-b theme-border sticky top-0 z-40 no-print">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-16 py-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-yellow-400 text-black flex items-center justify-center font-black rounded-full text-xl shadow-lg">G</div>
+                    <div>
+                        <span class="heading-oswald text-lg tracking-widest block"><span id="navProfileBadge">GOLD'S GYM</span></span>
+                        <span class="text-[9px] theme-text-muted tracking-wider block uppercase -mt-1" id="navProfileSub">Elite Companion Portal</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 text-xs font-bold uppercase tracking-wider">
+                    <a href="#calendar-section" class="hidden lg:inline-block theme-text-muted hover:text-yellow-500 transition" id="navLinkCalendar">8-Week Tracker</a>
+                    <a href="#floor-player" class="hidden lg:inline-block theme-text-muted hover:text-yellow-500 transition" id="navLinkPlayer">Floor Player</a>
+                    <a href="#routine" class="hidden lg:inline-block theme-text-muted hover:text-yellow-500 transition" id="navLinkRoutine">Full Routine</a>
+                    <button onclick="requestNotificationPermission()" class="bg-black/10 text-gray-500 border theme-border px-3 py-1.5 rounded-lg text-[10px]" id="navBtnNotify">Enable Alerts</button>
+                    <button onclick="switchProfileScreen()" class="bg-black text-white theme-border border hover:bg-neutral-900 px-3 py-1.5 rounded-lg text-[10px]" id="navBtnProfile">Change Profile</button>
+                    <button onclick="window.print()" class="hidden md:inline-block bg-yellow-400 text-black px-4 py-1.5 rounded-lg hover:bg-white transition text-[10px]" id="navBtnExport">Export</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- APP CONTENT BODY -->
+        <main class="max-w-7xl mx-auto px-4 md:px-6 py-8 space-y-12">
+
+            <!-- HEADER PROFILE INTRO PANEL -->
+            <header class="theme-card-bg border theme-border rounded-3xl p-6 md:p-8 relative overflow-hidden gold-border-glow">
+                <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="space-y-3">
+                        <span class="bg-yellow-400/10 text-yellow-400 border border-yellow-400/30 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest inline-block" id="headerTag">Premium Recomposition Strategy</span>
+                        <h1 class="text-3xl md:text-5xl font-black heading-oswald leading-none" id="headerTitle">PORTAL BLUEPRINT</h1>
+                        <p class="text-sm theme-text-muted max-w-2xl font-light leading-relaxed" id="headerDesc">
+                            Dynamic biomechanics and target volume distribution tailored to optimized muscle recomposition.
+                        </p>
+                    </div>
+                    
+                    <!-- Backup & Recovery Integrated directly inside Header Card -->
+                    <div class="theme-card-bg border theme-border p-5 rounded-2xl w-full md:w-auto space-y-3">
+                        <p class="text-xs font-bold uppercase tracking-wider text-center" id="backupTitle">Progress Recovery Center</p>
+                        <div class="flex gap-2 justify-center">
+                            <button onclick="exportProgressBackup()" class="bg-emerald-700 hover:bg-emerald-800 text-white text-[10px] px-3 py-1.5 rounded-xl font-bold transition flex items-center gap-1">
+                                📤 <span id="backupExportBtn">Export Backup</span>
+                            </button>
+                            <label class="bg-blue-700 hover:bg-blue-800 text-white text-[10px] px-3 py-1.5 rounded-xl font-bold transition flex items-center gap-1 cursor-pointer">
+                                📥 <span id="backupImportBtn">Import Backup</span>
+                                <input type="file" id="backupFileInput" accept=".json" class="hidden" onchange="importProgressBackup(event)">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- SECTION 1: REAL-TIME CALENDAR SYSTEM (STARTING JUNE 17, 2026) -->
+            <section id="calendar-section" class="theme-card-bg border theme-border rounded-3xl p-6 space-y-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold heading-oswald" id="calendarSectionTitle">8-Week Progress Scheduler</h2>
+                        <p class="text-xs theme-text-muted" id="calendarSectionDesc">Starting June 17, 2026. Click any cell to toggle done, scheduling routines dynamically.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-xs font-semibold">
+                        <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-yellow-400 inline-block border border-black/10"></span> <span id="legendTrain">Training Day</span></span>
+                        <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-emerald-700 inline-block"></span> <span id="legendRest">Rest Day</span></span>
+                        <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-violet-700 inline-block"></span> <span id="legendDone">Completed Day</span></span>
+                        <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded theme-card-bg border theme-border inline-block"></span> <span id="legendUnlogged">Unscheduled</span></span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Real-Time Grid Map of 56 Days starting June 17, 2026 -->
+                    <div class="lg:col-span-2 space-y-4">
+                        <div class="flex justify-between items-center bg-black/5 p-3 rounded-xl border theme-border">
+                            <span class="text-xs theme-text-muted uppercase tracking-wider font-bold" id="gridMapTitle">56-Day Sequence Map</span>
+                            <button onclick="resetSelectedCalendar()" class="text-[10px] text-red-500 hover:text-red-600 font-bold uppercase tracking-wider" id="gridMapResetBtn">Reset Cycle</button>
+                        </div>
+                        <div class="grid grid-cols-7 gap-2 max-h-[360px] overflow-y-auto pr-2 custom-scrollbar" id="calendarGrid">
+                            <!-- Populated in JS starting June 17, 2026 -->
+                        </div>
+                    </div>
+
+                    <!-- Simplified Day Inspector and done marker -->
+                    <div class="theme-card-bg border theme-border rounded-2xl p-5 space-y-4 flex flex-col justify-between" id="calendarInspector">
+                        <div class="space-y-4">
+                            <div class="border-b theme-border pb-3">
+                                <span class="text-xs text-yellow-600 font-bold uppercase tracking-widest" id="inspectWeekDay">Day Inspector</span>
+                                <h3 class="text-lg font-bold" id="inspectorHeader">Quick Configuration</h3>
+                            </div>
+                            
+                            <div class="space-y-4 text-sm">
+                                <div class="flex items-center justify-between p-3 bg-black/5 rounded-xl border theme-border">
+                                    <span class="text-xs font-bold uppercase theme-text-muted" id="inspectDoneLabel">Status:</span>
+                                    <button onclick="toggleActiveDayDoneState()" id="inspectDoneBtn" class="px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition">
+                                        Mark Done
+                                    </button>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs theme-text-muted font-semibold mb-1 uppercase tracking-wider" id="inspectTypeLabel">Daily Designation</label>
+                                    <select id="inspectType" class="w-full bg-black/5 border theme-border rounded-lg p-2 text-xs outline-none">
+                                        <option value="unlogged" id="optUnlogged">Unlogged / Rest</option>
+                                        <option value="training-1" id="optT1">Day 1: Upper A</option>
+                                        <option value="training-2" id="optT2">Day 2: Lower A</option>
+                                        <option value="training-3" id="optT3">Day 3: Upper B</option>
+                                        <option value="training-4" id="optT4">Day 4: Lower B</option>
+                                        <option value="rest" id="optOff">Designated Rest Day</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="saveActiveDay()" class="w-full bg-yellow-400 text-black py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-widest hover:scale-[1.02] transition mt-4" id="inspectorSaveBtn">
+                            Save Day status
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: LIVE GYM FLOOR PLAYER & PROGRESS RECONSTRUCTION -->
+            <section id="floor-player" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Floor Player Controls -->
+                <div class="lg:col-span-7 theme-card-bg border theme-border rounded-3xl p-6 space-y-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b theme-border pb-4 gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-yellow-600 uppercase tracking-widest block" id="playerTag">Floor Operator</span>
+                            <h2 class="text-2xl font-bold heading-oswald" id="playerHeader">Active Sequence Player</h2>
+                        </div>
+                        <select id="playerDaySelect" onchange="loadPlayerDay(this.value)" class="bg-black/5 border theme-border text-xs rounded-xl px-4 py-2 font-bold tracking-wider outline-none">
+                            <!-- Set Dynamically -->
+                        </select>
+                    </div>
+
+                    <!-- Display Panel -->
+                    <div id="activeExercisePlayer" class="space-y-6">
+                        <div class="theme-card-bg border theme-border rounded-2xl p-5 space-y-4 relative">
+                            <div class="flex flex-col md:flex-row justify-between items-start gap-4">
+                                <div class="space-y-1.5">
+                                    <span class="bg-yellow-400/10 text-yellow-600 border border-yellow-400/20 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded" id="playerMachineType">Dual Plate-Loaded</span>
+                                    <h3 class="text-xl font-bold mt-1.5" id="playerExName">Seated Row</h3>
+                                    <p class="text-xs text-yellow-600 font-bold" id="playerExDetail">3 Sets x 6-8 Reps</p>
+                                </div>
+                                <div class="w-full md:w-auto">
+                                    <button onclick="toggleAlternativeExercise()" id="altExToggleBtn" class="w-full bg-red-950/10 hover:bg-red-900/20 border border-red-500/20 text-red-700 px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5">
+                                        🔄 Swap with Alternative
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Posture/Safety Guides -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-black/5 p-4 rounded-xl border theme-border">
+                                <div>
+                                    <p class="text-xs text-yellow-600 font-bold uppercase tracking-wider mb-1.5" id="playerChecklistTitle">🛡️ Alignment Checklist</p>
+                                    <ul class="text-[11px] theme-text-muted space-y-1 list-disc list-inside" id="playerSafeguardList">
+                                        <!-- Configured in translation -->
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-xs theme-text-muted font-bold uppercase tracking-wider mb-1.5" id="playerPerformanceTitle">🔬 Performance Tip</p>
+                                    <p class="text-xs theme-text-muted italic" id="playerExCue">"Keep elbows close to side of trunk."</p>
+                                </div>
+                            </div>
+
+                            <!-- Spec / Form Video Hyperlinks -->
+                            <div class="flex flex-wrap gap-2 pt-2 border-t theme-border">
+                                <a href="#" id="playerGym80Link" target="_blank" rel="noopener noreferrer" class="bg-black/5 hover:bg-black/10 border theme-border text-xs px-3.5 py-1.5 rounded-lg font-medium flex items-center gap-1.5 transition">
+                                    🌐 Spec Guide (gym80)
+                                </a>
+                                <a href="#" id="playerYoutubeLink" target="_blank" rel="noopener noreferrer" class="bg-black/5 hover:bg-black/10 border theme-border text-xs px-3.5 py-1.5 rounded-lg font-medium flex items-center gap-1.5 transition">
+                                    🎥 Form Explanation (YouTube)
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Foot-Deck Controls -->
+                        <div class="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4 bg-black/5 p-4 rounded-xl">
+                            <div class="space-y-1">
+                                <span class="text-xs theme-text-muted font-semibold uppercase tracking-wider block" id="playerWarmupTitle">Warm-Up Scheme Guidance</span>
+                                <div class="flex gap-2 text-[10px] theme-text-muted" id="playerWarmupList">
+                                    <!-- Dynamic -->
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="playerPrev()" class="bg-black/5 hover:bg-black/10 px-4 py-2 rounded-lg text-xs font-bold transition" id="playerBtnPrev">◀ Prev</button>
+                                <span class="bg-black/5 px-3 flex items-center text-xs font-bold text-gray-500" id="playerProgressIndicator">Ex 1 / 5</span>
+                                <button onclick="playerNext()" class="bg-black/5 hover:bg-black/10 px-4 py-2 rounded-lg text-xs font-bold transition" id="playerBtnNext">Next ▶</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Rest Timer & Load Progression Logger -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- Rest Intervals Counter -->
+                    <div class="theme-card-bg border theme-border rounded-3xl p-6 space-y-4">
+                        <span class="text-xs font-bold text-yellow-600 uppercase tracking-widest block" id="restSyncLabel">Synchronization</span>
+                        <h3 class="text-xl font-bold heading-oswald" id="restHeader">Automated Rest Interval</h3>
+                        
+                        <div class="bg-black/5 border theme-border rounded-2xl py-6 flex flex-col items-center justify-center space-y-2 relative overflow-hidden">
+                            <span class="text-5xl font-mono font-black text-yellow-600 tracking-wider" id="timerDisplay">02:00</span>
+                            <span class="text-[10px] theme-text-muted font-bold uppercase tracking-widest" id="timerStatus">System Ready</span>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-2 text-xs">
+                            <button onclick="timerQuickSet(60)" class="bg-black/5 hover:bg-black/10 py-2 rounded-lg transition font-semibold" id="rest60Label">60s (Iso)</button>
+                            <button onclick="timerQuickSet(90)" class="bg-black/5 hover:bg-black/10 py-2 rounded-lg transition font-semibold" id="rest90Label">90s (Asst)</button>
+                            <button onclick="timerQuickSet(120)" class="bg-black/5 hover:bg-black/10 py-2 rounded-lg transition font-semibold" id="rest120Label">120s (Comp)</button>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <button onclick="toggleTimer()" id="timerControlBtn" class="bg-yellow-400 text-black py-2.5 rounded-lg font-bold uppercase tracking-wider transition">Start Rest</button>
+                            <button onclick="resetTimer()" class="bg-black/5 text-gray-500 py-2.5 rounded-lg font-bold uppercase tracking-wider transition" id="timerResetBtn">Reset</button>
+                        </div>
+                    </div>
+
+                    <!-- Active Progression Log -->
+                    <div class="theme-card-bg border theme-border rounded-3xl p-6 space-y-4">
+                        <span class="text-xs font-bold text-yellow-600 uppercase tracking-widest block" id="overloadTag">Performance Tracker</span>
+                        <h3 class="text-xl font-bold heading-oswald" id="overloadHeader">Progressive Overload Entry</h3>
+                        
+                        <div class="grid grid-cols-3 gap-2 text-xs">
+                            <div>
+                                <label class="block theme-text-muted font-bold mb-1 uppercase tracking-wider" id="logSetLabel">Set No.</label>
+                                <input type="number" id="logSet" min="1" value="1" class="w-full bg-black/5 border theme-border rounded-lg p-2 text-center outline-none">
+                            </div>
+                            <div>
+                                <label class="block theme-text-muted font-bold mb-1 uppercase tracking-wider" id="weightLabel">Weight (kg)</label>
+                                <input type="number" id="logWeight" placeholder="0" class="w-full bg-black/5 border theme-border rounded-lg p-2 text-center outline-none">
+                            </div>
+                            <div>
+                                <label class="block theme-text-muted font-bold mb-1 uppercase tracking-wider" id="logRepsLabel">Repetitions</label>
+                                <input type="number" id="logReps" placeholder="0" class="w-full bg-black/5 border theme-border rounded-lg p-2 text-center outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <div>
+                                <label class="block theme-text-muted font-bold mb-1 uppercase tracking-wider" id="logRPELabel">Target RPE (1-10)</label>
+                                <input type="number" id="logRPE" min="1" max="10" placeholder="8" class="w-full bg-black/5 border theme-border rounded-lg p-2 text-center outline-none">
+                            </div>
+                            <div class="flex items-end">
+                                <button onclick="saveActiveSetLog()" class="w-full bg-yellow-400 text-black py-2 rounded-lg font-bold uppercase tracking-wider hover:scale-[1.02] transition" id="logSaveBtn">Log Working Set</button>
+                            </div>
+                        </div>
+
+                        <div class="border-t theme-border pt-4">
+                            <span class="text-xs theme-text-muted font-bold uppercase tracking-wider block mb-2" id="logHistoryHeader">Previous Logs on File</span>
+                            <div class="max-h-[110px] overflow-y-auto space-y-1.5 custom-scrollbar pr-2" id="playerExerciseHistory">
+                                <p class="text-xs theme-text-muted italic">No logs recorded yet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: WORKOUT INDEX / COMPLETE ROUTINE ARCHITECTURE -->
+            <section id="routine" class="theme-card-bg border theme-border rounded-3xl p-6 space-y-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b theme-border pb-4 gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold heading-oswald" id="routineSectionTitle">Entire Split Architecture</h2>
+                        <p class="text-xs theme-text-muted" id="routineSectionDesc">Review full protocols, parameters, machine descriptions and links.</p>
+                    </div>
+                    <div class="flex bg-black/5 p-1 rounded-xl border theme-border text-xs font-bold tracking-wider">
+                        <button onclick="showTab(1)" id="tabBtn1" class="px-4 py-2 rounded-lg transition-all">DAY 1</button>
+                        <button onclick="showTab(2)" id="tabBtn2" class="px-4 py-2 rounded-lg transition-all">DAY 2</button>
+                        <button onclick="showTab(3)" id="tabBtn3" class="px-4 py-2 rounded-lg transition-all">DAY 3</button>
+                        <button onclick="showTab(4)" id="tabBtn4" class="px-4 py-2 rounded-lg transition-all">DAY 4</button>
+                    </div>
+                </div>
+
+                <div id="tabWorkoutContent" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Cards Loaded dynamically -->
+                </div>
+            </section>
+
+        </main>
+
+        <!-- PRINT COMPILATION BOX -->
+        <div class="hidden print-only p-12 text-black bg-white">
+            <h1 class="text-3xl font-bold border-b-4 border-black pb-2 mb-4">GOLD'S GYM: COMPILATION</h1>
+            <div id="printViewContainer" class="space-y-6"></div>
+        </div>
+
+        <footer class="bg-black/80 text-center py-8 text-xs tracking-wider text-gray-500 no-print border-t theme-border" id="footerText">
+            GOLD'S GYM PERFORMANCE SYSTEMS — ESTABLISHED 2026
+        </footer>
+    </div>
+
+    <!-- SCRIPT INFRASTRUCTURE ENGINE -->
+    <script>
+        // TRANSLATIONS DATABASE FOR THEME/LANGUAGE SYNC
+        const uiTranslations = {
+            medical: {
+                navLinkCalendar: "8-Week Tracker",
+                navLinkPlayer: "Floor Player",
+                navLinkRoutine: "Full Routine",
+                navBtnProfile: "Change Profile",
+                navBtnExport: "Export",
+                navBtnNotify: "Enable Alerts",
+                backupTitle: "Progress Backup Tools",
+                backupExportBtn: "Export Logs",
+                backupImportBtn: "Import Logs",
+                calendarSectionTitle: "8-Week Progress Scheduler",
+                calendarSectionDesc: "Starting June 17, 2026. Click any cell to toggle completion status.",
+                legendTrain: "Training Day",
+                legendRest: "Rest Day",
+                legendDone: "Completed Progress",
+                legendUnlogged: "Unscheduled",
+                gridMapTitle: "56-Day Sequence Map",
+                gridMapResetBtn: "Reset Cycle",
+                inspectorHeader: "Quick Configuration",
+                inspectDoneLabel: "Status:",
+                inspectTypeLabel: "Daily Designation",
+                optUnlogged: "Rest Day / Active Recovery",
+                optT1: "Training: Day 1 (Upper A)",
+                optT2: "Training: Day 2 (Lower A)",
+                optT3: "Training: Day 3 (Upper B)",
+                optT4: "Training: Day 4 (Lower B)",
+                optOff: "Designated Rest Day",
+                inspectorSaveBtn: "Save Day Status",
+                playerTag: "Floor Operator",
+                playerHeader: "Active Sequence Player",
+                playerChecklistTitle: "🛡️ Alignment Checklist",
+                playerPerformanceTitle: "🔬 Performance Tip",
+                playerWarmupTitle: "Warm-Up Scheme Guidance",
+                playerBtnPrev: "◀ Prev",
+                playerBtnNext: "Next ▶",
+                restSyncLabel: "Synchronization",
+                restHeader: "Automated Rest Interval",
+                rest60Label: "60s (Iso)",
+                rest90Label: "90s (Asst)",
+                rest120Label: "120s (Comp)",
+                timerControlBtn: "Start Rest",
+                timerResetBtn: "Reset",
+                overloadTag: "Performance Tracker",
+                overloadHeader: "Progressive Overload Entry",
+                logSetLabel: "Set No.",
+                weightLabel: "Weight (kg)",
+                logRepsLabel: "Repetitions",
+                logRPELabel: "Target RPE (1-10)",
+                logSaveBtn: "Log Working Set",
+                logHistoryHeader: "Previous Logs on File",
+                routineSectionTitle: "Entire Split Architecture",
+                routineSectionDesc: "Review full protocols, parameters, machine descriptions and links.",
+                footerText: "GOLD'S GYM PERFORMANCE SYSTEMS — ESTABLISHED 2026"
+            },
+            hourglass: {
+                navLinkCalendar: "متابع الـ 8 أسابيع",
+                navLinkPlayer: "منصة التمارين الحية",
+                navLinkRoutine: "الجدول الكامل",
+                navBtnProfile: "تغيير الملف",
+                navBtnExport: "تصدير الملف",
+                navBtnNotify: "تفعيل الإشعارات",
+                backupTitle: "أدوات النسخ الاحتياطي",
+                backupExportBtn: "تصدير السجل",
+                backupImportBtn: "استيراد السجل",
+                calendarSectionTitle: "مجدول الإنجاز لـ 8 أسابيع",
+                calendarSectionDesc: "يبدأ المسار الزمني الحقيقي من تاريخ 17 يونيو 2026. انقري على أي خانة يوم لتعديل الإنجاز المباشر.",
+                legendTrain: "يوم تمرين",
+                legendRest: "يوم استشفاء",
+                legendDone: "يوم منجز ومكتمل",
+                legendUnlogged: "غير مجدول بعد",
+                gridMapTitle: "خريطة المتابعة لـ 56 يوماً",
+                gridMapResetBtn: "إعادة ضبط الخريطة",
+                inspectorHeader: "خيارات اليوم السريعة",
+                inspectDoneLabel: "الحالة:",
+                inspectTypeLabel: "تخصيص اليوم",
+                optUnlogged: "يوم راحة واستشفاء نشط",
+                optT1: "تمرين: اليوم الأول (علوي)",
+                optT2: "تمرين: اليوم الثاني (سفلي)",
+                optT3: "تمرين: اليوم الثالث (علوي 2)",
+                optT4: "تمرين: اليوم الرابع (سفلي 2)",
+                optOff: "يوم استراحة تام ومكتمل",
+                inspectorSaveBtn: "حفظ حالة اليوم",
+                playerTag: "مساعد التمرين الميداني",
+                playerHeader: "منصة التمارين المباشرة",
+                playerChecklistTitle: "🛡️ فحص ضبط الوضعية والقوام",
+                playerPerformanceTitle: "🔬 توجيه الأداء والحركة الفنية",
+                playerWarmupTitle: "توجيهات مجموعات الإحماء المتدرجة",
+                playerBtnPrev: "◀ السابق",
+                playerBtnNext: "التالي ▶",
+                restSyncLabel: "مؤقت الفترات البينية",
+                restHeader: "عداد الاستراحة الرقمي التفاعلي",
+                rest60Label: "60 ثانية (عزل)",
+                rest90Label: "90 ثانية (مساعد)",
+                rest120Label: "120 ثانية (مركب)",
+                timerControlBtn: "بدء الاستراحة",
+                timerResetBtn: "إلغاء",
+                overloadTag: "لوحة تتبع الأحمال والأوزان",
+                overloadHeader: "تسجيل الأوزان والتكرارات المباشرة",
+                logSetLabel: "رقم المجموعة",
+                weightLabel: "الوزن المستهدف",
+                logRepsLabel: "التكرارات المنجزة",
+                logRPELabel: "معدل الجهد RPE (1-10)",
+                logSaveBtn: "تسجيل المجموعة العاملة",
+                logHistoryHeader: "السجلات السابقة المسجلة اليوم",
+                routineSectionTitle: "هيكلية الجدول الرياضي الكامل",
+                routineSectionDesc: "استعرضي كافة التمارين، الأجهزة، روابط التحقق، والحركات البديلة المقترحة.",
+                footerText: "أنظمة تدريب جولدز جيم للمحترفين — كريفيلد 2026"
+            }
+        };
+
+        // EXERCISES DICTIONARY
+        const profilesData = {
+            medical: {
+                badge: "GOLD'S GYM ELITE",
+                sub: "Medical Athlete Recomp Portal",
+                tag: "Premium Recomposition Strategy",
+                title: "THE IRON CLINICIAN <span class='text-yellow-400'>MANIFESTO</span>",
+                desc: "8-week medical-professional focused recomp. Preserves joint longevity, counteracts clinical postural stress (slumping, static stance), and targets systemic muscular hypertrophy.",
+                proteinMin: 160,
+                proteinMax: 170,
+                proteinDefault: 165,
+                weightLabel: "Weight (kg)",
+                days: {
+                    1: "Day 1: Upper A (Strength/Intensity)",
+                    2: "Day 2: Lower A (Quad Dominant)",
+                    3: "Day 3: Upper B (Hypertrophy/Volume)",
+                    4: "Day 4: Lower B (Posterior Chain)"
+                },
+                exercises: {
+                    1: [
+                        { id: "m_1_1", name: "Gym80 PURE KRAFT Chest Press", detail: "3 Sets x 6-8 Reps", cue: "Heavy working sets. 3-sec negatives. Full contraction.", machine: "Independent Converging", rest: 120, gym80Link: "https://gym80.de/en/?s=pure+kraft+chest+press", youtubeLink: "https://www.youtube.com/results?search_query=gym80+pure+kraft+seated+chest+press", altName: "Dumbbell Flat Bench Press", altDetail: "3 Sets x 8-10 Reps", altCue: "Keep dumbbells angled at 45° to preserve shoulder socket clearance.", altMachine: "Free Weight Base", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dumbbell+flat+bench+press+form" },
+                        { id: "m_1_2", name: "Gym80 PURE KRAFT Row (Seated)", detail: "3 Sets x 6-8 Reps", cue: "Chest supported. Drive elbows past the torso.", machine: "Dual Plate-Loaded", rest: 90, gym80Link: "https://gym80.de/en/?s=pure+kraft+row", youtubeLink: "https://www.youtube.com/results?search_query=gym80+pure+kraft+seated+row", altName: "Chest Supported Dumbbell Row", altDetail: "3 Sets x 8-10 Reps", altCue: "Set incline bench to 30 degrees. Pull elbows wide while compressing lower traps.", altMachine: "Free Weight Bench", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=chest+supported+dumbbell+row+form" },
+                        { id: "m_1_3", name: "Gym80 PURE KRAFT Incline Press", detail: "3 Sets x 10-12 Reps", cue: "Upper pec focus. Do not lock out completely.", machine: "Gas-Assisted Seat", rest: 90, gym80Link: "https://gym80.de/en/?s=pure+kraft+incline+press", youtubeLink: "https://www.youtube.com/results?search_query=gym80+pure+kraft+incline+chest+press", altName: "Incline Dumbbell Press", altDetail: "3 Sets x 10-12 Reps", altCue: "Maintain minimal cervical arch. Do not hyperextend head during push phase.", altMachine: "Free Weight Base", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=incline+dumbbell+press+form" },
+                        { id: "m_1_4", name: "Gym80 SYGNUM Lat Pulldown", detail: "3 Sets x 10-12 Reps", cue: "Vertical pull. Focus on lat width.", machine: "Independent Cables", rest: 90, gym80Link: "https://gym80.de/en/?s=sygnum+lat+pulldown", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+lat+pulldown", altName: "Standard Lat Pulldown (Cable Stack)", altDetail: "3 Sets x 10-12 Reps", altCue: "Lean upper body back by 15 degrees. Pull bar towards sternal margin.", altMachine: "Standard Cable Line", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=lat+pulldown+form+guide" },
+                        { id: "m_1_5", name: "Gym80 SYGNUM Lateral Raise", detail: "4 Sets x 15 Reps", cue: "Constant tension. Stop 10% from the bottom.", machine: "Seated Pin-Loaded", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+lateral+raise", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+lateral+raise", altName: "Dumbbell Standing Lateral Raise", altDetail: "4 Sets x 15 Reps", altCue: "Lead mechanical lift vectors with lateral condyles of the elbow.", altMachine: "Dumbbell Isolation", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dumbbell+lateral+raise+form" }
+                    ],
+                    2: [
+                        { id: "m_2_1", name: "Gym80 PURE KRAFT Pendulum Squat", detail: "3 Sets x 8-10 Reps", cue: "Go deep. Drive through the heels. Braced core.", machine: "Biomechanical Arc", rest: 120, gym80Link: "https://gym80.de/en/?s=pure+kraft+pendulum+squat", youtubeLink: "https://www.youtube.com/results?search_query=gym80+pure+kraft+pendulum+squat", altName: "Heels-Elevated Goblet Squat", altDetail: "3 Sets x 10-12 Reps", altCue: "Elevate posterior heels on small plates. Keep spine linear and vertical.", altMachine: "Free Weight Compound", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=heels+elevated+goblet+squat" },
+                        { id: "m_2_2", name: "Gym80 SYGNUM Seated Leg Curl", detail: "3 Sets x 10-12 Reps", cue: "Knee alignment with pivot point is critical.", machine: "Pin-Selected", rest: 90, gym80Link: "https://gym80.de/en/?s=sygnum+seated+leg+curl", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+seated+leg+curl", altName: "Dumbbell Lying Leg Curl", altDetail: "3 Sets x 12-15 Reps", altCue: "Position dumbbell balanced on medial arches. Extend and flex slowly.", altMachine: "Bench Isolation", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dumbbell+lying+leg+curl" },
+                        { id: "m_2_3", name: "Gym80 PURE KRAFT 45° Leg Press", detail: "3 Sets x 12-15 Reps", cue: "Constant movement. No rest at the top.", machine: "Linear Power Series", rest: 120, gym80Link: "https://gym80.de/en/?s=pure+kraft+leg+press", youtubeLink: "https://www.youtube.com/results?search_query=gym80+pure+kraft+45+leg+press", altName: "Barbell Front Squat", altDetail: "3 Sets x 8-10 Reps", altCue: "Maintain chest position vertically. Distribute axial loading over midfoot.", altMachine: "Barbell Compound", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=barbell+front+squat+form" },
+                        { id: "m_2_4", name: "Gym80 SYGNUM Lying Leg Curl", detail: "3 Sets x 12-15 Reps", cue: "Hips glued to the pad. Squeeze at the top.", machine: "Angled Cushion", rest: 90, gym80Link: "https://gym80.de/en/?s=sygnum+lying+leg+curl", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+lying+leg+curl", altName: "Stability Ball Leg Curl", altDetail: "3 Sets x 15 Reps", altCue: "Hips flat on floor, drive heels into the apex of the ball.", altMachine: "Bodyweight Auxiliary", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=stability+ball+leg+curl" },
+                        { id: "m_2_5", name: "Hanging Knee Raises", detail: "3 Sets x Failure", cue: "Curl the pelvis. Do not just lift legs.", machine: "Power Tower", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=hanging+knee+raise+form", altName: "Lying Reverse Spine Crunch", altDetail: "3 Sets x 15-20 Reps", altCue: "Roll spine upward using hip flexion to target rectus lower margins.", altMachine: "Floor Core", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=lying+reverse+crunch" }
+                    ],
+                    3: [
+                        { id: "m_3_1", name: "Gym80 PURE KRAFT Shoulder Press", detail: "3 Sets x 8-10 Reps", cue: "Stay upright. Elbows slightly forward.", machine: "Plate-Loaded Dual", rest: 120, gym80Link: "https://gym80.de/en/?s=pure+kraft+shoulder+press", youtubeLink: "https://www.youtube.com/results?search_query=gym80+pure+kraft+shoulder+press", altName: "Dumbbell Seated Shoulder Press", altDetail: "3 Sets x 8-10 Reps", altCue: "Bench backrest angled to 80 degrees. Keep anterior load vectors clear.", altMachine: "Free Weight Bench", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dumbbell+seated+shoulder+press" },
+                        { id: "m_3_2", name: "Gym80 SYGNUM Chin/Dip Assist", detail: "3 Sets x 10-12 Reps", cue: "Slow eccentric. Full stretch in the lats.", machine: "Fold-away Step", rest: 90, gym80Link: "https://gym80.de/en/?s=sygnum+chin+dip", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+chin+dip+assist", altName: "Lat Pulldown (Underhand Close Grip)", altDetail: "3 Sets x 10-12 Reps", altCue: "Underhand grip at shoulder margin. Isolate lower lat fibers.", altMachine: "Cable Pulley Stack", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=underhand+lat+pulldown" },
+                        { id: "m_3_3", name: "Gym80 SYGNUM Butterfly (Fly)", detail: "3 Sets x 12-15 Reps", cue: "Stretch across chest. Hard squeeze.", machine: "Independent Arms", rest: 90, gym80Link: "https://gym80.de/en/?s=sygnum+butterfly", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+butterfly", altName: "Dumbbell Flat Bench Fly", altDetail: "3 Sets x 12-15 Reps", altCue: "Avoid hyper-eccentric extensions to protect the pectoralis major insertions.", altMachine: "Free Weight Bench", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dumbbell+flat+bench+fly" },
+                        { id: "m_3_4", name: "Gym80 SYGNUM Preacher Curl", detail: "3 Sets x 12-15 Reps", cue: "Strict form. No swinging. Full range.", machine: "Pneumatic Adjust", rest: 90, gym80Link: "https://gym80.de/en/?s=sygnum+preacher+curl", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+preacher+curl", altName: "Incline Dumbbell Bicep Curl", altDetail: "3 Sets x 10-12 Reps", altCue: "Sit reclined on 45° angle. Keep biceps under continuous gravity load.", altMachine: "Free Weight Base", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=incline+dumbbell+bicep+curl" },
+                        { id: "m_3_5", name: "Gym80 SYGNUM Reverse Butterfly", detail: "4 Sets x 15 Reps", cue: "Lead with elbows. Rear delt isolation.", machine: "Rear Delt Station", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+reverse+butterfly", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+reverse+butterfly", altName: "Incline Chest Supported Rear Delt Fly", altDetail: "4 Sets x 15 Reps", altCue: "Hinge flat against 30° bench incline. Lead with humeral lateral head.", altMachine: "Free Weight Bench", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=incline+chest+supported+rear+delt+fly" }
+                    ],
+                    4: [
+                        { id: "m_4_1", name: "Gym80 SYGNUM 45° Back Extension", detail: "3 Sets x 10-12 Reps", cue: "Chin tucked. Hinge at the hip only.", machine: "Classic Bench", rest: 90, gym80Link: "https://gym80.de/en/?s=45+back+extension", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+45+back+extension", altName: "Romanian Deadlift (Dumbbell)", altDetail: "3 Sets x 10-12 Reps", altCue: "Focus mechanics on pure hip hinges to restrict active lumbar load distribution.", altMachine: "Free Weight Core", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dumbbell+romanian+deadlift" },
+                        { id: "m_4_2", name: "Gym80 PURE KRAFT Single Leg Press", detail: "3 Sets x 12 Reps/Side", cue: "Unilateral focus. Eliminate imbalances.", machine: "Dual Plate-Loaded", rest: 90, gym80Link: "https://gym80.de/en/?s=pure+kraft+single+leg+press", youtubeLink: "https://www.youtube.com/results?search_query=gym80+pure+kraft+single+leg+press", altName: "Deficit Bulgarian Split Squat", altDetail: "3 Sets x 10-12 Reps/Side", altCue: "Back foot elevated. Keep torso slightly forward to protect lower spine.", altMachine: "Free Weight Complex", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=bulgarian+split+squat+form" },
+                        { id: "m_4_3", name: "Gym80 SYGNUM Leg Extension", detail: "3 Sets x 15 Reps", cue: "Toe position straight. 1-sec hold at peak.", machine: "Standard Line", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+leg+extension", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+leg+extension", altName: "Bodyweight Sissy Squat", altDetail: "3 Sets x 12-15 Reps", altCue: "Hinge backwards under control, loading rectus femoris strictly.", altMachine: "Bodyweight Pivot", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=bodyweight+sissy+squat" },
+                        { id: "m_4_4", name: "Gym80 SYGNUM Standing Calf Raise", detail: "4 Sets x 15-20 Reps", cue: "Full stretch at bottom. Peak contraction.", machine: "Yoke Pad Support", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+standing+calf+raise", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+standing+calf+raise", altName: "Single-Leg Dumbbell Calf Raise", altDetail: "4 Sets x 15-20 Reps/Side", altCue: "Hold dumbbell on active leg side. Squeeze ankle fully upward.", altMachine: "Free Weight Auxiliary", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=single+leg+dumbbell+calf+raise" },
+                        { id: "m_4_5", name: "Gym80 SYGNUM Rotary Torso", detail: "3 Sets x 12 Reps/Side", cue: "Controlled rotation. Stabilized pelvis.", machine: "Innovation Series", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+rotary+torso", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+rotary+torso", altName: "Standing Cable Pallof Press", altDetail: "3 Sets x 12 Reps/Side", altCue: "Stabilize midsection; push cable handle directly forward to counter rotation.", altMachine: "Standard Pulley Stack", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=cable+pallof+press" }
+                    ]
+                }
+            },
+            hourglass: {
+                badge: "جولدز جيم كريفيلد",
+                sub: "بروتوكول نحت جسم الساعة الرملية المتوازن",
+                tag: "برنامج الساعة الرملية للمحترفين",
+                title: "دليل جسم الساعة الرملية <span class='text-rose-700'>الأنثوي المتقدم</span>",
+                desc: "تم تصميم هذا الدليل بلغة عربية كاملة لخدمة المتدربات في صالة كريفيلد. يركز التدريب على تدوير الأرداف، شد جدار البطن الداخلي، ورسم الأكتاف لإنتاج التناسق المثالي مع حماية مطلقة للعمود الفقري والمفاصل.",
+                proteinMin: 110,
+                proteinMax: 130,
+                proteinDefault: 120,
+                weightLabel: "الوزن (كيلوجرام)",
+                days: {
+                    1: "اليوم 1: علوي وكارديو (Upper & Cardio)",
+                    2: "اليوم 2: سفلي وكور (Lower & Core)",
+                    3: "اليوم 3: علوي وكارديو 2 (Upper & Cardio 2)",
+                    4: "اليوم 4: سفلي وكور 2 (Lower & Core 2)"
+                },
+                exercises: {
+                    1: [
+                        { id: "h_1_1", name: "Chest Press Machine | جهاز دفع الصدر", detail: "3 Sets x 12 Reps", cue: "ادفعي المقابض برفق للأمام مع المحافظة على استقرار الأكتاف في الوسادة الخلفية لمنع الترهلات.", machine: "Standard Converging | مسار حركي متقارب", rest: 60, gym80Link: "https://gym80.de/en/?s=pure+kraft+chest+press", youtubeLink: "https://www.youtube.com/results?search_query=gym80+pure+kraft+seated+chest+press", altName: "Dumbbell Flat Bench Press | ضغط الصدر بالدمبل مستو", altDetail: "3 Sets x 12 Reps", altCue: "ادفعي الدمبلز للأعلى بمسار مستوٍ مع ثني المرفقين بزاوية 45 درجة لحماية مفصل الكتف.", altMachine: "Free Weight Base | وزن حر", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dumbbell+flat+bench+press+form" },
+                        { id: "h_1_2", name: "Dumbbell Lateral Raises | رفرفة جانبي بالدمبل", detail: "3 Sets x 12 Reps", cue: "ارفعي الأوزان للجانبين بارتفاع الأكتاف فقط مع إمالة خفيفة للأمام لإبراز تدوير الكتف الخارجي.", machine: "Dumbbell Lift | رفع جانبي حر", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=dumbbell+lateral+raise+form", altName: "Cable Lateral Raises | رفرفة أكتاف جانبية بالكابل", altDetail: "3 Sets x 12 Reps", altCue: "اسحبي مقبض الكابل للجانب بتركيز وبطء لضمان التوتر المستمر على العضلة.", altMachine: "Cable Stack | بكرة كابل", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=cable+lateral+raise+form" },
+                        { id: "h_1_3", name: "Lat Pulldown Machine | جهاز سحب الظهر العريض", detail: "3 Sets x 12 Reps", cue: "اسحبي البار لأسفل باتجاه أعلى الصدر ببطء. يبرز جمالية عضلات الظهر الجانبية مما يصغر مظهر الخصر.", machine: "Pin-Selected Stack | نظام الأوزان المعلق", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+lat+pulldown", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+lat+pulldown", altName: "Underhand Lat Pulldown | سحب ظهر قبضة معكوسة وضيق", altDetail: "3 Sets x 12 Reps", altCue: "اسحبي القبضة باتجاه الأسفل مع توجيه المرفقين للأمام لزيادة تفعيل الألياف السفلية للظهر.", altMachine: "Standard Pulley | سحب بكرة", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=underhand+lat+pulldown+form" },
+                        { id: "h_1_4", name: "Dumbbell Shoulder Press | دفع أكتاف علوي بالدمبل", detail: "3 Sets x 10 Reps", cue: "ادفعي الدمبلز للأعلى بمسار قوسي مريح فوق الرأس دون تلامس الأوزان في الأعلى لمنع الارتخاء العضلي.", machine: "Free Weight Bench | بنش أوزان حرة", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=dumbbell+shoulder+press+form", altName: "Seated Arnold Press | دفع أرنولد للأكتاف", altDetail: "3 Sets x 10 Reps", altCue: "ابدئي بلف اليدين بمواجهة وجهك ثم ارفعيهما للأعلى مع التدوير لتشغيل متكامل لمفاصل الكتف.", altMachine: "Dumbbell Auxiliary | تمرين دمبل إضافي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dumbbell+arnold+press+form" },
+                        { id: "h_1_5", name: "Incline Treadmill Walking | مشي مائل على جهاز الجري", detail: "20-30 Mins", cue: "امشي بزاوية ميلان مرتفعة مع سرعة معتدلة لتأمين استهلاك عالي لدهون الأرداف السفلية.", machine: "Cardio Station | محطة الكارديو", rest: 0, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=incline+treadmill+walking+fat+loss", altName: "Elliptical Trainer | جهاز الأوربتراك / الغزال الطائر", altDetail: "25 Mins", altCue: "مرني كامل الجسم بمقاومة هادئة على جهاز الغزال لتفادي ضغوط الركبة.", altMachine: "Cardio Auxiliary | جهاز كارديو بديل", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=elliptical+trainer+cardio" }
+                    ],
+                    2: [
+                        { id: "h_2_1", name: "Leg Press Machine | جهاز دفع الأرجل", detail: "3 Sets x 12 Reps", cue: "ادفعي المنصة العريضة بقوة الكعبين مع تجنب قفل الركب في نهاية الحركة لتأمين المفاصل.", machine: "Linear Power Press | جهاز الدفع المائل خطي", rest: 90, gym80Link: "https://gym80.de/en/?s=pure+kraft+leg+press", youtubeLink: "https://www.youtube.com/results?search_query=gym80+pure+kraft+45+leg+press", altName: "Barbell Back Squat | القرفصاء بالبار الخلفي", altDetail: "3 Sets x 10 Reps", altCue: "انزلي بهدوء مستقيمة الظهر مع دفع الحوض للخلف ببطء لتفعيل عضلات الأرداف الكبرى.", altMachine: "Barbell Compound | تمرين بار مركب", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=barbell+squat+form" },
+                        { id: "h_2_2", name: "Goblet Squat | قرفصاء الكأس بالدمبل", detail: "3 Sets x 10 Reps", cue: "احملي دمبل واحد بشكل عمودي قريباً من صدرك وانزلي قرفصاء لتوجيه حمل الوزن بشكل مثالي.", machine: "Free Weight Squat | قرفصاء أوزان حرة", rest: 90, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=goblet+squat+form", altName: "Dumbbell Sumo Squat | قرفصاء السومو العريضة بالدمبل", altDetail: "3 Sets x 12 Reps", altCue: "الوقوف بوضعية عريضة مع توجيه أطراف القدم للخارج لاستهداف زوايا الفخذين الداخلية والأرداف بشكل مكثف.", altMachine: "Dumbbell Compound | دمبل مركب", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=sumo+squat+form" },
+                        { id: "h_2_3", name: "Adductor Machine | جهاز تقريب الفخذ الداخلي", detail: "3 Sets x 15 Reps", cue: "ضم الفخذين للداخل ببطء كامل مع التوقف ثانية واحدة عند التقاء المخدات لشد الترهلات الداخلية.", machine: "Sygnum Line | فئة سيجنوم للأوزان", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+adductor", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+adductor", altName: "Cable Hip Adduction | تقريب الفخذ الداخلي بالكابل", altDetail: "3 Sets x 12 Reps/Side", altCue: "اربطي الكاحل واسحبي القدم للداخل بمسار مستقيم أمام الساق الأخرى ببطء.", altMachine: "Low Pulley | بكرة كابل منخفضة", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=cable+hip+adduction" },
+                        { id: "h_2_4", name: "Plank | تمرين اللوح الخشبي", detail: "3 Sets x 30-45 Secs", cue: "اثبتي على الساعدين مع شد عضلات البطن والمؤخرة ليكون جسمك مستقيماً تماماً.", machine: "Bodyweight Core | تمارين وزن الجسم للبطن", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=plank+exercise+form", altName: "Dead Bug | تمرين الحشرة الميتة", altDetail: "3 Sets x 12 Reps/Side", altCue: "استلقي على الظهر ومدي ذراعك ورجلك العكسية ببطء مع تثبيت الجزء السفلي من الظهر بقوة على الأرض.", altMachine: "Floor Core | تمرين بطن أرضي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dead+bug+exercise+form" },
+                        { id: "h_2_5", name: "Dead Bug | الحشرة الميتة لنحت البطن", detail: "3 Sets x 10 Reps/Side", cue: "افردي ذراعك والجهة المعاكسة للقدم ببطء تام لشد عضلات البطن العميقة وتصغير الخصر.", machine: "Floor Exercise | تمرين أرضي", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=dead+bug+exercise+form", altName: "Bird Dog | تمرين الكلب الطائر", altDetail: "3 Sets x 10 Reps/Side", altCue: "على أطرافك الأربعة، مدي ذراعك وقدمك المعاكسة بشكل مواز للأرض لتحسين ثبات الجذع والظهر.", altMachine: "Floor Auxiliary | تمرين أرضي مساعد", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=bird+dog+exercise" }
+                    ],
+                    3: [
+                        { id: "h_3_1", name: "Incline Dumbbell Press | ضغط صدر مائل بالدمبل", detail: "3 Sets x 12 Reps", cue: "ادفعي الأوزان بزاوية مائلة على بنش 30 درجة لشد منطقة الصدر العلوية ومنع الترهلات بمسار هادئ.", machine: "Incline Bench | بنش مائل", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=incline+dumbbell+press+form", altName: "Dumbbell Floor Press | ضغط صدر أرضي بالدمبلز", altDetail: "3 Sets x 12 Reps", altCue: "استلقي أرضاً بالكامل لمنع امتداد الأكتاف المفرط واضغطي الدمبلز للأعلى بأمان تام.", altMachine: "Floor Weight | أوزان أرضية مريحة", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=floor+press+dumbbell+form" },
+                        { id: "h_3_2", name: "Seated Cable Row | سحب الكابل الأرضي بالقبضة الضيقة", detail: "3 Sets x 12 Reps", cue: "سحب المقبض نحو البطن لتحسين شكل القوام لتبدي أكثر طولاً.", machine: "Standard Pulley Stack | بكرة أوزان مدمجة", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=seated+cable+row+form", altName: "Dumbbell One-Arm Row | تجديف ظهر بالدمبل الفردي", altDetail: "3 Sets x 12 Reps/Side", altCue: "الاستناد على بنش مستوٍ، وسحب الوزن لجانب الخصر بتركيز كامل.", altMachine: "Dumbbell Pull | سحب دمبل أحادي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=one+arm+dumbbell+row+form" },
+                        { id: "h_3_3", name: "Dumbbell Front Raises | رفع دمبلز أمامي للأكتاف", detail: "3 Sets x 12 Reps", cue: "ارفعي الدمبلز للأمام لمستوى العين ببطء مع التحكم في النزول لتحديد تفاصيل الأكتاف بشكل أنثوي مصقول.", machine: "Dumbbell Lift | رفع أوزان حرة", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=dumbbell+front+raise+form", altName: "Plate Front Raise | رفع أمامي بلوح الوزن", altDetail: "3 Sets x 12 Reps", altCue: "مسك لوح وزن باليدين ورفعه للأمام لمستوى النظر ببطء.", altMachine: "Plate Isolation | عزل باستخدام لوح وزن", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=plate+front+raise+form" },
+                        { id: "h_3_4", name: "Triceps Pushdown | سحب كابل الذراع الخلفي لأسفل", detail: "3 Sets x 12 Reps", cue: "سحب الكابل لأسفل لمنع ترهلات الذراعين الخلفية (الزنود).", machine: "Upper Cable Stack | كابل علوي مدمج", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=tricep+rope+pushdown+form", altName: "Overhead Dumbbell Extension | مد الذراع الخلفي بالدمبل فوق الرأس", altDetail: "3 Sets x 12 Reps", altCue: "امسكي دمبل واحد بكلتا اليدين خلف الرأس وادفعيه للأعلى مع تجنب فتح المرفقين للخارج لتفادي ترهلات الذراع.", altMachine: "Dumbbell Isolation | عزل الذراع بالدمبل", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=overhead+dumbbell+tricep+extension" },
+                        { id: "h_3_5", name: "Stairmaster | جهاز صعود السلالم التفاعلي", detail: "15-20 Mins", cue: "اصعدي السلالم بتركيز مع الدفع عبر كعبي القدمين لضمان تفعيل كامل الأرداف وحرق سعرات ممتاز.", machine: "Stair Climber | سلم رياضي كهربائي", rest: 0, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=stairmaster+workout+tips", altName: "Row Machine Cardio | كارديو جهاز التجديف المائي", altDetail: "15 Mins", altCue: "سحب متناسق على آلة التجديف لتنشيط الكارديو وتجنب إجهاد المفاصل.", altMachine: "Row Station | محطة التجديف", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=rowing+machine+cardio+form" }
+                    ],
+                    4: [
+                        { id: "h_4_1", name: "Leg Curl Machine | جهاز ثني الأرجل الخلفي الاستلقائي", detail: "3 Sets x 12 Reps", cue: "ثني كعبيك باتجاه الأرداف بقوة مع تثبيت الحوض بالكامل على المخدة لمنع إجهاد أسفل الظهر.", machine: "Sygnum Line Lying | سيجنوم سحب الظهر الخلفي مستوٍ", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+lying+leg+curl", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+lying+leg+curl", altName: "Dumbbell Romanian Deadlift | الرفعة المميتة الرومانية بالدمبل", altDetail: "3 Sets x 10 Reps", altCue: "دفع الوركين للخلف مع نزول الوزن بمحاذاة الساقين لشد أوتار الركبة والأرداف.", altMachine: "Free Weight Hinge | تمرين مفصل الحوض حر", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=dumbbell+romanian+deadlift" },
+                        { id: "h_4_2", name: "Abductor Machine | جهاز تفتيح الفخذ الخارجي", detail: "3 Sets x 15 Reps", cue: "افتحي الفخذين للخارج بقوة هادئة وثبات تام لرسم جوانب الأرداف وتعميق شكل منحنيات الساعة الرملية.", machine: "Sygnum Line Outward | تفتيح فخذ خارجي سيجنوم", rest: 60, gym80Link: "https://gym80.de/en/?s=sygnum+abductor", youtubeLink: "https://www.youtube.com/results?search_query=gym80+sygnum+abductor", altName: "Banded Clamshells | تمرين الصدفة بحزام المقاومة المطاطي", altDetail: "3 Sets x 15 Reps/Side", altCue: "ربط حزام مقاومة فوق الركبتين وفتح الفخذ العلوي للخارج لتنمية الأرداف الجانبية.", altMachine: "Banded Resistance | حبل مقاومة مطاطي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=banded+clamshells+form" },
+                        { id: "h_4_3", name: "Dumbbell Lunges | تمرين الطعن بالدمبلز خطوة للأمام", detail: "3 Sets x 10 Reps/Side", cue: "تقدمي بخطوة واسعة للأمام وانزلي بهدوء لشد وتدوير عضلات الأرداف بمسار ميكانيكي مذهل.", machine: "Free Weight Complex | أوزان حرة مركبة", rest: 90, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=dumbbell+lunges+form", altName: "Dumbbell Reverse Lunges | تمرين الطعن الخلفي بالدمبلز", altDetail: "3 Sets x 10 Reps/Side", altCue: "التراجع خطوة للخلف بنزول عمودي لتسهيل التوازن وتخفيف ضغط الركبة.", altMachine: "Dumbbell Step | حركة خطوات بالدمبلز", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=reverse+lunges+dumbbell+form" },
+                        { id: "h_4_4", name: "Russian Twists | تمرين الالتفاف الروسي للبطن", detail: "3 Sets x 15 Reps/Side", cue: "قومي بتدوير الجذع بالتبادل يميناً ويساراً مع إبقاء الحوض ثابتاً لنحت وتصغير الخصر الجانبي.", machine: "Floor Oblique | تمرين أرضي للخصر والخواصر", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=russian+twist+form", altName: "Hanging Side Knee Raises | رفع الركب الجانبي مع التعلق بالبار", altDetail: "3 Sets x 12 Reps", altCue: "التعلق على البار وسحب الركبتين بالتناوب مائلاً للأعلى لتشغيل الخصر السفلي.", altMachine: "Power Tower Isolation | تمرين عزل أرضي عالي", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=hanging+side+knee+raise" },
+                        { id: "h_4_5", name: "Reverse Crunches | تمرين الطحن العكسي لأسفل البطن", detail: "3 Sets x 12 Reps", cue: "اسحبي ركبتيك وحوضك لأعلى باتجاه الصدر لتفعيل وشد جدار أسفل البطن والقضاء على الترهلات.", machine: "Floor Abdominal | تمرين أرضي مخصص للبطن السفلي", rest: 60, gym80Link: "", youtubeLink: "https://www.youtube.com/results?search_query=reverse+crunch+form", altName: "Bicycle Crunches | تمرين الدراجة الهوائية للبطن", altDetail: "3 Sets x 15 Reps", altCue: "تقريب المرفق الأيسر للركبة اليمنى بالتناوب السريع لنحت عضلي متوازن.", altMachine: "Floor Dynamic | تمرين أرضي متحرك عالي الكفاءة", altGym80Link: "", altYoutubeLink: "https://www.youtube.com/results?search_query=bicycle+crunches+form" }
+                    ]
+                }
+            }
+        };
+
+        // ENGINE RUNTIME VARIABLES
+        let activeProfile = 'medical';
+        let activePlayerExIdx = 0;
+        let activeTimerVal = 120;
+        let timerInstance = null;
+        let timerRunning = false;
+        let activeCalendarDayIdx = 1; 
+        let activeAltState = {}; 
+        let globalChartObj = null;
+
+        // INITIAL ENTRY ROUTE
+        function selectProfile(profileKey) {
+            activeProfile = profileKey;
+            localStorage.setItem('golds_active_profile', profileKey);
+
+            // Configure dynamic styles
+            if(profileKey === 'hourglass') {
+                document.body.classList.add('theme-hourglass');
+                document.documentElement.dir = "rtl";
+            } else {
+                document.body.classList.remove('theme-hourglass');
+                document.documentElement.dir = "ltr";
+            }
+
+            // Hide Selector Overlay
+            document.getElementById('profileSelectorOverlay').classList.add('hidden');
+            document.getElementById('mainAppContainer').classList.remove('hidden');
+
+            // Initialize systems
+            initializeDataStoreForProfile();
+            translateUIElementsToActiveProfile();
+            loadProfileVisualSettings();
+            generateRealTimeCalendar();
+            selectCalendarDay(1);
+            loadPlayerDay(1);
+            showTab(1);
+            renderMuscleDistributionChart();
+            compilePrintViewBlueprint();
+        }
+
+        function switchProfileScreen() {
+            clearInterval(timerInstance);
+            timerRunning = false;
+            document.getElementById('timerControlBtn').innerText = (activeProfile === 'hourglass') ? "بدء الاستراحة" : "Start Rest";
+
+            document.getElementById('mainAppContainer').classList.add('hidden');
+            document.getElementById('profileSelectorOverlay').classList.remove('hidden');
+        }
+
+        // DATABASE INITIALIZATION SYSTEM
+        function initializeDataStoreForProfile() {
+            const calKey = `golds_calendar_data_${activeProfile}`;
+            const logKey = `golds_overload_logs_${activeProfile}`;
+
+            if(!localStorage.getItem(calKey)) {
+                const defaultCal = {};
+                for(let i = 1; i <= 56; i++) {
+                    defaultCal[i] = { type: 'unlogged', steps: '', notes: '', done: false };
+                }
+                localStorage.setItem(calKey, JSON.stringify(defaultCal));
+            }
+            if(!localStorage.getItem(logKey)) {
+                localStorage.setItem(logKey, JSON.stringify({}));
+            }
+        }
+
+        // PROGRESS EXPORT BACKUP SYSTEM
+        function exportProgressBackup() {
+            try {
+                const backupObj = {
+                    metadata: {
+                        timestamp: new Date().toISOString(),
+                        version: "GG-DUAL-LOG-2026"
+                    },
+                    medical_calendar: JSON.parse(localStorage.getItem('golds_calendar_data_medical')) || null,
+                    medical_logs: JSON.parse(localStorage.getItem('golds_overload_logs_medical')) || null,
+                    hourglass_calendar: JSON.parse(localStorage.getItem('golds_calendar_data_hourglass')) || null,
+                    hourglass_logs: JSON.parse(localStorage.getItem('golds_overload_logs_hourglass')) || null
+                };
+
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backupObj, null, 2));
+                const downloadAnchor = document.createElement('a');
+                downloadAnchor.setAttribute("href", dataStr);
+                downloadAnchor.setAttribute("download", `Golds_Gym_Routine_Backup_${new Date().toISOString().slice(0,10)}.json`);
+                document.body.appendChild(downloadAnchor);
+                downloadAnchor.click();
+                downloadAnchor.remove();
+            } catch (err) {
+                alert("Error compilation file payload backup: " + err);
+            }
+        }
+
+        function importProgressBackup(event) {
+            const fileReader = new FileReader();
+            const file = event.target.files[0];
+            if (!file) return;
+
+            fileReader.onload = function(e) {
+                try {
+                    const parsedData = JSON.parse(e.target.result);
+                    if (parsedData.medical_calendar !== undefined) {
+                        if (parsedData.medical_calendar) localStorage.setItem('golds_calendar_data_medical', JSON.stringify(parsedData.medical_calendar));
+                        if (parsedData.medical_logs) localStorage.setItem('golds_overload_logs_medical', JSON.stringify(parsedData.medical_logs));
+                        if (parsedData.hourglass_calendar) localStorage.setItem('golds_calendar_data_hourglass', JSON.stringify(parsedData.hourglass_calendar));
+                        if (parsedData.hourglass_logs) localStorage.setItem('golds_overload_logs_hourglass', JSON.stringify(parsedData.hourglass_logs));
+                        
+                        alert(activeProfile === 'hourglass' ? "تمت استعادة السجلات بنجاح! سيتم إعادة تحميل الصفحة." : "Backup imported successfully! Page will now reload.");
+                        window.location.reload();
+                    } else {
+                        alert("Invalid backup file architecture.");
+                    }
+                } catch (err) {
+                    alert("Error parsing payload backup file: " + err);
+                }
+            };
+            fileReader.readAsText(file);
+        }
+
+        // BROWSER PUSH NOTIFICATION REQUEST
+        function requestNotificationPermission() {
+            if ('Notification' in window) {
+                Notification.requestPermission().then(permission => {
+                    const alertMsg = activeProfile === 'hourglass' ? 
+                        `مستوى تصريح الإشعارات الحالي: ${permission}` : 
+                        `Current notification status: ${permission}`;
+                    alert(alertMsg);
+                });
+            } else {
+                alert(activeProfile === 'hourglass' ? "متصفحك الحالي لا يدعم ميزة دفع الإشعارات النظامية." : "Push notifications are not supported on this browser.");
+            }
+        }
+
+        // TRANSLATE RUNTIME LABELS
+        function translateUIElementsToActiveProfile() {
+            const t = uiTranslations[activeProfile];
+            for (let id in t) {
+                const element = document.getElementById(id);
+                if (element) {
+                    if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+                        element.placeholder = t[id];
+                    } else {
+                        element.innerText = t[id];
+                    }
+                }
+            }
+        }
+
+        // LOAD DESIGN ATTRIBUTES
+        function loadProfileVisualSettings() {
+            const p = profilesData[activeProfile];
+            document.getElementById('navProfileBadge').innerText = p.badge;
+            document.getElementById('navProfileSub').innerText = p.sub;
+            document.getElementById('headerTag').innerText = p.tag;
+            document.getElementById('headerTitle').innerHTML = p.title;
+            document.getElementById('headerDesc').innerText = p.desc;
+            document.getElementById('weightLabel').innerText = p.weightLabel;
+
+            // Configure Day Selection Drops
+            const select = document.getElementById('playerDaySelect');
+            select.innerHTML = '';
+            for(let key in p.days) {
+                const opt = document.createElement('option');
+                opt.value = key;
+                opt.innerText = p.days[key];
+                select.appendChild(opt);
+            }
+        }
+
+        // REAL-TIME CALENDAR SYSTEM STARTING JUNE 17, 2026
+        function generateRealTimeCalendar() {
+            const grid = document.getElementById('calendarGrid');
+            grid.innerHTML = '';
+            
+            const calKey = `golds_calendar_data_${activeProfile}`;
+            const calendarData = JSON.parse(localStorage.getItem(calKey));
+            const startDate = new Date('2026-06-17T00:00:00');
+
+            for(let i = 1; i <= 56; i++) {
+                const dayInfo = calendarData[i];
+                const targetDayDate = new Date(startDate.getTime() + ((i - 1) * 24 * 60 * 60 * 1000));
+                
+                const dayBtn = document.createElement('button');
+                dayBtn.id = `calDay-${i}`;
+                dayBtn.type = 'button';
+                dayBtn.onclick = () => selectCalendarDay(i);
+
+                let classes = "h-14 rounded-xl border text-xs font-bold transition-all flex flex-col items-center justify-center relative p-1 ";
+                
+                if (dayInfo.done) {
+                    classes += "bg-violet-700 border-violet-800 text-white ";
+                } else if (dayInfo.type.startsWith('training')) {
+                    classes += "bg-yellow-400 border-yellow-500 text-black ";
+                } else if (dayInfo.type === 'rest') {
+                    classes += "bg-emerald-850/20 border-emerald-500/30 text-emerald-700 ";
+                } else {
+                    classes += "bg-black/5 border-neutral-300 theme-border text-gray-500 hover:border-yellow-400/50 ";
+                }
+
+                if (i === activeCalendarDayIdx) {
+                    classes += "ring-2 ring-yellow-400 border-white ring-offset-2 ring-offset-black ";
+                }
+
+                dayBtn.className = classes;
+
+                const langCode = activeProfile === 'hourglass' ? 'ar-EG' : 'en-US';
+                const monthStr = targetDayDate.toLocaleString(langCode, { month: 'short' });
+                const dateStr = targetDayDate.getDate();
+
+                dayBtn.innerHTML = `
+                    <span class="text-[8px] opacity-75 block">${monthStr} ${dateStr}</span>
+                    <span class="text-xs font-black block mt-0.5">D${i}</span>
+                    ${dayInfo.done ? '<span class="absolute top-1 right-1 text-[8px]">✓</span>' : ''}
+                `;
+                grid.appendChild(dayBtn);
+            }
+        }
+
+        function selectCalendarDay(dayIndex) {
+            const prevActive = document.getElementById(`calDay-${activeCalendarDayIdx}`);
+            if(prevActive) prevActive.classList.remove('ring-2', 'ring-yellow-400', 'border-white', 'ring-offset-2', 'ring-offset-black');
+
+            activeCalendarDayIdx = dayIndex;
+            const newActive = document.getElementById(`calDay-${dayIndex}`);
+            if(newActive) newActive.className += " ring-2 ring-yellow-400 border-white ring-offset-2 ring-offset-black";
+
+            const calKey = `golds_calendar_data_${activeProfile}`;
+            const calendarData = JSON.parse(localStorage.getItem(calKey));
+            const dayInfo = calendarData[dayIndex];
+
+            const startDate = new Date('2026-06-17T00:00:00');
+            const targetDayDate = new Date(startDate.getTime() + ((dayIndex - 1) * 24 * 60 * 60 * 1000));
+            
+            const langCode = activeProfile === 'hourglass' ? 'ar-EG' : 'en-US';
+            const fullDateStr = targetDayDate.toLocaleDateString(langCode, { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+
+            const dayLabelText = activeProfile === 'hourglass' ? 'اليوم المستهدف' : 'Day Inspector';
+            document.getElementById('inspectWeekDay').innerText = `${fullDateStr} (${dayLabelText} ${dayIndex})`;
+            document.getElementById('inspectType').value = dayInfo.type || 'unlogged';
+
+            const doneBtn = document.getElementById('inspectDoneBtn');
+            if (dayInfo.done) {
+                doneBtn.innerText = activeProfile === 'hourglass' ? "مكتمل بنجاح ✓" : "Completed! ✓";
+                doneBtn.className = "bg-emerald-700 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition";
+            } else {
+                doneBtn.innerText = activeProfile === 'hourglass' ? "تحديد كمكتمل" : "Mark Completed";
+                doneBtn.className = "bg-black/5 hover:bg-black/10 text-gray-500 px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition border theme-border";
+            }
+        }
+
+        function toggleActiveDayDoneState() {
+            const calKey = `golds_calendar_data_${activeProfile}`;
+            const calendarData = JSON.parse(localStorage.getItem(calKey));
+            calendarData[activeCalendarDayIdx].done = !calendarData[activeCalendarDayIdx].done;
+            localStorage.setItem(calKey, JSON.stringify(calendarData));
+            
+            generateRealTimeCalendar();
+            selectCalendarDay(activeCalendarDayIdx);
+        }
+
+        function saveActiveDay() {
+            const calKey = `golds_calendar_data_${activeProfile}`;
+            const calendarData = JSON.parse(localStorage.getItem(calKey));
+            calendarData[activeCalendarDayIdx].type = document.getElementById('inspectType').value;
+
+            localStorage.setItem(calKey, JSON.stringify(calendarData));
+            generateRealTimeCalendar();
+            selectCalendarDay(activeCalendarDayIdx);
+        }
+
+        function resetSelectedCalendar() {
+            const msg = activeProfile === 'hourglass' ? "تحذير: هل أنتِ متأكدة من رغبتكِ في مسح كافة الأيام المسجلة والبدء من جديد؟" : "Warning: Reset all calendar progress indexes for this profile?";
+            if(confirm(msg)) {
+                const calKey = `golds_calendar_data_${activeProfile}`;
+                localStorage.removeItem(calKey);
+                initializeDataStoreForProfile();
+                generateRealTimeCalendar();
+                selectCalendarDay(1);
+            }
+        }
+
+        // GYM FLOOR PLAYER CONTROL LOGIC
+        function loadPlayerDay(dayNum) {
+            activePlayerExIdx = 0;
+            updatePlayerInterface();
+        }
+
+        // SW REGISTRATION SCRIPT
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker registered:', reg.scope))
+                    .catch(err => console.error('Service Worker registration failed:', err));
+            });
+        }
+
+        function updatePlayerInterface() {
+            const p = profilesData[activeProfile];
+            const ex = p.exercises[document.getElementById('playerDaySelect').value][activePlayerExIdx];
+            const altKey = `${activeProfile}_${document.getElementById('playerDaySelect').value}_${activePlayerExIdx}`;
+            const isAlternativeActive = activeAltState[altKey] || false;
+
+            const nameEl = document.getElementById('playerExName');
+            const detailEl = document.getElementById('playerExDetail');
+            const cueEl = document.getElementById('playerExCue');
+            const machineEl = document.getElementById('playerMachineType');
+            const gym80Link = document.getElementById('playerGym80Link');
+            const youtubeLink = document.getElementById('playerYoutubeLink');
+            const toggleBtn = document.getElementById('altExToggleBtn');
+
+            const altLabel = activeProfile === 'hourglass' ? "🔄 تبديل للحركة البديلة المقترحة" : "🔄 Swap with Alternative";
+            const origLabel = activeProfile === 'hourglass' ? "⭐ تفعيل الجهاز الأصلي بالبروتوكول" : "⭐ Original Machine Form";
+
+            if(isAlternativeActive) {
+                nameEl.innerText = ex.altName;
+                detailEl.innerText = ex.altDetail;
+                cueEl.innerText = ex.altCue;
+                machineEl.innerText = ex.altMachine || (activeProfile === 'hourglass' ? "وزن حر" : "Free Weight Option");
+                
+                if (ex.altGym80Link) {
+                    gym80Link.href = ex.altGym80Link;
+                    gym80Link.style.display = "inline-flex";
+                } else {
+                    gym80Link.style.display = "none";
+                }
+                youtubeLink.href = ex.altYoutubeLink;
+                toggleBtn.innerText = origLabel;
+            } else {
+                nameEl.innerText = ex.name;
+                detailEl.innerText = ex.detail;
+                cueEl.innerText = ex.cue;
+                machineEl.innerText = ex.machine;
+                
+                if(ex.gym80Link) {
+                    gym80Link.href = ex.gym80Link;
+                    gym80Link.style.display = "inline-flex";
+                } else {
+                    gym80Link.style.display = "none";
+                }
+                youtubeLink.href = ex.youtubeLink;
+                toggleBtn.innerText = altLabel;
+            }
+
+            const totalExCount = p.exercises[document.getElementById('playerDaySelect').value].length;
+            const exLabel = activeProfile === 'hourglass' ? 'حركة' : 'Ex';
+            document.getElementById('playerProgressIndicator').innerText = `${exLabel} ${activePlayerExIdx + 1} / ${totalExCount}`;
+            
+            // Render active guidelines & warmups
+            const checklistContainer = document.getElementById('playerSafeguardList');
+            checklistContainer.innerHTML = '';
+            const standardSafeguards = activeProfile === 'hourglass' ? 
+                ["تثبيت العمود الفقري: حافظي على جدار البطن مسطحاً ومشدوداً 360 درجة.", "محاذاة الرقبة: اخفضي الذقن قليلاً وتجنبي مد الرقبة الخلفي أثناء الدفع."] :
+                ["Spine Alignment: Keep abdominal wall flat and braced 360°.", "Cervical Safety: Align chin slightly down, restrict hyperextensions."];
+            
+            standardSafeguards.forEach(sg => {
+                const li = document.createElement('li');
+                li.innerText = sg;
+                checklistContainer.appendChild(li);
+            });
+
+            const warmupContainer = document.getElementById('playerWarmupList');
+            warmupContainer.innerHTML = '';
+            const warmupTexts = activeProfile === 'hourglass' ?
+                ["مجموعة 1: 50% من الوزن لـ 10 تكرارات", "مجموعة 2: 75% من الوزن لـ 5 تكرارات"] :
+                ["Set 1: 50% load x 10 reps", "Set 2: 75% load x 5 reps"];
+
+            warmupTexts.forEach(txt => {
+                const span = document.createElement('span');
+                span.className = "bg-black/5 px-2 py-0.5 rounded";
+                span.innerText = txt;
+                warmupContainer.appendChild(span);
+            });
+
+            // Set automated rest default
+            timerQuickSet(ex.rest || 90);
+            renderActiveExerciseHistoryLogs();
+        }
+
+        function toggleAlternativeExercise() {
+            const altKey = `${activeProfile}_${document.getElementById('playerDaySelect').value}_${activePlayerExIdx}`;
+            activeAltState[altKey] = !(activeAltState[altKey] || false);
+            updatePlayerInterface();
+        }
+
+        function playerNext() {
+            const p = profilesData[activeProfile];
+            const totalExCount = p.exercises[document.getElementById('playerDaySelect').value].length;
+            if(activePlayerExIdx < totalExCount - 1) {
+                activePlayerExIdx++;
+                updatePlayerInterface();
+            }
+        }
+
+        function playerPrev() {
+            if(activePlayerExIdx > 0) {
+                activePlayerExIdx--;
+                updatePlayerInterface();
+            }
+        }
+
+        // TIMER UTILITIES
+        function timerQuickSet(seconds) {
+            activeTimerVal = seconds;
+            updateTimerDisplay();
+        }
+
+        function updateTimerDisplay() {
+            const m = Math.floor(activeTimerVal / 60).toString().padStart(2, '0');
+            const s = (activeTimerVal % 60).toString().padStart(2, '0');
+            document.getElementById('timerDisplay').innerText = `${m}:${s}`;
+        }
+
+        function toggleTimer() {
+            const btn = document.getElementById('timerControlBtn');
+            const startLabel = activeProfile === 'hourglass' ? "بدء الاستراحة" : "Start Rest";
+            const pauseLabel = activeProfile === 'hourglass' ? "إيقاف مؤقت" : "Pause Rest";
+            const resumeLabel = activeProfile === 'hourglass' ? "استئناف" : "Resume Rest";
+
+            if(timerRunning) {
+                clearInterval(timerInstance);
+                timerRunning = false;
+                btn.innerText = resumeLabel;
+            } else {
+                timerRunning = true;
+                btn.innerText = pauseLabel;
+                timerInstance = setInterval(() => {
+                    if(activeTimerVal > 0) {
+                        activeTimerVal--;
+                        updateTimerDisplay();
+                    } else {
+                        clearInterval(timerInstance);
+                        timerRunning = false;
+                        triggerRestCompleteAudioSignal();
+                        triggerSystemPushNotification();
+                        
+                        btn.innerText = startLabel;
+                        const activeEx = profilesData[activeProfile].exercises[document.getElementById('playerDaySelect').value][activePlayerExIdx];
+                        activeTimerVal = activeEx.rest || 90;
+                        updateTimerDisplay();
+                    }
+                }, 1000);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInstance);
+            timerRunning = false;
+            const startLabel = activeProfile === 'hourglass' ? "بدء الاستراحة" : "Start Rest";
+            document.getElementById('timerControlBtn').innerText = startLabel;
+            const activeEx = profilesData[activeProfile].exercises[document.getElementById('playerDaySelect').value][activePlayerExIdx];
+            activeTimerVal = activeEx.rest || 90;
+            updateTimerDisplay();
+        }
+
+        function triggerRestCompleteAudioSignal() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                
+                oscillator.type = 'triangle';
+                oscillator.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+                gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                
+                oscillator.start();
+                oscillator.stop(audioCtx.currentTime + 0.35);
+            } catch(e) {
+                console.warn("Audio Context blocked or not initialized.", e);
+            }
+        }
+
+        // TRIGGER NATIVE PUSH NOTIFICATION
+        function triggerSystemPushNotification() {
+            if ('Notification' in window && Notification.permission === 'granted') {
+                const title = activeProfile === 'hourglass' ? "انتهى وقت الاستراحة! ⏱️" : "Rest Time Over! ⏱️";
+                const body = activeProfile === 'hourglass' ? 
+                    "استعدي للمجموعة الرياضية القادمة وحافظي على وتيرة التركيز." : 
+                    "Rest interval complete. Focus up and start your next physical set.";
+                
+                try {
+                    // Try PWA Service Worker push first, falls back to direct browser window Notification
+                    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+                        navigator.serviceWorker.ready.then(reg => {
+                            reg.showNotification(title, {
+                                body: body,
+                                icon: 'icon-192.png',
+                                vibrate: [200, 100, 200]
+                            });
+                        });
+                    } else {
+                        new Notification(title, { body: body, icon: 'icon-192.png' });
+                    }
+                } catch(e) {
+                    new Notification(title, { body: body, icon: 'icon-192.png' });
+                }
+            } else {
+                // Inline Alert fallback if permissions are not actively granted
+                const alertMsg = activeProfile === 'hourglass' ? 
+                    "انتهت فترة الاستراحة! استعدي للمجموعة القادمة وحافظي على وتيرة التركيز." :
+                    "Rest Interval Complete. Intramuscular performance restored. Proceed with performance set execution.";
+                alert(alertMsg);
+            }
+        }
+
+        // PROGRESSIVE LOGGING CORE
+        function getExerciseUniqueLogId() {
+            const dayVal = document.getElementById('playerDaySelect').value;
+            const isAlt = activeAltState[`${activeProfile}_${dayVal}_${activePlayerExIdx}`] || false;
+            const exIdBase = profilesData[activeProfile].exercises[dayVal][activePlayerExIdx].id;
+            return isAlt ? `${exIdBase}_alt` : exIdBase;
+        }
+
+        function saveActiveSetLog() {
+            const setNo = parseInt(document.getElementById('logSet').value) || 1;
+            const weight = parseFloat(document.getElementById('logWeight').value) || 0;
+            const reps = parseInt(document.getElementById('logReps').value) || 0;
+            const rpe = parseInt(document.getElementById('logRPE').value) || 8;
+
+            if(weight <= 0 || reps <= 0) {
+                const alertMsg = activeProfile === 'hourglass' ? "يرجى تسجيل قيم صحيحة للوزن والتكرارات" : "Please provide valid weight and reps metrics.";
+                alert(alertMsg);
+                return;
+            }
+
+            const uniqueId = getExerciseUniqueLogId();
+            const logKey = `golds_overload_logs_${activeProfile}`;
+            const overloadLogs = JSON.parse(localStorage.getItem(logKey));
+            
+            if(!overloadLogs[uniqueId]) {
+                overloadLogs[uniqueId] = [];
+            }
+
+            overloadLogs[uniqueId].push({
+                timestamp: new Date().toLocaleDateString(),
+                set: setNo,
+                weight: weight,
+                reps: reps,
+                rpe: rpe
+            });
+
+            localStorage.setItem(logKey, JSON.stringify(overloadLogs));
+            renderActiveExerciseHistoryLogs();
+            
+            // Advance inputs
+            document.getElementById('logSet').value = setNo + 1;
+            document.getElementById('logWeight').value = "";
+            document.getElementById('logReps').value = "";
+        }
+
+        function renderActiveExerciseHistoryLogs() {
+            const container = document.getElementById('playerExerciseHistory');
+            const uniqueId = getExerciseUniqueLogId();
+            const logKey = `golds_overload_logs_${activeProfile}`;
+            const overloadLogs = JSON.parse(localStorage.getItem(logKey));
+
+            if(!overloadLogs[uniqueId] || overloadLogs[uniqueId].length === 0) {
+                const noLogMsg = activeProfile === 'hourglass' ? "لم يتم تسجيل أي سجلات لهذه الحركة اليوم." : "No logs on file yet.";
+                container.innerHTML = `<p class="text-xs theme-text-muted italic">${noLogMsg}</p>`;
+                return;
+            }
+
+            const reverseLogs = [...overloadLogs[uniqueId]].reverse();
+            const setLabel = activeProfile === 'hourglass' ? 'مجموعة' : 'Set';
+            const repLabel = activeProfile === 'hourglass' ? 'تكرار' : 'reps';
+            container.innerHTML = reverseLogs.map(log => `
+                <div class="flex justify-between items-center bg-black/5 px-3 py-1.5 rounded text-xs border theme-border">
+                    <span class="text-[9px] theme-text-muted">${log.timestamp}</span>
+                    <span class="font-bold">${setLabel} ${log.set}</span>
+                    <span class="text-yellow-600 font-mono">${log.weight}kg x ${log.reps} ${repLabel}</span>
+                    <span class="text-gray-400 font-bold">RPE ${log.rpe}</span>
+                </div>
+            `).join('');
+        }
+
+        // ROUTINE TABS VIEW INDEXER
+        function showTab(dayNum) {
+            for(let i = 1; i <= 4; i++) {
+                const btn = document.getElementById(`tabBtn${i}`);
+                if(i === dayNum) {
+                    btn.className = "px-4 py-2 rounded-lg transition-all bg-yellow-400 text-black";
+                } else {
+                    btn.className = "px-4 py-2 rounded-lg transition-all text-gray-500 hover:text-white";
+                }
+            }
+
+            const tabContainer = document.getElementById('tabWorkoutContent');
+            const p = profilesData[activeProfile];
+            tabContainer.innerHTML = '';
+
+            p.exercises[dayNum].forEach((ex) => {
+                const specLabel = activeProfile === 'hourglass' ? 'الخصائص والروابط' : 'Specs';
+                const demoLabel = activeProfile === 'hourglass' ? 'رؤية الحركة فديو' : 'Form Demo';
+                const altPrefix = activeProfile === 'hourglass' ? 'البديل:' : 'Alt:';
+
+                const specBtn = ex.gym80Link ? `
+                    <a href="${ex.gym80Link}" target="_blank" rel="noopener noreferrer" class="bg-black/5 hover:bg-black/10 border theme-border text-[9px] text-yellow-600 px-2 py-1 rounded font-bold uppercase transition">${specLabel}</a>
+                ` : '';
+
+                const cardHtml = `
+                    <div class="theme-card-bg border theme-border p-5 rounded-2xl flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md transition">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="text-[9px] bg-yellow-400 text-black px-1.5 py-0.5 rounded uppercase font-black tracking-wider">${ex.machine}</span>
+                                <div class="flex gap-1.5">${specBtn}</div>
+                            </div>
+                            <h4 class="font-bold text-md tracking-tight leading-tight">${ex.name}</h4>
+                            <p class="text-yellow-600 text-xs font-bold font-mono">${ex.detail}</p>
+                            <p class="text-[11px] theme-text-muted italic">"${ex.cue}"</p>
+                        </div>
+                        <div class="pt-3 border-t theme-border flex justify-between items-center text-[10px]">
+                            <span class="theme-text-muted truncate max-w-[130px]">${altPrefix} ${ex.altName}</span>
+                            <a href="${ex.youtubeLink}" target="_blank" rel="noopener noreferrer" class="text-sky-500 hover:underline font-bold">${demoLabel}</a>
+                        </div>
+                    </div>
+                `;
+                tabContainer.innerHTML += cardHtml;
+            });
+        }
+
+        // CHART GENERATION
+        function renderMuscleDistributionChart() {
+            if (globalChartObj) {
+                globalChartObj.destroy();
+            }
+
+            const ctx = document.getElementById('muscleChart').getContext('2d');
+            
             const labelsEn = ['Chest', 'Back', 'Quads', 'Hamstrings', 'Shoulders', 'Arms/Core'];
             const labelsAr = ['الصدر', 'الظهر', 'الفخذ الأمامي', 'الفخذ الخلفي', 'الأكتاف', 'الأذرع والخصر'];
             const labelsSelected = activeProfile === 'hourglass' ? labelsAr : labelsEn;
