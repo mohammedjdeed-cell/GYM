@@ -115,7 +115,7 @@ export function MachineSheet({ ex, onClose }: { ex: Exercise; onClose: () => voi
       <h3 className="mb-1 mt-4 text-sm font-bold text-muted">{m ? t('howToSetup') : t('howToDo')}</h3>
       <p data-testid="machine-setup">{ex.setup[lang]}</p>
 
-      {m && (
+      {m?.url && (
         <a
           href={m.url}
           target="_blank"
