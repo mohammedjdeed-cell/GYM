@@ -23,7 +23,7 @@ export interface Session {
   setsTotal: number
   updatedAt: number
   deleted?: boolean
-  /** true until pushed to Supabase */
+  /** true until pushed to Firebase */
   dirty?: boolean
 }
 export interface Draft {

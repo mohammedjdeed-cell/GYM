@@ -9,7 +9,7 @@ Arabic (RTL, default) and English, green palette, automatic dark mode, works off
 - **History** – per-profile calendar and list of finished sessions
 - **Settings** (⚙) – language, rest timer, weight logging per profile, sync
 
-Stack: React + Vite + TypeScript + Tailwind, `vite-plugin-pwa`, IndexedDB, optional Supabase.
+Stack: React + Vite + TypeScript + Tailwind, `vite-plugin-pwa`, IndexedDB, optional Firebase.
 
 ## Run it locally
 
@@ -74,35 +74,49 @@ The build is a static site in `dist/` and uses relative paths, so it works on an
 *Settings → Pages → Build and deployment → Source* and choose **GitHub Actions**. Every push to
 `main` then builds and publishes the site.
 
-For sync, add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as environment variables on the
-host (Vercel/Netlify: project settings → Environment variables; GitHub Pages: repo
+For sync, add the three `VITE_FIREBASE_*` values (see below) as environment variables on the host
+(Vercel/Netlify: project settings → Environment variables; GitHub Pages: repo
 *Settings → Secrets and variables → Actions → Variables*), then redeploy.
 
 On the phone: open the site in Chrome → menu → **Add to Home screen / Install app**.
 
-## Sync between two phones (Supabase, optional)
+## Sync between two phones (Firebase, optional)
 
-Without Supabase the app works fully, storing everything on the phone (IndexedDB).
+Without Firebase the app works fully, storing everything on the phone (IndexedDB).
 To share history between both phones:
 
-1. Create a free project at [supabase.com](https://supabase.com).
-2. Open **SQL Editor**, paste the contents of [`supabase/schema.sql`](supabase/schema.sql), and run it.
-   It creates the tables `profiles`, `sessions` and `set_logs`.
-3. In **Project Settings → API** copy the *Project URL* and the *anon public* key.
-4. Locally: copy `.env.example` to `.env` and fill both values. On your host: add them as
-   environment variables (see above). Rebuild / redeploy.
-5. On each phone open ⚙ **Settings → Sync**, enter the same **household code** (at least 6
+1. Go to [console.firebase.google.com](https://console.firebase.google.com) and create a project
+   (Google Analytics is not needed).
+2. **Build → Firestore Database → Create database.** Choose a European location
+   (e.g. `eur3` or `europe-west3`) and start in **production mode**.
+3. Open the **Rules** tab, replace everything with the contents of
+   [`firestore.rules`](firestore.rules), and click **Publish**.
+4. **Project settings (⚙) → General → Your apps → Web (`</>`)**: register a web app (no hosting
+   needed). Firebase shows a `firebaseConfig` block – you need three values from it:
+
+   | Firebase config | Environment variable |
+   |---|---|
+   | `apiKey` | `VITE_FIREBASE_API_KEY` |
+   | `projectId` | `VITE_FIREBASE_PROJECT_ID` |
+   | `appId` | `VITE_FIREBASE_APP_ID` |
+
+5. Add those three variables on your host (Vercel: project → Settings → Environment Variables)
+   and **redeploy**. For local development copy `.env.example` to `.env` and fill them in.
+6. On each phone open ⚙ **Settings → Sync**, enter the same **household code** (at least 6
    characters) and tap Save. That's it – no accounts.
 
 How it works: sessions are always saved on the phone first and pushed when there is a connection
 (after finishing a workout, when the app opens, when it comes back online, or via "Sync now").
 Both profiles' history ends up on both phones.
 
-Security note: the tables have Row Level Security on with no policies, so the public key cannot
-read them directly. The app only calls two SQL functions that require the household code – anyone
-who knows your project URL, anon key *and* household code could read or write your gym log, so
-pick a code that isn't guessable.
+Data layout in Firestore: `households/{code}/profiles/{mohammed|mai}` and
+`households/{code}/sessions/{id}` (each session document contains its set logs).
 
+Security note: there are no accounts, so the household code is the only secret. The rules let
+anyone who knows the code read and write that household's gym log, and nobody can list the codes.
+The Firebase web `apiKey` is not a secret (it is visible in every Firebase web app), so the
+protection is the code – pick one that isn't guessable. The free "Spark" plan is far more than two
+people need.
 ## Behaviour notes
 
 - Machine and video links open in an in-app bottom sheet. Close it by swiping the header down,

@@ -1,0 +1,21 @@
+rules_version = '2';
+
+// Paste this into Firebase console → Firestore Database → Rules → Publish.
+//
+// There are no user accounts. Everything lives under households/{code}/…, and the household
+// code is the secret: these rules allow reading and writing inside a code you already know, but
+// nobody can list which codes exist. Pick a code that isn't guessable.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /households/{code}/profiles/{profileId} {
+      allow read, write: if code.size() >= 6 && profileId in ['mohammed', 'mai'];
+    }
+    match /households/{code}/sessions/{sessionId} {
+      allow read, delete: if code.size() >= 6;
+      allow create, update: if code.size() >= 6
+        && request.resource.data.profile in ['mohammed', 'mai']
+        && request.resource.data.dayId in ['d1', 'd2', 'd3']
+        && request.resource.data.updatedAt is number;
+    }
+  }
+}

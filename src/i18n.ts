@@ -85,8 +85,8 @@ const dict = {
   restTimerHint: ['بيبدأ لحاله بعد كل جولة وبيهز الموبايل لما يخلص.', 'Starts automatically after each set and vibrates when done.'],
   sync: ['المزامنة بين الموبايلين', 'Sync between phones'],
   syncOffHint: [
-    'Supabase مو مفعّل – التطبيق شغّال محلياً عهالموبايل بس. شوف ملف README للتفعيل.',
-    'Supabase isn\'t configured – the app runs locally on this phone only. See the README to enable it.',
+    'Firebase مو مفعّل – التطبيق شغّال محلياً عهالموبايل بس. شوف ملف README للتفعيل.',
+    'Firebase isn\'t configured – the app runs locally on this phone only. See the README to enable it.',
   ],
   household: ['كود البيت', 'Household code'],
   householdHint: ['نفس الكود عالموبايلين (٦ أحرف عالأقل).', 'Same code on both phones (at least 6 characters).'],
