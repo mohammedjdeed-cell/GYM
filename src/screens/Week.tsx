@@ -33,7 +33,7 @@ export function Week() {
         <table className="w-full border-collapse text-[.95rem]">
           <tbody>
             {rows.map((r) => (
-              <tr key={r.name} className={`border-b border-line last:border-0 ${r.today ? 'font-bold text-accent' : ''}`}>
+              <tr key={r.name} className={`border-b border-line last:border-0 ${r.today ? 'font-bold text-accentink' : ''}`}>
                 <td className="w-28 py-2.5 pe-2 align-top">{r.name}</td>
                 <td className="py-1">
                   {r.day ? (

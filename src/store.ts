@@ -136,6 +136,22 @@ export function lastKg(sessions: Session[], profile: ProfileKey, exId: string, i
   return null
 }
 
+/** Most recent session where this exercise had at least one ticked set. */
+export function exerciseLast(sessions: Session[], profile: ProfileKey, exId: string) {
+  for (const s of sessionsOf(sessions, profile)) {
+    const logs = s.sets[exId]
+    if (!logs?.some((l) => l.done)) continue
+    const kgs = logs.map((l) => l.kg).filter((k): k is number => k != null)
+    return {
+      at: s.finishedAt,
+      done: logs.filter((l) => l.done).length,
+      total: logs.length,
+      kg: kgs.length ? Math.max(...kgs) : null,
+    }
+  }
+  return null
+}
+
 // ---------- actions ----------
 export async function init() {
   const [settings, drafts, sessions] = await Promise.all([

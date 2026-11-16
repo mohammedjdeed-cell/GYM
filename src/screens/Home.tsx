@@ -1,6 +1,8 @@
-import { DAY_IDS, PROFILES, getDay, type ProfileKey } from '../data/plan'
+import { useState } from 'react'
+import { DAY_IDS, PROFILES, exercisesFor, getDay, machineOf, plan, setsOf, type Exercise, type ProfileKey } from '../data/plan'
 import { locale, num } from '../i18n'
 import {
+  dateKey,
   draftKey,
   draftSetsDone,
   sessionsOf,
@@ -9,9 +11,26 @@ import {
   updateSettings,
   useStore,
   useT,
+  weekStart,
   weekStreak,
 } from '../store'
-import { Card, De } from '../components/ui'
+import { machinePhotoUrl } from '../components/ExerciseSheets'
+import { HeaderButtons } from '../components/HeaderButtons'
+import { Card, De, Icon, haptic } from '../components/ui'
+
+function Thumb({ ex }: { ex: Exercise }) {
+  const m = machineOf(ex)
+  const [broken, setBroken] = useState(false)
+  return (
+    <div className="flex h-16 w-16 flex-none items-center justify-center overflow-hidden rounded-2xl border border-line bg-photo">
+      {m && !broken ? (
+        <img src={machinePhotoUrl(m.photo)} alt="" className="h-full w-full object-contain p-1" onError={() => setBroken(true)} />
+      ) : (
+        <Icon name="dumbbell" className="h-7 w-7 text-muted" />
+      )}
+    </div>
+  )
+}
 
 export function Home() {
   const { settings, sessions, drafts } = useStore()
@@ -21,83 +40,196 @@ export function Home() {
 
   const week = thisWeek(sessions, profile, now)
   const doneDays = new Set(week.map((s) => s.dayId))
+  const doneDates = new Set(week.map((s) => s.date))
   const weekCount = Math.min(3, doneDays.size)
-  // an unfinished workout takes priority over the suggestion
   const inProgress = DAY_IDS.find((d) => draftSetsDone(drafts[draftKey(profile, d)]) > 0)
   const dayId = inProgress ?? suggestedDay(sessions, profile, now)
   const day = getDay(dayId)
+  const exs = exercisesFor(day, profile)
+  const totalSets = exs.reduce((n, e) => n + setsOf(e), 0)
+  const draftDone = draftSetsDone(drafts[draftKey(profile, dayId)])
+  const minutes = Math.round(((totalSets * (45 + (settings.rest || 60))) / 60 + 8) / 5) * 5
+  const withMachine = [...new Map(exs.filter((e) => e.machine).map((e) => [e.machine!, e])).values()]
+  const thumbs = withMachine.slice(0, 4)
+
+  const ws = weekStart(now)
+  const wdNarrow = new Intl.DateTimeFormat(locale(lang), { weekday: 'narrow' })
+  const wdLong = new Intl.DateTimeFormat(locale(lang), { weekday: 'long' })
 
   return (
     <>
-      <h2 className="mb-2 mt-1 text-sm font-bold text-muted">{t('whoTrains')}</h2>
-      <div className="mb-4 grid grid-cols-2 gap-3">
+      <header className="flex items-center justify-between gap-3">
+        <div className="min-w-0">
+          <h1 className="truncate text-2xl font-extrabold">{t('hello', { name: PROFILES[profile][lang] })}</h1>
+          <p className="text-sm text-muted">{t('appSub')}</p>
+        </div>
+        <HeaderButtons />
+      </header>
+
+      <div className="mt-4 grid grid-cols-2 gap-1.5 rounded-[22px] bg-surface2 p-1.5" role="group" aria-label={t('whoTrains')}>
         {(Object.keys(PROFILES) as ProfileKey[]).map((p) => (
           <button
             key={p}
             data-testid={`profile-${p}`}
             aria-pressed={profile === p}
-            onClick={() => updateSettings({ profile: p })}
-            className={`flex min-h-20 flex-col items-center justify-center rounded-2xl border-2 text-lg font-extrabold ${
-              profile === p ? 'border-accent bg-accent text-onaccent' : 'border-line bg-card text-ink'
+            onClick={() => {
+              haptic()
+              updateSettings({ profile: p })
+            }}
+            className={`flex h-14 items-center justify-center gap-2 rounded-2xl text-base font-extrabold transition-all ${
+              profile === p ? 'bg-surface text-ink shadow-sm' : 'text-muted'
             }`}
           >
-            <span className="text-2xl" aria-hidden>{p === 'mai' ? '🏋️‍♀️' : '🏋️‍♂️'}</span>
+            <span
+              className={`flex h-9 w-9 items-center justify-center rounded-full text-xs ${
+                profile === p ? 'bg-accent text-onaccent' : 'bg-line text-muted'
+              }`}
+            >
+              {PROFILES[p][lang].slice(0, 2)}
+            </span>
             {PROFILES[p][lang]}
           </button>
         ))}
       </div>
 
-      <Card className="mb-4 !bg-soft !border-transparent">
-        <div className="text-sm font-bold text-muted">
-          {inProgress ? t('continueWorkout') : t('todaySuggested')} ·{' '}
+      <section className="mt-4 overflow-hidden rounded-[32px] border border-line bg-linear-to-b from-hero to-surface p-5">
+        <div className="flex items-center gap-2 text-sm font-bold text-accentink">
+          <span className={`h-2.5 w-2.5 rounded-full bg-accent ${inProgress ? 'pulse' : ''}`} />
+          {inProgress ? t('inProgress') : t('todaySuggested')} ·{' '}
           {new Intl.DateTimeFormat(locale(lang), { weekday: 'long', day: 'numeric', month: 'long' }).format(now)}
         </div>
-        <h2 className="mt-1 text-xl font-extrabold" data-testid="suggested-day">{day.title[lang]}</h2>
+        <h2 data-testid="suggested-day" className="mt-2 text-[1.75rem] font-extrabold leading-tight">
+          {day.title[lang]}
+        </h2>
         <De className="text-sm">{day.de}</De>
+        <div className="mt-3 flex flex-wrap gap-2 text-sm font-bold">
+          {[t('exercisesN', { n: exs.length }), t('setsN', { n: totalSets }), t('approxMin', { n: minutes })].map((c) => (
+            <span key={c} className="rounded-full bg-surface/80 px-3 py-1">
+              {c}
+            </span>
+          ))}
+        </div>
+        <div className="mt-4 flex gap-2">
+          {thumbs.map((e) => (
+            <Thumb key={e.id} ex={e} />
+          ))}
+          {withMachine.length > thumbs.length && (
+            <div className="flex h-16 w-16 flex-none items-center justify-center rounded-2xl bg-surface/80 font-extrabold text-muted" dir="ltr">
+              +{num(withMachine.length - thumbs.length, lang)}
+            </div>
+          )}
+        </div>
         <a
           href={`#/workout/${dayId}`}
           data-testid="start-workout"
-          className="mt-3 flex min-h-14 items-center justify-center rounded-2xl bg-accent text-lg font-extrabold text-onaccent"
+          onClick={() => haptic(20)}
+          className="mt-5 flex h-16 items-center justify-center gap-2 rounded-2xl bg-accent text-lg font-extrabold text-onaccent shadow-lg active:scale-[.98]"
         >
+          <Icon name="play" className="h-5 w-5" />
           {inProgress ? t('continueWorkout') : t('startWorkout')}
         </a>
-      </Card>
+        {draftDone > 0 && (
+          <div className="mt-3 flex items-center gap-3">
+            <div className="h-2 flex-1 overflow-hidden rounded-full bg-line">
+              <div className="h-full rounded-full bg-accent" style={{ width: `${(draftDone / totalSets) * 100}%` }} />
+            </div>
+            <span className="text-xs font-bold text-muted">{t('setsDone', { a: draftDone, b: totalSets })}</span>
+          </div>
+        )}
+      </section>
 
-      <Card className="mb-4">
+      <Card className="mt-4">
         <div className="flex items-center justify-between">
-          <h3 className="font-bold">{t('weekProgress')}</h3>
-          <span className="text-sm font-bold text-muted" data-testid="week-count">
+          <h3 className="font-extrabold">{t('weekTitle')}</h3>
+          <span data-testid="week-count" className="text-sm font-bold text-muted">
             {t('sessionsOf', { a: weekCount, b: 3 })}
           </span>
         </div>
-        <div className="mt-3 grid grid-cols-3 gap-2">
-          {DAY_IDS.map((d, i) => {
-            const done = doneDays.has(d)
+        <div className="mt-3 grid grid-cols-7 gap-1 text-center">
+          {Array.from({ length: 7 }, (_, i) => {
+            const d = new Date(ws)
+            d.setDate(ws.getDate() + i)
+            const key = dateKey(d)
+            const planned = plan.days.findIndex((x) => x.weekday === d.getDay())
+            const trained = doneDates.has(key)
+            const today = key === dateKey(now)
             return (
-              <div
-                key={d}
-                className={`rounded-xl border p-2 text-center ${
-                  done ? 'border-accent bg-accent text-onaccent' : 'border-line bg-bg text-muted'
-                }`}
-              >
-                <div className="text-lg font-extrabold">{done ? '✓' : num(i + 1, lang)}</div>
-                <div className="text-xs font-semibold leading-tight">{getDay(d).short[lang]}</div>
+              <div key={key}>
+                <div className="text-xs font-bold text-muted">{wdNarrow.format(d)}</div>
+                <div
+                  className={`mx-auto mt-1 flex h-10 w-10 items-center justify-center rounded-full text-sm font-extrabold ${
+                    trained
+                      ? 'bg-accent text-onaccent'
+                      : today
+                        ? 'border-2 border-accent text-accentink'
+                        : planned >= 0
+                          ? 'border-2 border-dashed border-line'
+                          : 'text-muted'
+                  }`}
+                >
+                  {trained ? <Icon name="check" className="h-5 w-5" /> : num(d.getDate(), lang)}
+                </div>
+                <div className="mt-0.5 h-4 text-[10px] font-extrabold text-accentink">
+                  {planned >= 0 ? `${t('day')} ${num(planned + 1, lang)}` : ''}
+                </div>
               </div>
             )
           })}
         </div>
-        {weekCount === 3 && <p className="mt-3 text-center font-bold text-accent">{t('weekDone')}</p>}
       </Card>
 
-      <div className="grid grid-cols-2 gap-3">
-        <Card className="text-center">
-          <div className="text-3xl font-extrabold text-accent">🔥 {num(weekStreak(sessions, profile, now), lang)}</div>
-          <div className="text-sm font-semibold text-muted">{t('streak')}</div>
+      <div className="mt-3 grid grid-cols-2 gap-3">
+        <Card className="flex items-center gap-3">
+          <span className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-soft text-accentink">
+            <Icon name="flame" />
+          </span>
+          <div>
+            <div className="text-2xl font-extrabold leading-none">{num(weekStreak(sessions, profile, now), lang)}</div>
+            <div className="text-xs font-bold text-muted">{t('streak')}</div>
+          </div>
         </Card>
-        <Card className="text-center">
-          <div className="text-3xl font-extrabold text-accent">{num(sessionsOf(sessions, profile).length, lang)}</div>
-          <div className="text-sm font-semibold text-muted">{t('totalSessions')}</div>
+        <Card className="flex items-center gap-3">
+          <span className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-soft text-accentink">
+            <Icon name="trophy" />
+          </span>
+          <div>
+            <div className="text-2xl font-extrabold leading-none">{num(sessionsOf(sessions, profile).length, lang)}</div>
+            <div className="text-xs font-bold text-muted">{t('totalSessions')}</div>
+          </div>
         </Card>
+      </div>
+
+      <h3 className="mb-2 mt-6 px-1 font-extrabold">{t('trainingDays')}</h3>
+      <div className="no-scrollbar -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-2">
+        {plan.days.map((d, i) => {
+          const isDone = doneDays.has(d.id)
+          return (
+            <a
+              key={d.id}
+              href={`#/workout/${d.id}`}
+              data-testid={`day-card-${d.id}`}
+              className={`w-[78%] flex-none snap-start rounded-3xl border p-4 active:scale-[.98] ${
+                d.id === dayId ? 'border-accent bg-soft' : 'border-line bg-surface'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="rounded-full bg-accent px-3 py-0.5 text-sm font-extrabold text-onaccent">
+                  {t('day')} {num(i + 1, lang)}
+                </span>
+                {isDone && (
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-onaccent">
+                    <Icon name="check" className="h-4 w-4" />
+                  </span>
+                )}
+              </div>
+              <div className="mt-2 text-lg font-extrabold">{d.short[lang]}</div>
+              <De className="text-xs">{d.de}</De>
+              <div className="mt-1 text-sm text-muted">
+                {t('exercisesN', { n: exercisesFor(d, profile).length })} · {wdLong.format(new Date(2024, 0, d.weekday))}
+              </div>
+            </a>
+          )
+        })}
       </div>
     </>
   )

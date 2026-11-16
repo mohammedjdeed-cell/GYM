@@ -1,36 +1,91 @@
 @import "tailwindcss";
 
-:root {
-  --bg: #f4f7f4;
-  --card: #ffffff;
-  --ink: #1c2a22;
-  --muted: #5d6e64;
-  --accent: #1f7a4d;
-  --on-accent: #ffffff;
-  --accent-soft: #e3f2e9;
-  --de: #0b6e8a;
-  --line: #dfe7e1;
-  --warn: #a35b00;
+/*
+ * Two personal themes, picked by the active profile (html[data-profile]):
+ *   Mohammed – onyx + gold     Mai – warm rose
+ * Each has a light and a dark variant that follows the phone's setting.
+ */
+:root,
+:root[data-profile="mohammed"] {
+  --bg: #f5f4f0;
+  --surface: #ffffff;
+  --surface-2: #eeece6;
+  --line: #e1ded5;
+  --ink: #17150f;
+  --muted: #6b665b;
+  --accent: #f2b300;
+  --on-accent: #1a1300;
+  --accent-ink: #8a6200;
+  --accent-soft: rgb(242 179 0 / 0.16);
+  --hero: #fff1c2;
+  --photo: #ffffff;
+  --de: #0b6e9e;
+  --yt: #c2261d;
+  --yt-soft: #fde8e6;
+  --warn: #c2410c;
   --on-warn: #ffffff;
-  --yt: #b42318;
-  --yt-soft: #fde8e8;
+  color-scheme: light;
+}
+:root[data-profile="mai"] {
+  --bg: #fbf6f4;
+  --surface: #ffffff;
+  --surface-2: #f5ebe8;
+  --line: #ecdcd7;
+  --ink: #2b1a1e;
+  --muted: #7a6066;
+  --accent: #d4577a;
+  --on-accent: #ffffff;
+  --accent-ink: #a83459;
+  --accent-soft: rgb(212 87 122 / 0.13);
+  --hero: #fde1e8;
+  --photo: #ffffff;
+  --de: #0b6e9e;
+  --yt: #c2261d;
+  --yt-soft: #fde8e6;
+  --warn: #c2410c;
+  --on-warn: #ffffff;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111613;
-    --card: #1a221d;
-    --ink: #e6efe9;
-    --muted: #9fb1a6;
-    --accent: #4cc38a;
-    --on-accent: #07130c;
-    --accent-soft: #1f3328;
-    --de: #5cc6e6;
-    --line: #2a372f;
-    --warn: #f0a94a;
-    --on-warn: #1d1200;
-    --yt: #ff8a80;
-    --yt-soft: #3a1d1d;
+  :root,
+  :root[data-profile="mohammed"] {
+    --bg: #0c0c0d;
+    --surface: #17171a;
+    --surface-2: #222226;
+    --line: #2d2d32;
+    --ink: #f4f4f5;
+    --muted: #a1a1aa;
+    --accent: #f5b400;
+    --on-accent: #1a1300;
+    --accent-ink: #f8c537;
+    --accent-soft: rgb(245 180 0 / 0.14);
+    --hero: #2c2208;
+    --photo: #f1f0ec;
+    --de: #7cc4ff;
+    --yt: #ff7a70;
+    --yt-soft: rgb(255 107 107 / 0.14);
+    --warn: #fb923c;
+    --on-warn: #1f0f00;
+    color-scheme: dark;
+  }
+  :root[data-profile="mai"] {
+    --bg: #110b0d;
+    --surface: #1d1417;
+    --surface-2: #2a1d21;
+    --line: #3a282e;
+    --ink: #fbf1f3;
+    --muted: #bba3a9;
+    --accent: #f49ab0;
+    --on-accent: #2b0b15;
+    --accent-ink: #f7b1c2;
+    --accent-soft: rgb(244 154 176 / 0.15);
+    --hero: #3d1a25;
+    --photo: #f4eeee;
+    --de: #9ccfff;
+    --yt: #ff7a70;
+    --yt-soft: rgb(255 107 107 / 0.14);
+    --warn: #fdba74;
+    --on-warn: #251300;
     color-scheme: dark;
   }
 }
@@ -38,22 +93,28 @@
 @theme inline {
   --font-sans: "Cairo", system-ui, sans-serif;
   --color-bg: var(--bg);
-  --color-card: var(--card);
+  --color-surface: var(--surface);
+  --color-card: var(--surface);
+  --color-surface2: var(--surface-2);
+  --color-line: var(--line);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-onaccent: var(--on-accent);
+  --color-accentink: var(--accent-ink);
   --color-soft: var(--accent-soft);
+  --color-hero: var(--hero);
+  --color-photo: var(--photo);
   --color-de: var(--de);
-  --color-line: var(--line);
-  --color-warn: var(--warn);
-  --color-onwarn: var(--on-warn);
   --color-yt: var(--yt);
   --color-ytsoft: var(--yt-soft);
+  --color-warn: var(--warn);
+  --color-onwarn: var(--on-warn);
 }
 
 html {
   -webkit-text-size-adjust: 100%;
+  background: var(--bg);
 }
 body {
   margin: 0;
@@ -63,17 +124,26 @@ body {
   line-height: 1.6;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: contain;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 button {
   cursor: pointer;
   font: inherit;
+  touch-action: manipulation;
+  user-select: none;
 }
-/* German machine names: always LTR, different colour */
+/* German names: always LTR, own colour */
 .de {
   color: var(--de);
   font-family: system-ui, sans-serif;
   font-weight: 600;
   unicode-bidi: isolate;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes sheet-up {
@@ -84,8 +154,20 @@ button {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-.sheet-panel { animation: sheet-up 0.22s ease-out; }
+@keyframes pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-soft); }
+  50% { box-shadow: 0 0 0 10px var(--accent-soft); }
+}
+.sheet-panel { animation: sheet-up 0.24s cubic-bezier(.2,.8,.2,1); }
 .sheet-backdrop { animation: fade-in 0.2s ease-out; }
+.pop { animation: pop 0.3s ease-out; }
+.pulse { animation: pulse-ring 1.6s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
-  .sheet-panel, .sheet-backdrop { animation: none; }
+  .sheet-panel, .sheet-backdrop, .pop, .pulse { animation: none; }
+  body { transition: none; }
 }

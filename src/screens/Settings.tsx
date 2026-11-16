@@ -14,7 +14,6 @@ export function Settings() {
 
   return (
     <>
-      <h2 className="mb-2 mt-1 text-lg font-bold">{t('settings')}</h2>
 
       <Card className="mb-3">
         <h3 className="mb-2 font-bold">{t('language')}</h3>

@@ -40,10 +40,10 @@ export function Sheet({ title, sub, onClose, children }: {
 
   return (
     <div className="fixed inset-0 z-50" role="dialog" aria-modal="true">
-      <div className="sheet-backdrop absolute inset-0 bg-black/55" onClick={requestClose} data-testid="sheet-backdrop" />
+      <div className="sheet-backdrop absolute inset-0 bg-black/60 backdrop-blur-[2px]" onClick={requestClose} data-testid="sheet-backdrop" />
       <div
         data-testid="sheet"
-        className="sheet-panel absolute inset-x-0 bottom-0 mx-auto flex max-h-[92dvh] max-w-xl flex-col rounded-t-3xl bg-card shadow-2xl"
+        className="sheet-panel absolute inset-x-0 bottom-0 mx-auto flex max-h-[92dvh] max-w-xl flex-col rounded-t-[28px] border-t border-line bg-surface shadow-2xl"
         style={dy ? { transform: `translateY(${dy}px)`, animation: 'none' } : undefined}
       >
         <div
@@ -81,7 +81,7 @@ export function Sheet({ title, sub, onClose, children }: {
             <button
               onClick={requestClose}
               aria-label={t('close')}
-              className="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-bg text-xl text-muted"
+              className="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-surface2 text-xl text-muted"
             >
               ✕
             </button>

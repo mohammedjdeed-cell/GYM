@@ -112,6 +112,16 @@ protection is the code – pick one that isn't guessable. The free "Spark" plan 
 people need.
 ## Behaviour notes
 
+- **Themes:** each profile has its own look – onyx + gold for Mohammed, warm rose for Mai – in
+  light and dark, following the phone's setting.
+- **Workout = focus mode:** one exercise per screen with the machine photo on top. Swipe sideways
+  between exercises (or use the arrow button). The big button at the bottom ticks the next set;
+  you can also tap the set circles. When all sets of an exercise are done it moves on by itself.
+  The ☰ button lists every exercise to jump to, switches day, and sets the rest timer.
+- **Rest timer:** starts after each ticked set, shows a ring with −15 / +15 / Skip, vibrates and
+  beeps at the end. Swipe it down to dismiss. The screen stays on during a workout (wake lock).
+- **🔊 next to a German name** reads it out in German, so you can ask staff for a machine.
+
 - Machine and video links open in an in-app bottom sheet. Close it by swiping the header down,
   tapping outside, ✕, or the Android back button (which closes the sheet, not the app).
 - Videos need a connection; everything else works offline after the first load.

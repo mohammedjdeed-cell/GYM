@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { PROFILES, getDay } from '../data/plan'
+import { getDay } from '../data/plan'
 import { locale, num } from '../i18n'
 import { dateKey, deleteSession, sessionsOf, useStore, useT, weekStreak } from '../store'
 import { Card } from '../components/ui'
@@ -21,17 +21,14 @@ export function History() {
 
   return (
     <>
-      <h2 className="mb-2 mt-1 text-lg font-bold">
-        {t('history')} · {PROFILES[profile][lang]}
-      </h2>
 
       <div className="mb-3 grid grid-cols-2 gap-3">
         <Card className="text-center">
-          <div className="text-3xl font-extrabold text-accent" data-testid="streak">🔥 {num(weekStreak(sessions, profile), lang)}</div>
+          <div className="text-3xl font-extrabold text-accentink" data-testid="streak">🔥 {num(weekStreak(sessions, profile), lang)}</div>
           <div className="text-sm font-semibold text-muted">{t('streak')}</div>
         </Card>
         <Card className="text-center">
-          <div className="text-3xl font-extrabold text-accent">{num(mine.length, lang)}</div>
+          <div className="text-3xl font-extrabold text-accentink">{num(mine.length, lang)}</div>
           <div className="text-sm font-semibold text-muted">{t('totalSessions')}</div>
         </Card>
       </div>
@@ -39,9 +36,9 @@ export function History() {
 
       <Card className="mb-3">
         <div className="mb-2 flex items-center justify-between">
-          <button onClick={() => shift(-1)} aria-label="previous month" className="h-12 w-12 rounded-xl bg-bg text-xl font-bold rtl:rotate-180">‹</button>
+          <button onClick={() => shift(-1)} aria-label="previous month" className="h-12 w-12 rounded-full bg-surface2 text-xl font-bold rtl:rotate-180">‹</button>
           <b>{new Intl.DateTimeFormat(loc, { month: 'long', year: 'numeric' }).format(month)}</b>
-          <button onClick={() => shift(1)} aria-label="next month" className="h-12 w-12 rounded-xl bg-bg text-xl font-bold rtl:rotate-180">›</button>
+          <button onClick={() => shift(1)} aria-label="next month" className="h-12 w-12 rounded-full bg-surface2 text-xl font-bold rtl:rotate-180">›</button>
         </div>
         <div className="grid grid-cols-7 gap-1 text-center text-sm">
           {Array.from({ length: 7 }, (_, i) => (
@@ -86,7 +83,7 @@ export function History() {
             <button
               onClick={() => confirm(t('confirmDelete')) && deleteSession(s.id)}
               aria-label={t('delete')}
-              className="h-12 w-12 flex-none rounded-xl bg-bg text-lg text-muted"
+              className="h-12 w-12 flex-none rounded-full bg-surface2 text-lg text-muted"
             >
               🗑
             </button>
