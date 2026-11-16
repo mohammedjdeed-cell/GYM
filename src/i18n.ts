@@ -120,6 +120,41 @@ const dict = {
   maiExtra: ['إضافة لمي', 'Mai extra'],
   prev: ['السابق', 'Previous'],
   inProgress: ['عم تتمرن هلأ', 'In progress'],
+  optionA: ['A · الأساسي', 'A · Main'],
+  optionB: ['B · البديل', 'B · Alternative'],
+  optionBHint: ['استعمل B إذا الجهاز مشغول أو صعب – الجولات بتنحسب لنفس التمرين.', 'Use B when the machine is busy or too hard – sets count for the same exercise.'],
+  coachTips: ['نصايح المدرب', 'Coach cues'],
+  avoidTitle: ['انتبه من', 'Avoid'],
+  videoGym80: ['فيديو gym80 الرسمي', 'Official gym80'],
+  videoHowto: ['شرح التمرين', 'Exercise how-to'],
+  videoGym80Hint: ['فيديو الشركة المصنّعة لنفس الجهاز اللي بـ Gold\'s Gym.', 'The manufacturer\'s video of the same machine used at Gold\'s Gym.'],
+  videoHowtoHint: ['فيديو شرح عام للحركة – الجهاز ممكن يختلف شوي.', 'General how-to for the movement – the machine may look slightly different.'],
+  askStaff: ['اسأل الموظف: «⁦Wo finde ich die {x}?⁩»', 'Ask staff: “Wo finde ich die {x}?”'],
+  coachTitle: ['قواعد المدرب', 'Coach\'s rules'],
+  coach1: [
+    '<b>جولات الإحماء:</b> قبل أول تمرين لكل عضلة، جولة أو تنتين خفاف (٥٠٪ ثم ٧٠٪ من الوزن) – ما بينحسبوا.',
+    '<b>Warm-up sets:</b> before the first exercise for each muscle, 1–2 light sets (50% then 70% of the working weight) – they don\'t count.',
+  ],
+  coach2: [
+    '<b>الشدة:</b> كل جولة لازم تخلص وباقيلك ١–٢ عدات بس بالخزان (RIR 1–2). إذا كان فيك تعمل ٥ زيادة، الوزن خفيف.',
+    '<b>Effort:</b> finish every set with only 1–2 reps left in the tank (RIR 1–2). If you could do 5 more, it\'s too light.',
+  ],
+  coach3: [
+    '<b>التقدم المزدوج:</b> لما تعمل ١٢ عدة بالـ٣ جولات، زيد أصغر وزن ممكن (٢.٥–٥ كغ) وارجع لـ ١٠.',
+    '<b>Double progression:</b> once you hit 12 reps on all 3 sets, add the smallest step (2.5–5 kg) and drop back to 10.',
+  ],
+  coach4: [
+    '<b>الراحة:</b> للتمارين الكبيرة (صدر، دفّاش، سحب، تجديف) ٢ دقيقة أحسن للنمو من ٦٠ ثانية؛ للعزل ٦٠–٩٠ ثانية بتكفي.',
+    '<b>Rest:</b> for big lifts (presses, leg press, pulldowns, rows) 2 minutes beats 60 seconds for growth; 60–90 s is fine for isolation.',
+  ],
+  coach5: [
+    '<b>الإيقاع:</b> النزلة ٢–٣ ثواني دايماً، وخصوصاً بالجزء الممطوط من الحركة – هون أكتر نمو.',
+    '<b>Tempo:</b> always lower in 2–3 seconds, especially through the stretched part – that\'s where most growth happens.',
+  ],
+  coach6: [
+    '<b>Gold\'s Gym Krefeld:</b> الأجهزة كلها gym80. إذا الجهاز مشغول استعمل خيار B بالتمرين، أو اسأل «⁦Kann ich mich abwechseln?⁩».',
+    '<b>Gold\'s Gym Krefeld:</b> all machines are gym80. If one is busy, use option B in the exercise, or ask “Kann ich mich abwechseln?”.',
+  ],
 } satisfies Record<string, [string, string]>
 
 export type TKey = keyof typeof dict

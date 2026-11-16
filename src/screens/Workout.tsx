@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { DAY_IDS, getDay, groupsFor, machineOf, repsOf, setsOf, type DayId, type Exercise, type Group } from '../data/plan'
+import { DAY_IDS, getDay, groupsFor, machineOf, repsOf, setsOf, type DayId, type Exercise, type Group, type Variant } from '../data/plan'
 import { locale, num } from '../i18n'
 import {
   clearDraft,
@@ -79,7 +79,7 @@ export function Workout({ dayId }: { dayId: DayId }) {
   const idxRef = useRef(idx)
   idxRef.current = idx
   const track = useRef<HTMLDivElement>(null)
-  const [sheet, setSheet] = useState<{ kind: 'machine' | 'video'; ex: Exercise } | null>(null)
+  const [sheet, setSheet] = useState<{ kind: 'machine' | 'video'; ex: Variant } | null>(null)
   const [overview, setOverview] = useState(false)
   const [timer, setTimer] = useState<{ endAt: number; total: number } | null>(null)
   const [hint, setHint] = useState(() => !draft)
@@ -173,7 +173,10 @@ export function Workout({ dayId }: { dayId: DayId }) {
     const n = setsOf(ex)
     const logs = logsOf(ex)
     const next = nextOf(ex)
-    const m = machineOf(ex)
+    const altKey = `${profile}:${ex.id}`
+    const useB = !!ex.alt && !!settings.alt[altKey]
+    const v: Variant = useB && ex.alt ? ex.alt : ex
+    const m = machineOf(v)
     const badge = n > 1 ? `${num(n, lang)} × ${repsOf(ex)[lang]}` : repsOf(ex)[lang]
     const orange = ex.optional || group.maiOnly
     const last = exerciseLast(sessions, profile, ex.id)
@@ -187,11 +190,11 @@ export function Workout({ dayId }: { dayId: DayId }) {
         className="no-scrollbar h-full w-full flex-none snap-center snap-always overflow-y-auto overscroll-y-contain px-4 pb-8 pt-1"
       >
         <button
-          onClick={() => setSheet({ kind: 'machine', ex })}
+          onClick={() => setSheet({ kind: 'machine', ex: v })}
           aria-label={t('showMachine')}
           className="relative block w-full overflow-hidden rounded-[28px] border border-line"
         >
-          <MachinePhoto ex={ex} className="h-[28dvh] min-h-40 w-full" />
+          <MachinePhoto ex={v} className="h-[28dvh] min-h-40 w-full" />
           <span className="absolute start-3 top-3 rounded-full bg-black/65 px-3 py-1 text-xs font-bold text-white backdrop-blur">
             {group.maiOnly ? `♀ ${t('maiExtra')}` : group.name[lang]} · {num(i + 1, lang)}/{num(items.length, lang)}
           </span>
@@ -204,8 +207,8 @@ export function Workout({ dayId }: { dayId: DayId }) {
 
         <div className="mt-4 flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <h2 className="text-[1.65rem] font-extrabold leading-tight">{ex.name[lang]}</h2>
-            <De speak className="text-sm">{ex.de}</De>
+            <h2 className="text-[1.65rem] font-extrabold leading-tight">{v.name[lang]}</h2>
+            <De speak className="text-sm">{v.de}</De>
           </div>
           <span
             className={`mt-1 flex-none whitespace-nowrap rounded-full px-3 py-1 text-sm font-extrabold ${
@@ -216,6 +219,25 @@ export function Workout({ dayId }: { dayId: DayId }) {
           </span>
         </div>
 
+        {ex.alt && (
+          <div className="mt-3" data-testid="ab-switch">
+            <Segmented
+              value={useB ? 'B' : 'A'}
+              onChange={(o) => updateSettings({ alt: { ...settings.alt, [altKey]: o === 'B' } })}
+              options={[
+                { value: 'A', label: t('optionA') },
+                { value: 'B', label: t('optionB') },
+              ]}
+            />
+            {useB && ex.alt ? (
+              <p className="mt-2 rounded-2xl border border-dashed border-accent p-3 text-[.92rem] leading-relaxed text-muted">
+                <b className="text-ink">{ex.alt.why[lang]}</b> {ex.alt.setup[lang]}
+              </p>
+            ) : (
+              <p className="mt-1 px-1 text-xs text-muted">{t('optionBHint')}</p>
+            )}
+          </div>
+        )}
         {group.maiOnly && it.first && group.note && (
           <p className="mt-3 rounded-2xl border-2 border-dashed border-warn p-3 text-[.92rem] text-muted">
             <Rich text={group.note[lang]} />
@@ -230,14 +252,14 @@ export function Workout({ dayId }: { dayId: DayId }) {
         <div className="mt-4 grid grid-cols-2 gap-2">
           <button
             data-testid="btn-video"
-            onClick={() => setSheet({ kind: 'video', ex })}
+            onClick={() => setSheet({ kind: 'video', ex: v })}
             className="flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-ytsoft px-2 font-bold text-yt active:scale-[.98]"
           >
             <Icon name="play" className="h-5 w-5" /> {t('showVideo')}
           </button>
           <button
             data-testid="btn-machine"
-            onClick={() => setSheet({ kind: 'machine', ex })}
+            onClick={() => setSheet({ kind: 'machine', ex: v })}
             className="flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-surface2 px-2 font-bold active:scale-[.98]"
           >
             <Icon name="sliders" className="h-5 w-5" /> {t('showMachine')}
@@ -324,6 +346,40 @@ export function Workout({ dayId }: { dayId: DayId }) {
             >
               <Icon name="plus" />
             </button>
+          </div>
+        )}
+        {!useB && (ex.coach || ex.avoid) && (
+          <div className="mt-5 space-y-3" data-testid="coach">
+            {ex.coach && (
+              <div className="rounded-3xl border border-line bg-surface p-4">
+                <h3 className="mb-2 flex items-center gap-2 text-sm font-extrabold text-accentink">
+                  <Icon name="trophy" className="h-4 w-4" /> {t('coachTips')}
+                </h3>
+                <ul className="space-y-2">
+                  {ex.coach[lang].map((c) => (
+                    <li key={c} className="flex gap-2 text-[.95rem] leading-relaxed">
+                      <Icon name="check" className="mt-1 h-4 w-4 flex-none text-accentink" />
+                      <span>{c}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {ex.avoid && (
+              <div className="rounded-3xl border border-line bg-surface p-4">
+                <h3 className="mb-2 flex items-center gap-2 text-sm font-extrabold text-yt">
+                  <Icon name="x" className="h-4 w-4" /> {t('avoidTitle')}
+                </h3>
+                <ul className="space-y-2">
+                  {ex.avoid[lang].map((c) => (
+                    <li key={c} className="flex gap-2 text-[.95rem] leading-relaxed text-muted">
+                      <Icon name="x" className="mt-1 h-4 w-4 flex-none text-yt" />
+                      <span>{c}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         )}
       </section>
@@ -487,6 +543,7 @@ export function Workout({ dayId }: { dayId: DayId }) {
               { value: 0, label: t('off') },
               { value: 60, label: `${num(60, lang)} ${t('sec')}` },
               { value: 90, label: `${num(90, lang)} ${t('sec')}` },
+              { value: 120, label: `${num(120, lang)} ${t('sec')}` },
             ]}
           />
           <ul className="mt-4 space-y-1.5">

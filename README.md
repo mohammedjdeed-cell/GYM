@@ -50,19 +50,24 @@ Open the video on YouTube, copy the 11-character id from the URL
 If `videoId` is empty, the popup shows a button that opens the YouTube search instead.
 Some videos don't allow embedding – if the player shows an error, pick another one.
 
-### Add machine photos
+### Machines, photos and option B
 
-Each machine has a `photo` file name in the `machines` block, e.g. `sygnum-3016.jpg`.
-Drop a photo with exactly that name into **`public/assets/machines/`** and rebuild/redeploy.
-Until the file exists the popup shows a placeholder with the expected file name.
+Gold's Gym Germany equips its gyms with **gym80** machines ("King of Machines"). Every exercise
+is mapped to a real gym80 model from gym80's current catalogue (gym80.de), with:
 
-Expected files: `pure-kraft-4329n.jpg`, `sygnum-3016.jpg`, `sygnum-3021.jpg`, `sygnum-4004.jpg`,
-`sygnum-3004.jpg`, `pure-kraft-4018.jpg`, `sygnum-4016.jpg`, `sygnum-3098.jpg`, `sygnum-3001.jpg`,
-`sygnum-3031.jpg`, `sygnum-3013.jpg`, `sygnum-3032.jpg`, `sygnum-3050.jpg`, `sygnum-3025.jpg`,
-`sygnum-3005.jpg`, `sygnum-3028.jpg`.
+- `machine` – the gym80 model key (see the `machines` block: model, official German name, photo,
+  gym80's own YouTube video, product page),
+- `alt` – **option B** for when the machine is busy or too hard (shown as an A/B switch in the
+  workout; sets count for the same exercise),
+- `coach` / `avoid` – trainer cues and common mistakes.
 
-Landscape photos around 1200 px wide are plenty. Take them yourself in the gym or use images you
-have the right to use.
+Photos are gym80's official product images in `public/assets/machines/` (named in each
+machine's `photo` field). To use your own photo from Gold's Gym Krefeld, save it under the same
+name, or point `photo` at a new file.
+
+Gold's Gym doesn't publish a per-machine list for Krefeld, so if a machine isn't there, change the
+exercise's `machine` (and `alt`) to the model you actually see on the floor – the model number is
+printed on every gym80 machine.
 
 ## Deploy for free
 

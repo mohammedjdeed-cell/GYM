@@ -15,6 +15,7 @@ const VOCAB: { ar: string; en: string; de: string }[] = [
   { ar: 'فيني اتبادل معك؟', en: 'Can I work in with you?', de: 'Kann ich mich abwechseln?' },
 ]
 const RULES: TKey[] = ['rule1', 'rule2', 'rule3', 'rule4', 'rule5']
+const COACH: TKey[] = ['coach1', 'coach2', 'coach3', 'coach4', 'coach5', 'coach6']
 
 export function Week() {
   const lang = useStore().settings.lang
@@ -56,6 +57,15 @@ export function Week() {
         <h2 className="mb-2 text-lg font-bold">{t('rulesTitle')}</h2>
         <ul className="list-disc space-y-1.5 ps-5 text-[.95rem] text-muted">
           {RULES.map((k) => (
+            <li key={k}><Rich text={t(k)} /></li>
+          ))}
+        </ul>
+      </Card>
+
+      <Card className="mb-3">
+        <h2 className="mb-2 text-lg font-bold text-accentink">{t('coachTitle')}</h2>
+        <ul className="list-disc space-y-1.5 ps-5 text-[.95rem] text-muted" data-testid="coach-rules">
+          {COACH.map((k) => (
             <li key={k}><Rich text={t(k)} /></li>
           ))}
         </ul>

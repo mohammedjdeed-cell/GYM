@@ -37,6 +37,7 @@ export function Settings() {
             { value: 0, label: t('off') },
             { value: 60, label: `${num(60, lang)} ${t('sec')}` },
             { value: 90, label: `${num(90, lang)} ${t('sec')}` },
+            { value: 120, label: `${num(120, lang)} ${t('sec')}` },
           ]}
         />
       </Card>

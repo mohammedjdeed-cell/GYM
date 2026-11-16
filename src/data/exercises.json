@@ -4,101 +4,270 @@
     "reps": { "ar": "١٠–١٢", "en": "10–12" }
   },
   "machines": {
-    "incline": {
+    "4329N": {
       "model": "Pure Kraft 4329N",
-      "photo": "pure-kraft-4329n.jpg",
-      "name": { "ar": "جهاز صدر مائل (همر)", "en": "Incline chest press (plate-loaded)" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2512171.html"
+      "de": "Pure Kraft Schrägbank Dual",
+      "name": { "ar": "جهاز صدر مائل بالأقراص", "en": "Incline chest press (plate-loaded)" },
+      "photo": "gym80-4329n.webp",
+      "video": "V5WEZn6baxU",
+      "url": "https://gym80.de/produkt/4329n/"
     },
-    "flat": {
-      "model": "Sygnum 3016",
-      "photo": "sygnum-3016.jpg",
-      "name": { "ar": "جهاز صدر مسطح", "en": "Seated chest press" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529861.html"
+    "3042": {
+      "model": "3042",
+      "de": "Schrägbank Dual",
+      "name": { "ar": "جهاز صدر مائل بالأوزان", "en": "Incline chest press (weight stack)" },
+      "photo": "gym80-3042.webp",
+      "video": "xd2eFrGPmkM",
+      "url": "https://gym80.de/produkt/3042/"
     },
-    "fly": {
-      "model": "Sygnum 3021",
-      "photo": "sygnum-3021.jpg",
-      "name": { "ar": "جهاز الفراشة", "en": "Butterfly / pec deck" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529865.html"
+    "3016": {
+      "model": "3016",
+      "de": "Brustpresse",
+      "name": { "ar": "جهاز الصدر المسطح", "en": "Seated chest press" },
+      "photo": "gym80-3016.webp",
+      "video": "wrDFqozJ_c0",
+      "url": "https://gym80.de/produkt/3016/"
     },
-    "cable": {
-      "model": "Sygnum 4004",
-      "photo": "sygnum-4004.jpg",
-      "name": { "ar": "برج الكيبل", "en": "Cable tower" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529947.html"
+    "4328": {
+      "model": "Pure Kraft 4328",
+      "de": "Pure Kraft Bankdrückmaschine sitzend Dual",
+      "name": { "ar": "جهاز صدر جالس بالأقراص", "en": "Seated chest press (plate-loaded)" },
+      "photo": "gym80-4328.webp",
+      "video": "UE7Y_JE0h7w",
+      "url": "https://gym80.de/produkt/4328/"
     },
-    "lat": {
-      "model": "Sygnum 3004",
-      "photo": "sygnum-3004.jpg",
-      "name": { "ar": "جهاز السحب الأمامي", "en": "Lat pulldown" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529851.html"
+    "3021": {
+      "model": "3021",
+      "de": "Butterfly mit Pads",
+      "name": { "ar": "جهاز الفراشة بالمخدات", "en": "Pec fly with pads" },
+      "photo": "gym80-3021.webp",
+      "video": "cS6wqBZAhmA",
+      "url": "https://gym80.de/produkt/3021/"
     },
-    "tbar": {
+    "4004": {
+      "model": "4004",
+      "de": "Kabelzug Crossover",
+      "name": { "ar": "برج الكيبل (كروس أوفر)", "en": "Cable crossover station" },
+      "photo": "gym80-4004.webp",
+      "video": "HDt8aTG9aGo",
+      "generic": true,
+      "url": "https://gym80.de/produkt/4004/"
+    },
+    "3017": {
+      "model": "3017",
+      "de": "Klimmzug-Barrenmaschine",
+      "name": { "ar": "جهاز العقلة والمتوازي المساعد", "en": "Assisted chin & dip machine" },
+      "photo": "gym80-3017.webp",
+      "video": "L05qvFArXmE",
+      "url": "https://gym80.de/produkt/3017/"
+    },
+    "3036": {
+      "model": "3036",
+      "de": "Dipmaschine",
+      "name": { "ar": "جهاز متوازي جالس (زند خلفي)", "en": "Seated dip machine" },
+      "photo": "gym80-3036.webp",
+      "video": "iBrnSfp3eVs",
+      "url": "https://gym80.de/produkt/3036/"
+    },
+    "3095": {
+      "model": "3095",
+      "de": "Trizeps Überkopf",
+      "name": { "ar": "جهاز زند خلفي فوق الراس", "en": "Overhead triceps machine" },
+      "photo": "gym80-3095.webp",
+      "video": "lQGW5NfRC2c",
+      "url": "https://gym80.de/produkt/3095/"
+    },
+    "3011": {
+      "model": "3011",
+      "de": "Trizepsmaschine",
+      "name": { "ar": "جهاز الزند الخلفي", "en": "Triceps extension machine" },
+      "photo": "gym80-3011.webp",
+      "video": "OHgIogJTCHc",
+      "url": "https://gym80.de/produkt/3011/"
+    },
+    "3020": {
+      "model": "3020",
+      "de": "Rückenzugmaschine",
+      "name": { "ar": "جهاز السحب الأمامي", "en": "Lat pulldown machine" },
+      "photo": "gym80-3020.webp",
+      "video": "EofhyPPGmRY",
+      "url": "https://gym80.de/produkt/3020/"
+    },
+    "4311": {
+      "model": "Pure Kraft 4311",
+      "de": "Pure Kraft Rückenzugmaschine Dual",
+      "name": { "ar": "سحب أمامي بالأقراص", "en": "Lat pulldown (plate-loaded)" },
+      "photo": "gym80-4311.webp",
+      "video": "r8jqKqruwGU",
+      "url": "https://gym80.de/produkt/4311/"
+    },
+    "4018": {
       "model": "Pure Kraft 4018",
-      "photo": "pure-kraft-4018.jpg",
-      "name": { "ar": "جهاز سحب حرف T مع سندة صدر", "en": "Chest-supported T-bar row" },
-      "url": ""
+      "de": "Pure Kraft Rudermaschine T-Bar",
+      "name": { "ar": "جهاز T-Bar مع سندة صدر", "en": "Chest-supported T-bar row" },
+      "photo": "gym80-4018.webp",
+      "video": "ElBu6Pk0Z60",
+      "url": "https://gym80.de/produkt/4018/"
     },
-    "row": {
-      "model": "Sygnum 4016",
-      "photo": "sygnum-4016.jpg",
-      "name": { "ar": "جهاز السحب الأرضي", "en": "Seated cable row" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2512284.html"
+    "4327": {
+      "model": "Pure Kraft 4327",
+      "de": "Pure Kraft Power Row Dual",
+      "name": { "ar": "جهاز تجديف بسندة صدر", "en": "Chest-supported power row" },
+      "photo": "gym80-4327.webp",
+      "video": "Nbi-jySGPJA",
+      "url": "https://gym80.de/produkt/4327/"
     },
-    "bic": {
-      "model": "Sygnum 3098",
-      "photo": "sygnum-3098.jpg",
+    "4116": {
+      "model": "4116",
+      "de": "Rückenzugstation",
+      "name": { "ar": "محطة السحب بالكيبل", "en": "Cable lat pull station" },
+      "photo": "gym80-4116.webp",
+      "video": "MmbKY6FLkLM",
+      "url": "https://gym80.de/produkt/4116/"
+    },
+    "4016": {
+      "model": "4016",
+      "de": "Ruderstation",
+      "name": { "ar": "محطة السحب الأرضي", "en": "Seated cable row station" },
+      "photo": "gym80-4016.webp",
+      "video": "MxIGOHJ8gHQ",
+      "url": "https://gym80.de/produkt/4016/"
+    },
+    "4322": {
+      "model": "Pure Kraft 4322",
+      "de": "Pure Kraft Rudermaschine sitzend Dual",
+      "name": { "ar": "جهاز تجديف جالس بالأقراص", "en": "Seated row (plate-loaded)" },
+      "photo": "gym80-4322.webp",
+      "video": "wlRiUzLYobw",
+      "url": "https://gym80.de/produkt/4322/"
+    },
+    "3098": {
+      "model": "3098",
+      "de": "Bizeps horizontal",
       "name": { "ar": "جهاز الزند الأمامي", "en": "Biceps curl machine" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529907.html"
+      "photo": "gym80-3098.webp",
+      "video": "4kl4yWh9TfQ",
+      "url": "https://gym80.de/produkt/3098/"
     },
-    "legext": {
-      "model": "Sygnum 3001",
-      "photo": "sygnum-3001.jpg",
+    "3001": {
+      "model": "3001",
+      "de": "Beinstrecker",
       "name": { "ar": "جهاز الرد الأمامي", "en": "Leg extension" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2512207.html"
+      "photo": "gym80-3001.webp",
+      "video": "9v7u3ofd9vA",
+      "url": "https://gym80.de/produkt/3001/"
     },
-    "legpress": {
-      "model": "Sygnum 3031",
-      "photo": "sygnum-3031.jpg",
-      "name": { "ar": "جهاز الدفّاش", "en": "Leg press" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529876.html"
+    "4336N": {
+      "model": "Pure Kraft 4336N",
+      "de": "Pure Kraft Beinstrecker",
+      "name": { "ar": "رد أمامي بالأقراص", "en": "Leg extension (plate-loaded)" },
+      "photo": "gym80-4336n.webp",
+      "video": "DWt8moqtQIU",
+      "url": "https://gym80.de/produkt/4336n/"
     },
-    "legcurl": {
-      "model": "Sygnum 3013",
-      "photo": "sygnum-3013.jpg",
-      "name": { "ar": "جهاز الرد الخلفي", "en": "Leg curl" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529859.html"
+    "3031": {
+      "model": "3031",
+      "de": "Beinpresse liegend",
+      "name": { "ar": "دفّاش مستلقي", "en": "Lying leg press" },
+      "photo": "gym80-3031.webp",
+      "video": "-Xrd4om2ZXk",
+      "url": "https://gym80.de/produkt/3031/"
     },
-    "shpress": {
-      "model": "Sygnum 3032",
-      "photo": "sygnum-3032.jpg",
+    "3030": {
+      "model": "3030",
+      "de": "Beinpresse sitzend",
+      "name": { "ar": "دفّاش جالس", "en": "Seated leg press" },
+      "photo": "gym80-3030.webp",
+      "video": "b4s_pQTwfz0",
+      "url": "https://gym80.de/produkt/3030/"
+    },
+    "3003": {
+      "model": "3003",
+      "de": "Beinbeuger sitzend",
+      "name": { "ar": "جهاز الرد الخلفي الجالس", "en": "Seated leg curl" },
+      "photo": "gym80-3003.webp",
+      "video": "hEW553x_QTM",
+      "url": "https://gym80.de/produkt/3003/"
+    },
+    "3002": {
+      "model": "3002",
+      "de": "Beinbeuger liegend",
+      "name": { "ar": "جهاز الرد الخلفي المنبطح", "en": "Lying leg curl" },
+      "photo": "gym80-3002.webp",
+      "video": "V-QKtH36WNI",
+      "url": "https://gym80.de/produkt/3002/"
+    },
+    "4353N": {
+      "model": "Pure Kraft 4353N",
+      "de": "Pure Kraft Pendulum Squat",
+      "name": { "ar": "جهاز البطة البندولي", "en": "Pendulum squat" },
+      "photo": "gym80-4353n.webp",
+      "video": "Oi2dbVxPSiE",
+      "url": "https://gym80.de/produkt/4353n/"
+    },
+    "3032": {
+      "model": "3032",
+      "de": "Schulterpresse",
       "name": { "ar": "جهاز كبس الكتف", "en": "Shoulder press" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529877.html"
+      "photo": "gym80-3032.webp",
+      "video": "-vOiM55746I",
+      "url": "https://gym80.de/produkt/3032/"
     },
-    "lateral": {
-      "model": "Sygnum 3050",
-      "photo": "sygnum-3050.jpg",
+    "4320": {
+      "model": "Pure Kraft 4320",
+      "de": "Pure Kraft Schultermaschine Dual",
+      "name": { "ar": "كبس كتف بالأقراص", "en": "Shoulder press (plate-loaded)" },
+      "photo": "gym80-4320.webp",
+      "video": "Jm-bQ9AhRlA",
+      "url": "https://gym80.de/produkt/4320/"
+    },
+    "3050": {
+      "model": "3050",
+      "de": "Seithebemaschine",
       "name": { "ar": "جهاز الرفع الجانبي", "en": "Lateral raise machine" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529896.html"
+      "photo": "gym80-3050.webp",
+      "video": "yHdfKSgmSh0",
+      "url": "https://gym80.de/produkt/3050/"
     },
-    "revfly": {
-      "model": "Sygnum 3025",
-      "photo": "sygnum-3025.jpg",
-      "name": { "ar": "جهاز الفراشة العكسي", "en": "Reverse butterfly" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529869.html"
+    "3025": {
+      "model": "3025",
+      "de": "Butterfly Reverse",
+      "name": { "ar": "جهاز الفراشة العكسي", "en": "Reverse fly / rear delt" },
+      "photo": "gym80-3025.webp",
+      "video": "-H2rb8lIQJ4",
+      "url": "https://gym80.de/produkt/3025/"
     },
-    "glute": {
-      "model": "Sygnum 3005",
-      "photo": "sygnum-3005.jpg",
-      "name": { "ar": "جهاز الأرداف", "en": "Glute machine" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529852.html"
+    "3005": {
+      "model": "3005",
+      "de": "Gluteus Kick radial",
+      "name": { "ar": "جهاز الأرداف (Kick)", "en": "Radial glute kick" },
+      "photo": "gym80-3005.webp",
+      "video": "H1ceL5gJHXE",
+      "url": "https://gym80.de/produkt/3005/"
     },
-    "abd": {
-      "model": "Sygnum 3028",
-      "photo": "sygnum-3028.jpg",
+    "4352": {
+      "model": "Pure Kraft 4352",
+      "de": "Pure Kraft Booty Booster",
+      "name": { "ar": "جهاز Hip Thrust", "en": "Hip thrust machine (Booty Booster)" },
+      "photo": "gym80-4352.webp",
+      "video": "TO5juRMJJkU",
+      "url": "https://gym80.de/produkt/4352/"
+    },
+    "3028": {
+      "model": "3028",
+      "de": "Abduktionsmaschine",
       "name": { "ar": "جهاز فتح الأجرين", "en": "Hip abduction machine" },
-      "url": "https://www.archiexpo.com/prod/gym80-international-gmbh/product-4635313-2529872.html"
+      "photo": "gym80-3028.webp",
+      "video": "SC2SSQCzvBg",
+      "url": "https://gym80.de/produkt/3028/"
+    },
+    "3007": {
+      "model": "3007",
+      "de": "Rückenstrecker",
+      "name": { "ar": "جهاز تمديد الضهر", "en": "Lower back machine" },
+      "photo": "gym80-3007.webp",
+      "video": "abyKvjJ2Yuc",
+      "url": "https://gym80.de/produkt/3007/"
     }
   },
   "days": [
@@ -116,13 +285,44 @@
               "id": "d1-incline-press",
               "name": { "ar": "همر صدر مائل", "en": "Incline chest press (machine)" },
               "de": "Schrägbankdrücken (Maschine)",
-              "machine": "incline",
+              "machine": "4329N",
               "setup": {
-                "ar": "عدّل المقعد لحتى تكون المسكات بمستوى أعلى الصدر. ضهرك وراسك لازقين بالمسند، واكبس لفوق بدون ما تقفل الكوع عالآخر.",
-                "en": "Set the seat so the handles line up with your upper chest. Keep your back and head on the pad and press up without fully locking the elbows."
+                "ar": "عدّل المقعد (٧ درجات) لحتى تكون المسكات بمستوى أعلى الصدر، تحت الترقوة بشوي. دوس عالدعسة (Einstiegshilfe) لتجيب المسكات لقدام، امسكها، وبعدين شيل رجلك. ضهرك وراسك لازقين بالمسند.",
+                "en": "Set the seat (7 positions) so the handles sit at upper-chest level, just below the collarbone. Press the foot lever (Einstiegshilfe) to bring the handles forward, grab them, then release. Back and head stay on the pad."
+              },
+              "coach": {
+                "ar": [
+                  "قبل أول عدة: لوحين الكتف لورا ولتحت، والصدر لفوق – وخليهم هيك لآخر جولة.",
+                  "نزّل بـ ٢–٣ ثواني لحد ما تحس بمطّ بالصدر – هالجزء الممطوط هو أهم جزء للنمو.",
+                  "الذراعين مستقلين: إذا إيد أضعف، هي اللي بتحدد عدد العدات."
+                ],
+                "en": [
+                  "Before rep one: shoulder blades back and down, chest up – keep it that way for the whole set.",
+                  "Lower for 2–3 seconds into a chest stretch – the stretched position matters most for growth.",
+                  "The arms are independent: if one side is weaker, it decides the rep count."
+                ]
+              },
+              "avoid": {
+                "ar": ["الكتفين بيطلعوا لقدام بآخر الدفشة", "المقعد عالي كتير فبيصير تمرين كتف"],
+                "en": ["Shoulders rolling forward at lockout", "Seat too high, turning it into a shoulder press"]
               },
               "videoQuery": "incline chest press machine how to",
-              "videoId": "ig0NyNlSce4"
+              "videoId": "ig0NyNlSce4",
+              "alt": {
+                "name": { "ar": "صدر مائل على جهاز الأوزان", "en": "Incline press (weight stack)" },
+                "de": "Schrägbank Dual",
+                "machine": "3042",
+                "setup": {
+                  "ar": "نفس الضبط: المسكات بمستوى أعلى الصدر، ودعسة البداية قبل ما تمسك. الوزن بالمسمار بدل الأقراص.",
+                  "en": "Same setup: handles at upper-chest level, use the start lever before gripping. Pin-loaded instead of plates."
+                },
+                "why": {
+                  "ar": "إذا جهاز الأقراص مشغول أو ما بدك تحمّل أقراص: نفس الحركة، وتبديل الوزن أسرع.",
+                  "en": "If the plate-loaded one is busy or you don't want to load plates: same movement, faster weight changes."
+                },
+                "videoQuery": "incline chest press machine how to",
+                "videoId": ""
+              }
             },
             {
               "id": "d1-chest-press",
@@ -132,25 +332,87 @@
                 "ar": "غيث بيحب هالجهاز كتير – أقوى من الهمر العادي. رح يبعت صورته لتلاقوه.",
                 "en": "Ghaith loves this machine – stronger than the regular hammer press. He'll send a photo so you can find it."
               },
-              "machine": "flat",
+              "machine": "3016",
               "setup": {
-                "ar": "ارتفاع المقعد: المسكات بمستوى نص الصدر. الكتفين لورا ولتحت، وادفش لقدام ورجّع ببطء.",
-                "en": "Seat height: handles level with mid-chest. Shoulders back and down, press forward and return slowly."
+                "ar": "ارتفاع المقعد: المسكات بمستوى نص الصدر. دوس عالدعسة لتقدّم المسكات، امسكها، وشيل رجلك ببطء. الرجلين عالمسند المدمج أو عالأرض.",
+                "en": "Seat height: handles at mid-chest. Press the foot lever to bring the handles out, grab them, then ease off. Feet on the built-in footrest or the floor."
+              },
+              "coach": {
+                "ar": [
+                  "ادفش بكعب الإيد، والرسغ مستقيم فوق الساعد.",
+                  "الكوعين حوالي ٤٥° عن الجسم – مو مفتوحين عالآخر.",
+                  "برجعة الوزن ما تخلي الحديد يرتاح عالكومة – خلي الشد مستمر."
+                ],
+                "en": [
+                  "Drive through the heel of your hand, wrist stacked over the forearm.",
+                  "Elbows about 45° from your body – not flared to 90°.",
+                  "Don't let the stack touch down between reps – keep constant tension."
+                ]
+              },
+              "avoid": {
+                "ar": ["تشيل ضهرك عن المسند لتدفش أقوى", "تترك المسكات فجأة بدون الدعسة – خطر عالكتف"],
+                "en": ["Lifting your back off the pad to push harder", "Letting go of the handles without the foot lever – risky for the shoulder"]
               },
               "videoQuery": "seated chest press machine how to",
-              "videoId": "sqNwDkUU_Ps"
+              "videoId": "sqNwDkUU_Ps",
+              "alt": {
+                "name": { "ar": "صدر جالس بالأقراص (Pure Kraft)", "en": "Plate-loaded seated chest press" },
+                "de": "Pure Kraft Bankdrückmaschine sitzend",
+                "machine": "4328",
+                "setup": {
+                  "ar": "المقعد بحيث المسكات بنص الصدر. اختار المسكة العادية أو المسكة المحايدة (الكف لجوا) – المحايدة أريح للكتف.",
+                  "en": "Seat so the handles are at mid-chest. Choose the normal or neutral grip (palms facing in) – neutral is kinder to the shoulders."
+                },
+                "why": {
+                  "ar": "نفس العضلة ونفس المسار، وكل إيد بتشتغل لحالها.",
+                  "en": "Same muscle and path, and each arm works on its own."
+                },
+                "videoQuery": "plate loaded seated chest press how to",
+                "videoId": ""
+              }
             },
             {
               "id": "d1-butterfly",
               "name": { "ar": "فتح فراشة", "en": "Butterfly (pec fly)" },
               "de": "Butterfly",
-              "machine": "fly",
+              "machine": "3021",
               "setup": {
-                "ar": "المقعد بحيث الإيدين بمستوى الصدر. الكوع مثني شوي وثابت، وضم الإيدين لقدام لحتى يتلاقوا.",
-                "en": "Seat so your hands are at chest height. Keep a slight, fixed bend in the elbows and bring the arms together in front."
+                "ar": "المقعد بحيث الكوع والكتف عنفس الارتفاع، والساعد لازق بالمخدات. عدّل زاوية المخدات لحتى تبدأ بمطّ خفيف بالصدر – مو أكتر.",
+                "en": "Seat so elbows and shoulders are level, forearms against the pads. Set the pad angle so you start in a light chest stretch – no more."
+              },
+              "coach": {
+                "ar": [
+                  "فكّر إنك عم تضم الكوعين لبعض، مو الإيدين.",
+                  "وقفة ثانية بالضمة واعصر الصدر.",
+                  "الرجعة بطيئة لحد المطّ – بس ضمن مدى مريح للكتف."
+                ],
+                "en": [
+                  "Think about bringing your elbows together, not your hands.",
+                  "Pause for a second at the squeeze.",
+                  "Slow return into the stretch – within a range your shoulders are happy with."
+                ]
+              },
+              "avoid": {
+                "ar": ["تفتح زيادة لورا فبيتوجع الكتف", "تستعمل وزن تقيل وتخبط الوزن"],
+                "en": ["Opening too far back and straining the shoulder", "Going too heavy and banging the stack"]
               },
               "videoQuery": "pec deck fly machine how to",
-              "videoId": "3jYo5cMU3d4"
+              "videoId": "3jYo5cMU3d4",
+              "alt": {
+                "name": { "ar": "فتح بالكيبل (كروس أوفر)", "en": "Cable crossover fly" },
+                "de": "Kabelzug-Fliegende (Crossover)",
+                "machine": "4004",
+                "setup": {
+                  "ar": "البكرتين بمستوى الكتف أو أعلى بشوي، مسكة D بكل إيد. خطوة لقدام، ميلة خفيفة، والكوع مثني شوي وثابت. ضم الإيدين قدام صدرك.",
+                  "en": "Both pulleys at shoulder height or slightly above, a D-handle in each hand. Step forward, slight lean, elbows softly bent and fixed. Bring the hands together in front of your chest."
+                },
+                "why": {
+                  "ar": "الكيبل بيعطي شد مستمر بكل المدى، وبرج الكيبل غالباً في واحد فاضي.",
+                  "en": "Cables keep tension through the whole range, and there's usually a free cable tower."
+                },
+                "videoQuery": "cable crossover chest fly how to",
+                "videoId": "taI4XduLpTk"
+              }
             },
             {
               "id": "d1-dips",
@@ -162,13 +424,44 @@
                 "en": "<b>Every other week</b> – when you feel fresh or have extra time."
               },
               "machine": null,
-              "equipment": { "ar": "متوازي", "en": "Dip bars", "de": "Dip-Station / Barren" },
+              "equipment": { "ar": "محطة المتوازي", "en": "Dip station", "de": "Dipstation / Barren" },
               "setup": {
                 "ar": "امسك المتوازي وميّل جسمك شوي لقدام لتشتغل الصدر. انزل لحتى الكوع ٩٠° تقريباً واطلع.",
-                "en": "Grip the bars and lean slightly forward to hit the chest. Lower until the elbows are about 90° and press up."
+                "en": "Grip the bars and lean slightly forward to bias the chest. Lower until the elbows are about 90° and press up."
+              },
+              "coach": {
+                "ar": [
+                  "انزل ببطء، والكتف بيضل لورا – لا تخلي الكتف يطلع لعند الدينة.",
+                  "إذا ما قدرت تعمل ٨ عدات نظاف، روح على النسخة المساعدة (B).",
+                  "إذا حسيت وجع بقدام الكتف وقّف – مو كل كتف بيتحمل المتوازي."
+                ],
+                "en": [
+                  "Lower slowly with shoulders kept back – don't let them shrug up to your ears.",
+                  "If you can't do 8 clean reps, use the assisted version (B).",
+                  "Stop if the front of the shoulder hurts – not every shoulder tolerates dips."
+                ]
+              },
+              "avoid": {
+                "ar": ["تنزل أعمق من اللازم بسرعة", "تتمرجح لتطلع"],
+                "en": ["Dropping too deep, too fast", "Swinging to get up"]
               },
               "videoQuery": "chest dips proper form",
-              "videoId": "dX_nSOOJIsE"
+              "videoId": "dX_nSOOJIsE",
+              "alt": {
+                "name": { "ar": "متوازي مساعد على الجهاز", "en": "Assisted dips (machine)" },
+                "de": "Klimmzug-Barrenmaschine (Dips)",
+                "machine": "3017",
+                "setup": {
+                  "ar": "اركع عالمخدة، واختار وزن المساعدة – كل ما زاد الوزن صار أسهل. نفس الحركة: ميلة لقدام والكوع لـ ٩٠°.",
+                  "en": "Kneel on the pad and pick the assistance weight – more weight makes it easier. Same movement: lean forward, elbows to 90°."
+                },
+                "why": {
+                  "ar": "مثالي لمي ولأي حدا لسا ما بيقدر يرفع وزن جسمه كامل.",
+                  "en": "Ideal for Mai or anyone who can't yet press full body weight."
+                },
+                "videoQuery": "assisted dip machine how to",
+                "videoId": ""
+              }
             }
           ]
         },
@@ -179,17 +472,45 @@
               "id": "d1-pushdown-v",
               "name": { "ar": "كبس مثلث", "en": "Triceps pushdown (V-bar)" },
               "de": "Trizepsdrücken mit V-Griff",
-              "note": {
-                "ar": "على الكيبل من فوق، بالراسية المثلث.",
-                "en": "On the high cable, with the V-bar attachment."
-              },
-              "machine": "cable",
+              "note": { "ar": "على الكيبل من فوق، بالراسية المثلث.", "en": "On the high cable, with the V-bar attachment." },
+              "machine": "4004",
               "setup": {
-                "ar": "البكرة لفوق عالآخر وركّب الراسية المثلث (V). الكوعين لازقين بجسمك، وكبّس لتحت لحتى تنمد الإيد.",
-                "en": "Pulley at the top, attach the V-bar. Pin your elbows to your sides and push down until the arms are straight."
+                "ar": "البكرة لفوق عالآخر وركّب الراسية المثلث (V-Griff). وقفة قريبة من الجهاز، ميلة خفيفة لقدام.",
+                "en": "Pulley at the top, attach the V-bar (V-Griff). Stand close, slight forward lean."
+              },
+              "coach": {
+                "ar": [
+                  "الكوعين لازقين بجنبك وما بيتحركوا – بس الساعد بيتحرك.",
+                  "افرد الإيد عالآخر واعصر الزند الخلفي ثانية.",
+                  "الطلوع بطيء لحد ما الساعد يقرب من العضد."
+                ],
+                "en": [
+                  "Elbows pinned to your sides – only the forearms move.",
+                  "Lock out fully and squeeze for a second.",
+                  "Slow on the way up until the forearm nears the upper arm."
+                ]
+              },
+              "avoid": {
+                "ar": ["تدفش بوزن جسمك وكتافك", "الكوعين بيطلعوا لقدام"],
+                "en": ["Using body weight and shoulders to push", "Elbows drifting forward"]
               },
               "videoQuery": "triceps pushdown v bar how to",
-              "videoId": "hDVOeUv5NJk"
+              "videoId": "hDVOeUv5NJk",
+              "alt": {
+                "name": { "ar": "جهاز المتوازي الجالس", "en": "Seated dip machine" },
+                "de": "Dipmaschine",
+                "machine": "3036",
+                "setup": {
+                  "ar": "عدّل المقعد لحتى تكون المسكات تحت الكتف بشوي. ادفش لتحت لحتى تنفرد الإيد، والضهر لازق.",
+                  "en": "Set the seat so the handles are slightly below shoulder level. Press down to full lockout, back against the pad."
+                },
+                "why": {
+                  "ar": "إذا برج الكيبل مشغول: بيشتغل الزند الخلفي كله بوزن أكبر وتوازن أسهل.",
+                  "en": "If the cable tower is busy: hits all three triceps heads with heavier load and easy balance."
+                },
+                "videoQuery": "seated dip machine triceps how to",
+                "videoId": ""
+              }
             },
             {
               "id": "d1-overhead-rope",
@@ -199,13 +520,44 @@
                 "ar": "ضهرك للجهاز، الحبل ورا راسك، ومد ايديك لقدام/لفوق.",
                 "en": "Back to the machine, rope behind your head, extend your arms forward/up."
               },
-              "machine": "cable",
+              "machine": "4004",
               "setup": {
                 "ar": "ركّب الحبل والبكرة بمستوى الراس أو أعلى. دير ضهرك للجهاز، رجل لقدام، والكوعين قريبين من الراس.",
-                "en": "Attach the rope with the pulley at head height or higher. Face away from the machine, one foot forward, elbows close to your head."
+                "en": "Attach the rope with the pulley at head height or higher. Face away, one foot forward, elbows close to your head."
+              },
+              "coach": {
+                "ar": [
+                  "هاد أقوى تمرين للرأس الطويل للزند الخلفي – لأنه بيشتغل وهو ممطوط.",
+                  "خلي الكوع ثابت لقدام، وانزل لورا لحد المطّ الكامل.",
+                  "بالآخر افتح الحبل لبرا شوي."
+                ],
+                "en": [
+                  "Best exercise for the triceps' long head – it works it in the stretched position.",
+                  "Keep elbows fixed and lower behind your head to a full stretch.",
+                  "Split the rope slightly at the end."
+                ]
+              },
+              "avoid": {
+                "ar": ["الكوعين بيفتحوا لبرا كتير", "تقوّس أسفل الضهر"],
+                "en": ["Elbows flaring wide", "Arching the lower back"]
               },
               "videoQuery": "overhead cable rope triceps extension how to",
-              "videoId": "ns-RGsbzqok"
+              "videoId": "ns-RGsbzqok",
+              "alt": {
+                "name": { "ar": "جهاز الزند الخلفي فوق الراس", "en": "Overhead triceps machine" },
+                "de": "Trizeps Überkopf",
+                "machine": "3095",
+                "setup": {
+                  "ar": "عدّل المقعد لحتى يكون الكوع عند محور الجهاز. استعمل دعسة البداية، وافرد الإيدين لفوق.",
+                  "en": "Set the seat so your elbows line up with the machine's pivot. Use the start lever, then extend up."
+                },
+                "why": {
+                  "ar": "نفس المطّ للرأس الطويل، بس أثبت وأسهل تتعلمه.",
+                  "en": "Same long-head stretch, but more stable and easier to learn."
+                },
+                "videoQuery": "overhead triceps extension machine how to",
+                "videoId": ""
+              }
             },
             {
               "id": "d1-single-arm-pushdown",
@@ -215,13 +567,44 @@
                 "ar": "فك أي راسية عن الآلة، امسك الكيبل من <b>فوق</b>، والعب كل إيد لحالها – بالضبط عكس المطرقة.",
                 "en": "Remove any attachment, grab the cable itself from the <b>top</b>, and work each arm on its own – the exact opposite of the hammer curl."
               },
-              "machine": "cable",
+              "machine": "4004",
               "setup": {
                 "ar": "البكرة لفوق وبدون راسية – امسك طابة الكيبل بإيدك. الكوع ثابت جنب الخصر وكبّس لتحت.",
-                "en": "Pulley at the top, no attachment – hold the cable end in your hand. Elbow fixed at your side, push down."
+                "en": "Pulley at the top, no attachment – hold the cable end. Elbow fixed at your side, push down."
+              },
+              "coach": {
+                "ar": [
+                  "ابدأ بالإيد الأضعف، وخلي التانية تعمل نفس عدد العدات.",
+                  "لف الكف لتحت شوي بالآخر لعصرة أقوى.",
+                  "وزن خفيف وحركة نظيفة – هاد تمرين تشطيب."
+                ],
+                "en": [
+                  "Start with your weaker arm; match the reps on the other side.",
+                  "Turn the palm down slightly at the bottom for a harder squeeze.",
+                  "Light and clean – this is a finisher."
+                ]
+              },
+              "avoid": {
+                "ar": ["تلف جسمك لتساعد", "الكوع بيطلع لقدام"],
+                "en": ["Twisting your torso to help", "Elbow drifting forward"]
               },
               "videoQuery": "single arm cable triceps pushdown no handle",
-              "videoId": "a_8e4qUrxUk"
+              "videoId": "a_8e4qUrxUk",
+              "alt": {
+                "name": { "ar": "جهاز الزند الخلفي", "en": "Triceps extension machine" },
+                "de": "Trizepsmaschine",
+                "machine": "3011",
+                "setup": {
+                  "ar": "عدّل المسند والمقعد لحتى يكون الكوع عند محور الجهاز والعضد عالمخدة. افرد لتحت واعصر.",
+                  "en": "Adjust back pad and seat so your elbow is at the pivot, upper arm on the pad. Extend and squeeze."
+                },
+                "why": {
+                  "ar": "عزل كامل للزند الخلفي إذا الكيبل كله مشغول.",
+                  "en": "Full triceps isolation when every cable is taken."
+                },
+                "videoQuery": "triceps extension machine how to",
+                "videoId": ""
+              }
             }
           ]
         }
@@ -233,18 +616,33 @@
           "de": "Unterarmstütz (Plank)",
           "sets": 3,
           "reps": { "ar": "٣٠–٤٥ ث", "en": "30–45 s" },
-          "note": {
-            "ar": "البطن مشدود والحوض ما ينزل.",
-            "en": "Abs tight, don't let the hips sag."
-          },
+          "note": { "ar": "البطن مشدود والحوض ما ينزل.", "en": "Abs tight, don't let the hips sag." },
           "machine": null,
           "equipment": { "ar": "فرشة أرضية", "en": "Floor mat", "de": "Matte" },
           "setup": {
             "ar": "عالفرشة: الكوعين تحت الكتفين، والجسم خط مستقيم من الراس للكعب.",
             "en": "On a mat: elbows under shoulders, body in a straight line from head to heels."
           },
+          "coach": {
+            "ar": ["اعصري الأرداف وشدّي البطن كأنك عم تستعدي لضربة.", "تنفسي طبيعي – لا تحبسي نفسك.", "الجودة أهم من الوقت: وقفي لما يبدأ الحوض ينزل."],
+            "en": ["Squeeze the glutes and brace like you're about to take a punch.", "Breathe normally – don't hold your breath.", "Quality over time: stop when the hips start to sag."]
+          },
+          "avoid": { "ar": ["الحوض نازل أو عالي كتير", "الراس متدلي"], "en": ["Hips sagging or piked up", "Head hanging"] },
           "videoQuery": "plank proper form",
-          "videoId": "6LqqeBtFn9M"
+          "videoId": "6LqqeBtFn9M",
+          "alt": {
+            "name": { "ar": "بلانك عالركب", "en": "Knee plank" },
+            "de": "Unterarmstütz auf den Knien",
+            "machine": null,
+            "equipment": { "ar": "فرشة أرضية", "en": "Floor mat", "de": "Matte" },
+            "setup": {
+              "ar": "نفس البلانك بس الركب عالأرض. خط مستقيم من الراس للركب.",
+              "en": "Same plank with knees down. Straight line from head to knees."
+            },
+            "why": { "ar": "إذا البلانك الكامل صعب لسا – ابدئي هون وتقدّمي.", "en": "If the full plank is still too hard – start here and progress." },
+            "videoQuery": "knee plank beginner how to",
+            "videoId": "Of0YDiN9p00"
+          }
         },
         {
           "id": "mai-d1-dead-bug",
@@ -252,18 +650,33 @@
           "de": "Dead Bug",
           "sets": 3,
           "reps": { "ar": "١٠ لكل جهة", "en": "10 per side" },
-          "note": {
-            "ar": "ضهرك لازق بالأرض طول الوقت.",
-            "en": "Keep your lower back glued to the floor the whole time."
-          },
+          "note": { "ar": "ضهرك لازق بالأرض طول الوقت.", "en": "Keep your lower back glued to the floor the whole time." },
           "machine": null,
           "equipment": { "ar": "فرشة أرضية", "en": "Floor mat", "de": "Matte" },
           "setup": {
             "ar": "استلقي عالضهر، الإيدين لفوق والركب ٩٠°. مدّي إيد ورجل عكس بعض ببطء ورجعي.",
             "en": "Lie on your back, arms up and knees at 90°. Slowly extend the opposite arm and leg, then return."
           },
+          "coach": {
+            "ar": ["زفير كامل وإنتي عم تمدّي – بيشدّ البطن العميق.", "كل ما كانت الحركة أبطأ كل ما كانت أصعب وأفيد."],
+            "en": ["Exhale fully as you extend – it switches on the deep core.", "The slower you go, the harder and better it is."]
+          },
+          "avoid": { "ar": ["الضهر بيتقوّس عن الأرض", "سرعة بالحركة"], "en": ["Lower back arching off the floor", "Rushing the reps"] },
           "videoQuery": "dead bug exercise how to",
-          "videoId": "GbSC02oU3To"
+          "videoId": "GbSC02oU3To",
+          "alt": {
+            "name": { "ar": "بيرد دوغ", "en": "Bird dog" },
+            "de": "Vierfüßlerstand diagonal",
+            "machine": null,
+            "equipment": { "ar": "فرشة أرضية", "en": "Floor mat", "de": "Matte" },
+            "setup": {
+              "ar": "عالإيدين والركب: مدّي إيد ورجل عكس بعض لحد ما يصيروا خط مستقيم، وقفي ثانيتين ورجعي.",
+              "en": "On hands and knees: extend the opposite arm and leg into a straight line, hold 2 seconds, return."
+            },
+            "why": { "ar": "نفس تثبيت البطن والضهر، إذا الاستلقاء مزعج.", "en": "Same core and back stability if lying on your back is uncomfortable." },
+            "videoQuery": "bird dog exercise how to",
+            "videoId": "xEDnlOxeJH4"
+          }
         },
         {
           "id": "mai-d1-treadmill",
@@ -271,18 +684,33 @@
           "de": "Laufband mit Steigung",
           "sets": 1,
           "reps": { "ar": "١٥–٢٠ دقيقة", "en": "15–20 min" },
-          "note": {
-            "ar": "بآخر التمرين – بيساعد بالتنشيف.",
-            "en": "At the end of the workout – helps with fat loss."
-          },
+          "note": { "ar": "بآخر التمرين – بيساعد بالتنشيف.", "en": "At the end of the workout – helps with fat loss." },
           "machine": null,
-          "equipment": { "ar": "مشاية", "en": "Treadmill", "de": "Laufband" },
+          "equipment": { "ar": "مشاية (Precor / Matrix)", "en": "Treadmill (Precor / Matrix)", "de": "Laufband" },
           "setup": {
-            "ar": "ارفعي الميلان (Steigung) وامشي بسرعة مريحة بدون ما تمسكي الدرابزين.",
-            "en": "Raise the incline (Steigung) and walk at a comfortable pace without holding the rails."
+            "ar": "ارفعي الميلان (Steigung) لـ ٨–١٢٪ وامشي ٤.٥–٥.٥ كم/س بدون ما تمسكي الدرابزين.",
+            "en": "Set the incline (Steigung) to 8–12% and walk 4.5–5.5 km/h without holding the rails."
           },
+          "coach": {
+            "ar": ["لازم تقدري تحكي جمل قصيرة – هاد الجهد الصح لحرق الدهون.", "إذا مسكتي الدرابزين، خففي الميلان بدل ما تتعلقي."],
+            "en": ["You should be able to speak in short sentences – that's the right effort for fat burning.", "If you need the rails, lower the incline instead of hanging on."]
+          },
+          "avoid": { "ar": ["تتعلقي بالدرابزين", "سرعة عالية مع ميلان عالي من أول دقيقة"], "en": ["Hanging on the rails", "High speed and high incline from minute one"] },
           "videoQuery": "incline treadmill walking",
-          "videoId": "MJ1Jdu1QTUk"
+          "videoId": "MJ1Jdu1QTUk",
+          "alt": {
+            "name": { "ar": "جهاز الدرج (Stairmaster)", "en": "Stair climber" },
+            "de": "Stairmaster / Treppensteiger",
+            "machine": null,
+            "equipment": { "ar": "جهاز الدرج", "en": "Stair climber", "de": "Stairmaster" },
+            "setup": {
+              "ar": "ابدئي بسرعة بطيئة (مستوى ٤–٦)، اطلعي بكامل الرجل والجسم مستقيم.",
+              "en": "Start slow (level 4–6), step with your whole foot and stay upright."
+            },
+            "why": { "ar": "Gold's Krefeld فيه Stairmaster وClimb Mill – نفس الهدف وشغل أكتر للأرداف.", "en": "Gold's Krefeld has Stairmaster and Climb Mill – same goal, more glute work." },
+            "videoQuery": "stairmaster how to use proper form",
+            "videoId": "GMc8fUksKpY"
+          }
         }
       ]
     },
@@ -300,13 +728,44 @@
               "id": "d2-lat-wide",
               "name": { "ar": "سحب أمامي واسع", "en": "Wide-grip lat pulldown" },
               "de": "Latzug breit",
-              "machine": "lat",
+              "machine": "3020",
               "setup": {
-                "ar": "ثبّت سندة الفخاد فوق رجليك. مسكة واسعة (أوسع من الكتفين) واسحب البار لأعلى الصدر.",
-                "en": "Lock the thigh pad over your legs. Wide grip (wider than shoulders) and pull the bar to your upper chest."
+                "ar": "عدّل المقعد لحتى تثبّت رجليك تحت المخدة (Stabilisationselement). مسكة أوسع من الكتف شوي.",
+                "en": "Set the seat so your thighs lock under the pad (Stabilisationselement). Grip slightly wider than your shoulders."
+              },
+              "coach": {
+                "ar": [
+                  "ابدأ الحركة بإنك تنزّل الكتف لتحت، بعدين اسحب الكوعين لجنب جسمك.",
+                  "اسحب لأعلى الصدر وارفع صدرك لعند الإيدين.",
+                  "فوق: خلي الضهر ينمطّ كامل قبل العدة الجاية."
+                ],
+                "en": [
+                  "Start each rep by pulling your shoulders down, then drive the elbows to your sides.",
+                  "Pull to the upper chest and lift your chest toward your hands.",
+                  "At the top, let the lats stretch fully before the next rep."
+                ]
+              },
+              "avoid": {
+                "ar": ["تميل لورا كتير وتتمرجح", "تسحب ورا الراس"],
+                "en": ["Leaning far back and swinging", "Pulling behind the neck"]
               },
               "videoQuery": "wide grip lat pulldown how to",
-              "videoId": "lueEJGjTuPQ"
+              "videoId": "lueEJGjTuPQ",
+              "alt": {
+                "name": { "ar": "سحب أمامي بالأقراص (Pure Kraft)", "en": "Plate-loaded lat pulldown" },
+                "de": "Pure Kraft Rückenzugmaschine Dual",
+                "machine": "4311",
+                "setup": {
+                  "ar": "ثبّت الفخاد تحت المخدة. المسكات بتتحرك مع إيدك – اسحب الكوعين لتحت ولورا.",
+                  "en": "Lock your thighs under the pad. The handles move with you – drive the elbows down and back."
+                },
+                "why": {
+                  "ar": "نفس العضلة، وكل إيد لحالها – ممتاز إذا جهة أضعف.",
+                  "en": "Same muscle, each side independent – great if one side is weaker."
+                },
+                "videoQuery": "plate loaded lat pulldown how to",
+                "videoId": ""
+              }
             },
             {
               "id": "d2-tbar-row",
@@ -316,39 +775,126 @@
                 "ar": "إذا في آلة بتسند بطنك عليها، أحسن بمليون مرة من الحر – كرمال ضهرك ما يوجعك لما تزيد وزن.",
                 "en": "If there's a machine with a pad to lean on, it's a million times better than the free version – so your back doesn't hurt when you add weight."
               },
-              "machine": "tbar",
+              "machine": "4018",
               "setup": {
-                "ar": "اسند صدرك عالسندة ورجليك عالدعسات. اسحب المسكات لجنب بطنك وضم لوحين الكتف.",
-                "en": "Chest on the pad, feet on the plates. Pull the handles toward your belly and squeeze the shoulder blades."
+                "ar": "هاد جهاز gym80 4018 – فيه سندة صدر ودعسة مايلة. اسند صدرك، رجليك عالدعسة، واختار مسكة واسعة (ضهر علوي) أو ضيقة (لاتس).",
+                "en": "This is the gym80 4018 – it has a chest pad and an angled foot platform. Chest on the pad, feet on the platform, choose the wide grip (upper back) or the narrow grip (lats)."
+              },
+              "coach": {
+                "ar": [
+                  "اسحب الكوعين لورا وضم لوحين الكتف بالآخر.",
+                  "الصدر ما بيترك السندة أبداً.",
+                  "نزّل لحد ما الكتف ينمطّ لقدام – بس بتحكّم."
+                ],
+                "en": [
+                  "Drive the elbows back and squeeze the shoulder blades at the top.",
+                  "Your chest never leaves the pad.",
+                  "Lower until the shoulders reach forward – under control."
+                ]
+              },
+              "avoid": {
+                "ar": ["ترفع صدرك عن السندة لترفع وزن أكبر", "تهز رقبتك لفوق"],
+                "en": ["Lifting your chest off the pad to move more weight", "Jerking your neck up"]
               },
               "videoQuery": "chest supported t bar row machine how to",
-              "videoId": "TyLoy3n_a10"
+              "videoId": "TyLoy3n_a10",
+              "alt": {
+                "name": { "ar": "تجديف بسندة صدر (Power Row)", "en": "Chest-supported power row" },
+                "de": "Pure Kraft Power Row Dual",
+                "machine": "4327",
+                "setup": {
+                  "ar": "عدّل سندة الصدر لحتى توصل للمسكات وإيدك ممدودة. اسحب لجنب البطن.",
+                  "en": "Set the chest pad so you reach the handles with straight arms. Row toward your lower ribs."
+                },
+                "why": {
+                  "ar": "نفس الفكرة: صدر مسنود وضهر مرتاح، وكل إيد لحالها.",
+                  "en": "Same idea: chest supported, lower back spared, each arm independent."
+                },
+                "videoQuery": "chest supported row machine how to",
+                "videoId": ""
+              }
             },
             {
               "id": "d2-lat-close",
               "name": { "ar": "سحب أمامي بقبضة ضيقة", "en": "Close-grip lat pulldown" },
               "de": "Latzug eng",
               "note": { "ar": "بأي قبضة ضيقة.", "en": "With any close-grip handle." },
-              "machine": "lat",
+              "machine": "4116",
               "setup": {
-                "ar": "بدّل البار بقبضة ضيقة (مثلث أو بار قصير). نفس الجلسة، واسحب لأعلى الصدر والكوعين لتحت.",
-                "en": "Swap the bar for a close-grip handle (V-handle or short bar). Same seat setup; pull to the upper chest, elbows down."
+                "ar": "على محطة السحب بالكيبل: ركّب المسكة الضيقة (V أو المحايدة). ثبّت رجليك تحت المخدة.",
+                "en": "On the cable pull station: attach the close-grip (V or neutral) handle. Lock your legs under the pad."
+              },
+              "coach": {
+                "ar": [
+                  "اسحب لعند أسفل الصدر والكوعين لازقين قريب من الجسم.",
+                  "المسكة الضيقة بتعطي مدى أطول – استغله كامل.",
+                  "طلّع الصدر لفوق وإنت عم تسحب."
+                ],
+                "en": [
+                  "Pull to the lower chest with elbows close to your body.",
+                  "The close grip gives a longer range – use all of it.",
+                  "Lift your chest as you pull."
+                ]
+              },
+              "avoid": {
+                "ar": ["تسحب بالإيدين بدل الكوع", "تقصّر المدى فوق"],
+                "en": ["Pulling with the hands instead of the elbows", "Cutting the stretch short at the top"]
               },
               "videoQuery": "close grip lat pulldown how to",
-              "videoId": "8hzVLzu-RJk"
+              "videoId": "8hzVLzu-RJk",
+              "alt": {
+                "name": { "ar": "سحب ضيق على جهاز السحب", "en": "Close grip on the pulldown machine" },
+                "de": "Rückenzugmaschine – enger Griff",
+                "machine": "3020",
+                "setup": {
+                  "ar": "نفس جهاز السحب الأمامي بس امسك المسكات الضيقة/المحايدة.",
+                  "en": "Same lat pulldown machine, using the narrow/neutral handles."
+                },
+                "why": { "ar": "إذا محطة الكيبل مشغولة.", "en": "When the cable station is busy." },
+                "videoQuery": "close grip lat pulldown machine",
+                "videoId": "8hzVLzu-RJk"
+              }
             },
             {
               "id": "d2-cable-row",
               "name": { "ar": "سحب أرضي", "en": "Seated cable row" },
               "de": "Rudern am Kabelzug",
               "note": { "ar": "آخر تمرين ضهر.", "en": "Last back exercise." },
-              "machine": "row",
+              "machine": "4016",
               "setup": {
-                "ar": "رجليك عالدعسات والركب مثنية شوي. ضهرك مستقيم، واسحب المسكة لبطنك بدون ما تتمرجح.",
-                "en": "Feet on the plates, knees slightly bent. Back straight, pull the handle to your stomach without swinging."
+                "ar": "رجليك عالدعسة الكبيرة والركب مثنية شوي. مسكة V أو المسكة الواسعة. ضهرك مستقيم.",
+                "en": "Feet on the large footplate, knees slightly bent. V-handle or wide bar. Back straight."
+              },
+              "coach": {
+                "ar": [
+                  "اسحب لعند السرة، وافتح الصدر بالآخر.",
+                  "خلّي الكتف ينمطّ لقدام بالرجعة – بس ضهرك بيضل مستقيم.",
+                  "الجذع ثابت تقريباً – ميلة ١٠° بالكتير."
+                ],
+                "en": [
+                  "Row to your belly button and open the chest at the end.",
+                  "Let the shoulders reach forward on the return – spine stays neutral.",
+                  "Torso nearly still – 10° of lean at most."
+                ]
+              },
+              "avoid": {
+                "ar": ["تتمرجح لورا ولقدام", "تدوّر الضهر بالرجعة"],
+                "en": ["Rocking back and forth", "Rounding your back on the return"]
               },
               "videoQuery": "seated cable row how to",
-              "videoId": "vwHG9Jfu4sw"
+              "videoId": "vwHG9Jfu4sw",
+              "alt": {
+                "name": { "ar": "تجديف جالس بالأقراص", "en": "Plate-loaded seated row" },
+                "de": "Pure Kraft Rudermaschine sitzend Dual",
+                "machine": "4322",
+                "setup": {
+                  "ar": "عدّل سندة الصدر والمقعد، المسكات بتدور مع إيدك. اسحب لجنب الصدر السفلي.",
+                  "en": "Adjust chest pad and seat; the handles rotate freely. Row to the lower chest."
+                },
+                "why": { "ar": "مسنود من الصدر – أريح لأسفل الضهر بآخر التمرين.", "en": "Chest-supported – easier on the lower back at the end of the session." },
+                "videoQuery": "seated row machine how to",
+                "videoId": ""
+              }
             }
           ]
         },
@@ -359,17 +905,43 @@
               "id": "d2-concentration-curl",
               "name": { "ar": "مركّز", "en": "Concentration curl" },
               "de": "Konzentrationscurls",
-              "note": {
-                "ar": "على الماشين إذا موجودة، وإذا لا بالدنبل الحر.",
-                "en": "On the machine if there is one, otherwise with a free dumbbell."
-              },
-              "machine": "bic",
+              "note": { "ar": "على الماشين إذا موجودة، وإذا لا بالدنبل الحر.", "en": "On the machine if there is one, otherwise with a free dumbbell." },
+              "machine": "3098",
               "setup": {
-                "ar": "عدّل المقعد لحتى يرتاح العضد كامل عالسندة والكوع عند محور الجهاز. اطلع وانزل ببطء.",
-                "en": "Adjust the seat so your upper arms rest fully on the pad with elbows at the machine's pivot. Curl up and lower slowly."
+                "ar": "عدّل المقعد لحتى يرتاح العضد كامل عالسندة والكوع عند محور الجهاز. عدّل عرض سندة العضد على قدّك.",
+                "en": "Set the seat so your upper arms rest fully on the pad with elbows at the pivot. Adjust the arm-pad width to fit you."
               },
-              "videoQuery": "machine concentration curl how to",
-              "videoId": "ZcU2hN76UyA"
+              "coach": {
+                "ar": [
+                  "الكوع ما بيترك السندة – بس الساعد بيتحرك.",
+                  "اعصر فوق ثانية، ونزّل بثلاث ثواني لحد ما تنفرد الإيد تقريباً.",
+                  "إذا بلشت تهز كتفك، الوزن تقيل."
+                ],
+                "en": [
+                  "Elbows stay on the pad – only the forearms move.",
+                  "Squeeze for a second at the top, lower in three seconds to almost straight.",
+                  "If your shoulders start helping, it's too heavy."
+                ]
+              },
+              "avoid": {
+                "ar": ["ما تفرد الإيد بالآخر (نص مدى)", "ترفع الكوع عن السندة"],
+                "en": ["Half reps without straightening the arm", "Lifting the elbows off the pad"]
+              },
+              "videoQuery": "biceps curl machine how to",
+              "videoId": "",
+              "alt": {
+                "name": { "ar": "مركّز بالدنبل", "en": "Dumbbell concentration curl" },
+                "de": "Konzentrationscurl mit Kurzhantel",
+                "machine": null,
+                "equipment": { "ar": "دنبل + مقعد", "en": "Dumbbell + bench", "de": "Kurzhantel + Bank" },
+                "setup": {
+                  "ar": "اقعد عالمقعد، الكوع جوا الفخد، والإيد التانية عالركبة. اطلع ونزل ببطء.",
+                  "en": "Sit on a bench, elbow against the inner thigh, other hand on your knee. Curl up and lower slowly."
+                },
+                "why": { "ar": "خيار غيث نفسه إذا الماشين مشغولة.", "en": "Ghaith's own fallback if the machine is busy." },
+                "videoQuery": "dumbbell concentration curl how to",
+                "videoId": "ZcU2hN76UyA"
+              }
             },
             {
               "id": "d2-incline-curl",
@@ -382,11 +954,39 @@
               "machine": null,
               "equipment": { "ar": "مقعد مائل + دنابل", "en": "Incline bench + dumbbells", "de": "Schrägbank + Kurzhanteln" },
               "setup": {
-                "ar": "ميّل المقعد لورا (١٢٠–١٣٠°)، اسند ضهرك وراسك، وخلي الإيدين نازلين لورا شوي.",
-                "en": "Recline the bench (120–130°), rest your back and head, and let your arms hang slightly behind you."
+                "ar": "ميّل المقعد لورا (١٢٠–١٣٠° = تقريباً ٤٥–٦٠° عن الأرض)، اسند ضهرك وراسك، وخلي الإيدين نازلين لورا شوي.",
+                "en": "Recline the bench (120–130°, about 45–60° from the floor), rest your back and head, arms hanging slightly behind you."
+              },
+              "coach": {
+                "ar": [
+                  "هالتمرين بيشتغل الزند وهو ممطوط – من أقوى التمارين للنمو حسب الدراسات الحديثة.",
+                  "الكف لفوق طول الوقت، ولا تقدّم الكوع.",
+                  "وزن أخف من العادي – المطّ بيصعّبه."
+                ],
+                "en": [
+                  "This trains the biceps in a stretched position – one of the best for growth according to recent studies.",
+                  "Palms up throughout, and don't let the elbows travel forward.",
+                  "Use less weight than usual – the stretch makes it harder."
+                ]
+              },
+              "avoid": {
+                "ar": ["تشيل كتافك عن المقعد", "تقدّم الكوع لقدام بالطلعة"],
+                "en": ["Lifting your shoulders off the bench", "Swinging the elbows forward on the way up"]
               },
               "videoQuery": "incline dumbbell curl how to",
-              "videoId": "HhHHBj3qTJ4"
+              "videoId": "HhHHBj3qTJ4",
+              "alt": {
+                "name": { "ar": "جمع كيبل من ورا (Bayesian)", "en": "Bayesian cable curl" },
+                "de": "Bayesian Curl am Kabelzug",
+                "machine": "4004",
+                "setup": {
+                  "ar": "البكرة لتحت، ضهرك للجهاز، خطوة لقدام. الإيد بتبدأ ورا جسمك وبتطلع لقدام والكوع ثابت.",
+                  "en": "Pulley low, back to the machine, step forward. The hand starts behind your body and curls forward with the elbow fixed."
+                },
+                "why": { "ar": "نفس المطّ للزند الأمامي إذا ما في مقعد فاضي.", "en": "Same biceps stretch when no incline bench is free." },
+                "videoQuery": "bayesian cable curl how to",
+                "videoId": "4O24gFksZ04"
+              }
             },
             {
               "id": "d2-cable-hammer",
@@ -396,13 +996,31 @@
                 "ar": "أفضل من الدنابل لأنها بتطبق ضغط سلبي وإيجابي. فك أي راسية عن الآلة من <b>تحت</b>، واسحب الكيبل بإيدك لحالها متل المطرقة العادية.",
                 "en": "Better than dumbbells because it loads both the negative and the positive. Remove any attachment from the <b>bottom</b> pulley and pull the cable with your bare hand like a normal hammer curl."
               },
-              "machine": "cable",
+              "machine": "4004",
               "setup": {
                 "ar": "البكرة لتحت عالآخر وبدون راسية – امسك طابة الكيبل. الكوع ثابت جنب الخصر والكف باتجاه جسمك.",
-                "en": "Pulley at the bottom, no attachment – hold the cable end. Elbow fixed at your side, palm facing inward."
+                "en": "Pulley at the bottom, no attachment – hold the cable end. Elbow fixed at your side, palm facing in."
               },
+              "coach": {
+                "ar": ["هاد بيشتغل عضلة الساعد والبراكيالس – بيعرّض الزند من الجنب.", "اطلع لحد الكتف تقريباً ونزّل ببطء."],
+                "en": ["This hits the brachialis and forearm – it widens the arm from the side.", "Curl to about shoulder height and lower slowly."]
+              },
+              "avoid": { "ar": ["تلف الرسغ", "تهز جسمك"], "en": ["Twisting the wrist", "Swinging your body"] },
               "videoQuery": "single arm cable hammer curl no handle",
-              "videoId": "loA-V9N2qc0"
+              "videoId": "loA-V9N2qc0",
+              "alt": {
+                "name": { "ar": "مطرقة بالدنابل", "en": "Dumbbell hammer curl" },
+                "de": "Hammercurls mit Kurzhanteln",
+                "machine": null,
+                "equipment": { "ar": "دنابل", "en": "Dumbbells", "de": "Kurzhanteln" },
+                "setup": {
+                  "ar": "دنبل بكل إيد والكف لجوا. اطلع إيد إيد والكوع لازق بجنبك.",
+                  "en": "A dumbbell in each hand, palms in. Curl one arm at a time, elbow at your side."
+                },
+                "why": { "ar": "إذا كل الكيبلات مشغولة – نفس العضلة.", "en": "When every cable is busy – same muscle." },
+                "videoQuery": "dumbbell hammer curl proper form",
+                "videoId": "OPqe0kCxmR8"
+              }
             }
           ]
         }
@@ -419,13 +1037,30 @@
             "en": "Slow movement, don't over-arch backwards. The most important exercise for posture."
           },
           "machine": null,
-          "equipment": { "ar": "مقعد تمديد الضهر", "en": "Hyperextension bench", "de": "Rückenstrecker / Hyperextension-Bank" },
+          "equipment": { "ar": "مقعد تمديد الضهر ٤٥°", "en": "45° hyperextension bench", "de": "Hyperextension-Bank" },
           "setup": {
             "ar": "عدّلي السندة لتكون تحت عضمة الحوض مباشرة، وثبّتي الكعبين. انزلي وارجعي لحتى الجسم خط مستقيم.",
             "en": "Set the pad just below your hip bones and lock your heels. Lower and come back up until your body is a straight line."
           },
+          "coach": {
+            "ar": ["اطلعي بعصرة الأرداف، مو بتقويس الضهر.", "الإيدين عالصدر – لما يصير سهل، امسكي قرص صغير."],
+            "en": ["Come up by squeezing the glutes, not by arching the back.", "Arms across the chest – hold a small plate when it gets easy."]
+          },
+          "avoid": { "ar": ["تطلعي أعلى من خط الجسم", "سرعة ونطّ"], "en": ["Rising past a straight line", "Bouncing fast"] },
           "videoQuery": "back extension hyperextension proper form",
-          "videoId": "H8Swl1N-uis"
+          "videoId": "H8Swl1N-uis",
+          "alt": {
+            "name": { "ar": "جهاز تمديد الضهر", "en": "Lower back machine" },
+            "de": "Rückenstrecker",
+            "machine": "3007",
+            "setup": {
+              "ar": "عدّلي سندة الضهر (٩ درجات) لتكون على نص الضهر، والرجلين عالدعسة. ادفشي لورا ببطء لحد ما يستقيم الجسم.",
+              "en": "Set the back pad (9 positions) to mid-back, feet on the footrest. Push back slowly until upright."
+            },
+            "why": { "ar": "أسهل وأأمن إذا المقعد مشغول أو صعب عليكي.", "en": "Easier and safer if the bench is busy or too hard." },
+            "videoQuery": "lower back extension machine how to",
+            "videoId": ""
+          }
         },
         {
           "id": "mai-d2-face-pull",
@@ -433,17 +1068,31 @@
           "de": "Face Pull am Kabelzug",
           "sets": 3,
           "reps": { "ar": "١٥", "en": "15" },
-          "note": {
-            "ar": "بيفتح الكتفين لورا ويصلح الانحناء لقدام.",
-            "en": "Opens the shoulders back and fixes forward slouching."
-          },
-          "machine": "cable",
+          "note": { "ar": "بيفتح الكتفين لورا ويصلح الانحناء لقدام.", "en": "Opens the shoulders back and fixes forward slouching." },
+          "machine": "4004",
           "setup": {
             "ar": "ركّبي الحبل والبكرة بمستوى الوجه. اسحبي الحبل لجهة الجبين والكوعين عاليين ومفتوحين.",
             "en": "Attach the rope with the pulley at face height. Pull the rope toward your forehead with elbows high and wide."
           },
+          "coach": {
+            "ar": ["بالآخر لفّي الإيدين لورا (متل وضعية العضلات) – هاد بيشتغل الكتف الخلفي والدوّارة.", "وزن خفيف – هاد تمرين قوام مو قوة."],
+            "en": ["At the end rotate your hands back (like a double-biceps pose) – this hits the rear delts and rotator cuff.", "Keep it light – this is a posture exercise, not a strength one."]
+          },
+          "avoid": { "ar": ["تسحبي لعند الرقبة", "تميلي لورا بجسمك"], "en": ["Pulling to the neck", "Leaning back with your body"] },
           "videoQuery": "face pull cable how to",
-          "videoId": "3pToT5_DUiY"
+          "videoId": "3pToT5_DUiY",
+          "alt": {
+            "name": { "ar": "فراشة عكسي", "en": "Reverse fly machine" },
+            "de": "Butterfly Reverse",
+            "machine": "3025",
+            "setup": {
+              "ar": "اقعدي ووجهك للجهاز، المسكات بمستوى الكتف. افتحي لورا والكوع مثني شوي.",
+              "en": "Sit facing the machine, handles at shoulder height. Open backwards with slightly bent elbows."
+            },
+            "why": { "ar": "نفس العضلات الخلفية إذا الكيبل مشغول.", "en": "Same rear muscles if the cable is busy." },
+            "videoQuery": "reverse pec deck machine how to",
+            "videoId": "JL8nHvZcAK8"
+          }
         },
         {
           "id": "mai-d2-treadmill",
@@ -452,13 +1101,31 @@
           "sets": 1,
           "reps": { "ar": "١٥–٢٠ دقيقة", "en": "15–20 min" },
           "machine": null,
-          "equipment": { "ar": "مشاية", "en": "Treadmill", "de": "Laufband" },
+          "equipment": { "ar": "مشاية (Precor / Matrix)", "en": "Treadmill (Precor / Matrix)", "de": "Laufband" },
           "setup": {
-            "ar": "ارفعي الميلان (Steigung) وامشي بسرعة مريحة بدون ما تمسكي الدرابزين.",
-            "en": "Raise the incline (Steigung) and walk at a comfortable pace without holding the rails."
+            "ar": "ارفعي الميلان (Steigung) لـ ٨–١٢٪ وامشي ٤.٥–٥.٥ كم/س بدون ما تمسكي الدرابزين.",
+            "en": "Set the incline (Steigung) to 8–12% and walk 4.5–5.5 km/h without holding the rails."
           },
+          "coach": {
+            "ar": ["لازم تقدري تحكي جمل قصيرة – هاد الجهد الصح.", "زيدي دقيقة كل أسبوع لحد ٢٠."],
+            "en": ["You should be able to speak in short sentences – that's the right effort.", "Add a minute each week up to 20."]
+          },
+          "avoid": { "ar": ["تتعلقي بالدرابزين"], "en": ["Hanging on the rails"] },
           "videoQuery": "incline treadmill walking",
-          "videoId": "MJ1Jdu1QTUk"
+          "videoId": "MJ1Jdu1QTUk",
+          "alt": {
+            "name": { "ar": "جهاز الدرج (Stairmaster)", "en": "Stair climber" },
+            "de": "Stairmaster / Treppensteiger",
+            "machine": null,
+            "equipment": { "ar": "جهاز الدرج", "en": "Stair climber", "de": "Stairmaster" },
+            "setup": {
+              "ar": "ابدئي بسرعة بطيئة (مستوى ٤–٦)، اطلعي بكامل الرجل والجسم مستقيم.",
+              "en": "Start slow (level 4–6), step with your whole foot and stay upright."
+            },
+            "why": { "ar": "نفس الهدف وشغل أكتر للأرداف.", "en": "Same goal, more glute work." },
+            "videoQuery": "stairmaster how to use proper form",
+            "videoId": "GMc8fUksKpY"
+          }
         }
       ]
     },
@@ -476,54 +1143,163 @@
               "id": "d3-leg-extension",
               "name": { "ar": "رد أمامي", "en": "Leg extension" },
               "de": "Beinstrecker",
-              "machine": "legext",
+              "machine": "3001",
               "setup": {
-                "ar": "عدّل المسند لحتى تكون الركبة عند محور الجهاز، والسندة فوق الكاحل. مد الرجلين وانزل ببطء.",
-                "en": "Adjust the backrest so your knees line up with the pivot and the roller sits just above the ankles. Extend and lower slowly."
+                "ar": "عدّل المسند (٧ درجات) لحتى تكون الركبة عند محور الجهاز (النقطة الحمرا/المحور). مخدة الرجل (٩ درجات) فوق الكاحل مباشرة. امسك المسكات الجانبية.",
+                "en": "Set the backrest (7 positions) so your knee lines up with the pivot. Foot pad (9 positions) just above the ankle. Hold the side handles."
+              },
+              "coach": {
+                "ar": [
+                  "هاد أول تمرين – عملو جولة إحماء خفيفة (١٥ عدة) قبل الجولات الحقيقية.",
+                  "وقفة ثانية فوق واعصر الفخد، ونزّل لآخر المدى ببطء – الجزء المثني هو الأهم للنمو.",
+                  "اسند ضهرك ميلة لورا شوي – بتشتغل عضلة الفخد المستقيمة أكتر."
+                ],
+                "en": [
+                  "First exercise – do one light warm-up set (15 reps) before the working sets.",
+                  "Pause and squeeze at the top, lower slowly to full bend – the bent-knee part matters most for growth.",
+                  "Recline the back pad slightly – it works the rectus femoris more."
+                ]
+              },
+              "avoid": {
+                "ar": ["ترفع حوضك عن المقعد", "ترمي الوزن لفوق بسرعة"],
+                "en": ["Lifting your hips off the seat", "Kicking the weight up fast"]
               },
               "videoQuery": "leg extension machine how to",
-              "videoId": "swZQC689o9U"
+              "videoId": "swZQC689o9U",
+              "alt": {
+                "name": { "ar": "رد أمامي بالأقراص (Pure Kraft)", "en": "Plate-loaded leg extension" },
+                "de": "Pure Kraft Beinstrecker",
+                "machine": "4336N",
+                "setup": {
+                  "ar": "نفس الضبط: الركبة عند المحور والمخدة فوق الكاحل. الجهاز فيه آلية بتلحق قوة الفخد.",
+                  "en": "Same setup: knee at the pivot, pad above the ankle. Its linkage follows your strength curve."
+                },
+                "why": { "ar": "نفس التمرين إذا الأول مشغول.", "en": "Same exercise if the first one is taken." },
+                "videoQuery": "plate loaded leg extension how to",
+                "videoId": ""
+              }
             },
             {
               "id": "d3-leg-press",
               "name": { "ar": "دفّاش", "en": "Leg press" },
               "de": "Beinpresse",
-              "machine": "legpress",
+              "machine": "3031",
               "setup": {
-                "ar": "الرجلين بعرض الكتفين بنص الدعسة. انزل لحتى الركبة ٩٠° تقريباً وأسفل الضهر لازق بالمقعد، وما تقفل الركبة فوق.",
-                "en": "Feet shoulder-width in the middle of the platform. Lower to about 90° at the knee with your lower back on the seat; don't lock the knees at the top."
+                "ar": "عدّل وضعية المقعد لحتى تكون الركبة ٩٠° أو أكتر بالبداية. الرجلين بعرض الكتف بنص الدعسة. فك قفل الأمان (Ablageposition) قبل أول عدة.",
+                "en": "Adjust the seat so your knees start at 90° or deeper. Feet shoulder-width in the middle of the plate. Release the safety/start position before the first rep."
+              },
+              "coach": {
+                "ar": [
+                  "انزل لأعمق نقطة بتقدر فيها تخلي أسفل ضهرك لازق بالمقعد.",
+                  "ادفش من نص الرجل والكعب، والركب بنفس اتجاه أصابع الرجل.",
+                  "رجلين أعلى عالدعسة = أرداف أكتر، أوطى = فخد أمامي أكتر."
+                ],
+                "en": [
+                  "Go as deep as you can while your lower back stays glued to the seat.",
+                  "Push through mid-foot and heel, knees tracking over the toes.",
+                  "Feet higher on the plate = more glutes; lower = more quads."
+                ]
+              },
+              "avoid": {
+                "ar": ["تقفل الركبة فوق", "أسفل الضهر بيرتفع عن المقعد بالنزلة"],
+                "en": ["Locking the knees at the top", "Lower back lifting off the seat at the bottom"]
               },
               "videoQuery": "leg press machine how to",
-              "videoId": "p5dCqF7wWUw"
+              "videoId": "p5dCqF7wWUw",
+              "alt": {
+                "name": { "ar": "دفّاش جالس", "en": "Seated leg press" },
+                "de": "Beinpresse sitzend",
+                "machine": "3030",
+                "setup": {
+                  "ar": "عدّل المقعد وزاوية المسند. نفس القواعد: عمق مع ضهر لازق، وبدون قفل الركبة.",
+                  "en": "Adjust seat and back angle. Same rules: depth with your back flat, no knee lockout."
+                },
+                "why": { "ar": "نفس الحركة على جهاز تاني إذا الأول مشغول.", "en": "Same movement on another machine when the first is busy." },
+                "videoQuery": "seated leg press machine how to",
+                "videoId": ""
+              }
             },
             {
               "id": "d3-leg-curl",
               "name": { "ar": "رد خلفي", "en": "Leg curl" },
-              "de": "Beinbeuger",
-              "machine": "legcurl",
+              "de": "Beinbeuger sitzend",
+              "machine": "3003",
               "setup": {
-                "ar": "الركبة عند محور الجهاز، والسندة فوق الكعب من ورا. ثبّت سندة الفخاد واسحب لتحت/لورا ببطء.",
-                "en": "Knees at the pivot, roller just above the heels. Lock the thigh pad and curl slowly."
+                "ar": "عدّل المسند (٧ درجات) لحتى تكون الركبة عند المحور. مخدة الرجل (٩ درجات) فوق الكعب من ورا، ونزّل مخدة الفخد لتثبّتك منيح.",
+                "en": "Set the backrest (7 positions) so your knee is at the pivot. Foot pad (9 positions) just above the heels, and lower the thigh pad to lock you in."
               },
-              "videoQuery": "leg curl machine how to",
-              "videoId": "t9sTSr-JYSs"
+              "coach": {
+                "ar": [
+                  "اخترنا الجالس لأن الدراسات (Maeo 2021) لقت إنه بيكبّر عضلة الفخد الخلفية أكتر من المنبطح – لأنه بيشتغلها وهي ممطوطة.",
+                  "اسحب لتحت لآخر نقطة، وارجع ببطء ٣ ثواني.",
+                  "اميل لقدام شوي من الورك – بيزيد المطّ."
+                ],
+                "en": [
+                  "We chose seated because research (Maeo 2021) found it grows the hamstrings more than lying curls – it trains them at a longer length.",
+                  "Curl all the way down, return slowly over 3 seconds.",
+                  "Lean forward slightly from the hips – it increases the stretch."
+                ]
+              },
+              "avoid": {
+                "ar": ["مخدة الفخد مرخية فبتتحرك", "ترجّع الوزن بسرعة"],
+                "en": ["Loose thigh pad letting you shift", "Letting the weight snap back"]
+              },
+              "videoQuery": "seated leg curl machine how to",
+              "videoId": "t9sTSr-JYSs",
+              "alt": {
+                "name": { "ar": "رد خلفي منبطح", "en": "Lying leg curl" },
+                "de": "Beinbeuger liegend",
+                "machine": "3002",
+                "setup": {
+                  "ar": "انبطح والركبة تحت المحور مباشرة، المخدة فوق الكعب. الحوض لازق بالمقعد.",
+                  "en": "Lie face down with the knee just below the pivot, pad above the heels. Keep your hips down."
+                },
+                "why": { "ar": "نفس العضلة إذا الجالس مشغول.", "en": "Same muscle if the seated one is busy." },
+                "videoQuery": "lying leg curl machine how to",
+                "videoId": ""
+              }
             },
             {
               "id": "d3-squat",
               "name": { "ar": "بطة", "en": "Squat" },
               "de": "Kniebeuge",
-              "note": {
-                "ar": "حر أو على جهاز السميث (Multipresse).",
-                "en": "Free or on the Smith machine (Multipresse)."
-              },
+              "note": { "ar": "حر أو على جهاز السميث (Multipresse).", "en": "Free or on the Smith machine (Multipresse)." },
               "machine": null,
-              "equipment": { "ar": "بار حر أو جهاز سميث", "en": "Barbell rack or Smith machine", "de": "Kniebeugenständer / Multipresse" },
+              "equipment": { "ar": "بار حر أو جهاز سميث", "en": "Barbell rack or Smith machine", "de": "Power Rack / Multipresse" },
               "setup": {
-                "ar": "البار عأعلى الضهر (مو عالرقبة)، الرجلين بعرض الكتفين. انزل كأنك عم تقعد والركب باتجاه أصابع الرجل.",
-                "en": "Bar on the upper back (not the neck), feet shoulder-width. Sit back and down, knees tracking over the toes."
+                "ar": "البار عأعلى الضهر (مو عالرقبة)، الرجلين بعرض الكتف. انزل كأنك عم تقعد والركب باتجاه أصابع الرجل. بالسميث: الرجلين لقدام شوي.",
+                "en": "Bar on the upper back (not the neck), feet shoulder-width. Sit down and back, knees over the toes. On the Smith: feet slightly forward."
+              },
+              "coach": {
+                "ar": [
+                  "خد نفس عميق وشد البطن قبل كل نزلة.",
+                  "انزل لحد ما الفخد يوازي الأرض أو أعمق إذا الضهر بيضل مستقيم.",
+                  "إذا جديد عالبطة: ابدأ بالسميث أو الخيار B لحتى تتعلم الحركة."
+                ],
+                "en": [
+                  "Big breath and brace before every descent.",
+                  "Go to thighs parallel or deeper if your back stays neutral.",
+                  "New to squats? Start on the Smith or option B to learn the pattern."
+                ]
+              },
+              "avoid": {
+                "ar": ["الركب بتفوت لجوا", "الكعب بيرتفع عن الأرض"],
+                "en": ["Knees caving in", "Heels lifting off the floor"]
               },
               "videoQuery": "barbell squat proper form",
-              "videoId": "rrJIyZGlK8c"
+              "videoId": "rrJIyZGlK8c",
+              "alt": {
+                "name": { "ar": "بطة بندولية (Pendulum)", "en": "Pendulum squat" },
+                "de": "Pure Kraft Pendulum Squat",
+                "machine": "4353N",
+                "setup": {
+                  "ar": "الكتف تحت المخدات، الرجلين بنص الدعسة. انزل لعمق كامل – الجهاز بيحمي ضهرك.",
+                  "en": "Shoulders under the pads, feet mid-plate. Go to full depth – the machine protects your back."
+                },
+                "why": { "ar": "عمق كامل وأمان أكتر من البار الحر – مثالي إذا البطة الحرة صعبة.", "en": "Full depth and more safety than a free barbell – ideal if free squats feel hard." },
+                "videoQuery": "pendulum squat how to",
+                "videoId": ""
+              }
             }
           ]
         },
@@ -534,53 +1310,141 @@
               "id": "d3-shoulder-press",
               "name": { "ar": "همر كتف أمامي", "en": "Shoulder press (machine)" },
               "de": "Schulterdrücken (Maschine)",
-              "machine": "shpress",
+              "machine": "3032",
               "setup": {
-                "ar": "ارتفاع المقعد: المسكات بمستوى الكتف أو فوقه بشوي. ضهرك لازق بالمسند واكبس لفوق.",
-                "en": "Seat height: handles at or just above shoulder level. Back against the pad, press straight up."
+                "ar": "عدّل المقعد (٧ درجات) لحتى تكون المسكات بمستوى الكتف أو فوق بشوي. استعمل دعسة البداية، والضهر لازق.",
+                "en": "Set the seat (7 positions) so the handles are at or just above shoulder level. Use the start lever, back against the pad."
+              },
+              "coach": {
+                "ar": [
+                  "الكوعين تحت الإيدين بالضبط وشوي لقدام – مو فاتحين لبرا.",
+                  "انزل لحد ما تكون المسكات بمستوى الدقن.",
+                  "ادفش لفوق بدون ما تقفل الكوع عالآخر."
+                ],
+                "en": [
+                  "Elbows directly under the hands and slightly forward – not flared out.",
+                  "Lower until the handles reach chin level.",
+                  "Press up without slamming into lockout."
+                ]
+              },
+              "avoid": {
+                "ar": ["تقوّس أسفل الضهر", "الكتف بيطلع لعند الدينة"],
+                "en": ["Arching the lower back", "Shrugging the shoulders up"]
               },
               "videoQuery": "shoulder press machine how to",
-              "videoId": "3R14MnZbcpw"
+              "videoId": "3R14MnZbcpw",
+              "alt": {
+                "name": { "ar": "كبس كتف بالأقراص (Pure Kraft)", "en": "Plate-loaded shoulder press" },
+                "de": "Pure Kraft Schultermaschine Dual",
+                "machine": "4320",
+                "setup": {
+                  "ar": "نفس الضبط، وكل إيد لحالها. استعمل دعسة البداية.",
+                  "en": "Same setup, each arm independent. Use the start lever."
+                },
+                "why": { "ar": "نفس العضلة إذا الجهاز الأول مشغول.", "en": "Same muscle if the first machine is busy." },
+                "videoQuery": "plate loaded shoulder press machine how to",
+                "videoId": ""
+              }
             },
             {
               "id": "d3-lateral-raise",
               "name": { "ar": "دنبل جانبي", "en": "Lateral raise" },
               "de": "Seitheben",
-              "note": {
-                "ar": "إذا في ماشين إلها أحسن وأحسن، وإذا لا بالدنابل.",
-                "en": "Even better on a machine if there is one, otherwise with dumbbells."
-              },
-              "machine": "lateral",
+              "note": { "ar": "إذا في ماشين إلها أحسن وأحسن، وإذا لا بالدنابل.", "en": "Even better on a machine if there is one, otherwise with dumbbells." },
+              "machine": "3050",
               "setup": {
-                "ar": "المقعد بحيث الكتف عند محور الجهاز والسندات عالساعد من برا. ارفع لمستوى الكتف وبس.",
-                "en": "Seat so your shoulders line up with the pivot, pads on the outside of your forearms. Raise to shoulder height only."
+                "ar": "عدّل المقعد لحتى يكون الكتف عند محور الجهاز. المسكات بتتحرك لتلحق طول إيدك.",
+                "en": "Set the seat so your shoulders line up with the pivot. The handles move to fit your arm length."
+              },
+              "coach": {
+                "ar": [
+                  "قود الحركة بالكوع، مو بالإيد – تخيل إنك عم تدفش الحيط لبرا.",
+                  "اطلع لمستوى الكتف بس، ونزّل ببطء.",
+                  "هاد تمرين عدات عالية: لو ١٢ صاروا سهلين روح لـ ١٥ قبل ما تزيد وزن."
+                ],
+                "en": [
+                  "Lead with the elbows, not the hands – imagine pushing the walls out.",
+                  "Raise to shoulder height only, lower slowly.",
+                  "This one likes high reps: when 12 is easy, go to 15 before adding weight."
+                ]
+              },
+              "avoid": {
+                "ar": ["تهز كتافك لفوق (الرقبة بتشتغل)", "تتمرجح"],
+                "en": ["Shrugging (traps take over)", "Swinging"]
               },
               "videoQuery": "lateral raise machine how to",
-              "videoId": "NNAs8jx_zJI"
+              "videoId": "NNAs8jx_zJI",
+              "alt": {
+                "name": { "ar": "رفع جانبي بالكيبل بإيد وحدة", "en": "Single-arm cable lateral raise" },
+                "de": "Seitheben am Kabelzug einarmig",
+                "machine": "4004",
+                "setup": {
+                  "ar": "البكرة لتحت، اوقف بجنب الجهاز وامسك الكيبل بالإيد البعيدة. ارفع لجنب لمستوى الكتف.",
+                  "en": "Pulley low, stand side-on and hold the cable in the far hand. Raise out to shoulder height."
+                },
+                "why": { "ar": "الكيبل بيعطي شد من أول الحركة – أحسن من الدنابل.", "en": "Cables load the very start of the movement – better than dumbbells." },
+                "videoQuery": "single arm cable lateral raise how to",
+                "videoId": "J-6uEOkYAKM"
+              }
             },
             {
               "id": "d3-front-raise-rope",
               "name": { "ar": "حبل أمامي", "en": "Cable rope front raise" },
               "de": "Frontheben am Kabelzug mit Seil",
-              "machine": "cable",
+              "machine": "4004",
               "setup": {
                 "ar": "البكرة لتحت وركّب الحبل. دير ضهرك للجهاز والكيبل بين رجليك، وارفع الإيدين لقدام لمستوى الكتف.",
                 "en": "Pulley at the bottom with the rope attached. Face away with the cable between your legs and raise your arms forward to shoulder height."
               },
+              "coach": {
+                "ar": ["الكتف الأمامي بيشتغل كتير بتمارين الصدر – خلي هالتمرين خفيف ونظيف.", "الكوع مثني شوي، ونزّل ببطء."],
+                "en": ["The front delts already work hard on chest day – keep this light and clean.", "Slight bend in the elbows, slow lowering."]
+              },
+              "avoid": { "ar": ["تميل لورا لترفع", "ترفع أعلى من الراس"], "en": ["Leaning back to lift", "Raising above head height"] },
               "videoQuery": "cable rope front raise how to",
-              "videoId": "PmXz2Ik-On4"
+              "videoId": "PmXz2Ik-On4",
+              "alt": {
+                "name": { "ar": "رفع أمامي بالدنابل", "en": "Dumbbell front raise" },
+                "de": "Frontheben mit Kurzhanteln",
+                "machine": null,
+                "equipment": { "ar": "دنابل", "en": "Dumbbells", "de": "Kurzhanteln" },
+                "setup": {
+                  "ar": "دنبل بكل إيد قدام الفخد. ارفع لقدام لمستوى الكتف ونزّل ببطء.",
+                  "en": "A dumbbell in each hand in front of your thighs. Raise forward to shoulder height, lower slowly."
+                },
+                "why": { "ar": "إذا الكيبل مشغول.", "en": "When the cable is busy." },
+                "videoQuery": "dumbbell front raise how to",
+                "videoId": "-t7fuZ0KhDA"
+              }
             },
             {
               "id": "d3-reverse-butterfly",
               "name": { "ar": "فراشة عكسي", "en": "Reverse butterfly" },
               "de": "Reverse Butterfly",
-              "machine": "revfly",
+              "machine": "3025",
               "setup": {
-                "ar": "اقعد ووجهك للجهاز وصدرك عالسندة. المسكات بمستوى الكتف، وافتح الإيدين لورا والكوع مثني شوي.",
-                "en": "Sit facing the machine with your chest on the pad. Handles at shoulder height; open your arms backwards with slightly bent elbows."
+                "ar": "اقعد ووجهك للجهاز وصدرك عالسندة. المسكات بمستوى الكتف. فيه خيارين مسكة – المحايدة (الكف لجوا) أريح.",
+                "en": "Sit facing the machine with your chest on the pad. Handles at shoulder height. Two grip options – neutral (palms in) is more comfortable."
               },
+              "coach": {
+                "ar": ["افتح لورا بالكوع، ولا تضم لوحين الكتف كتير – خلي الشغل عالكتف الخلفي.", "وقفة ثانية بالفتحة."],
+                "en": ["Open back with the elbows and don't over-squeeze the shoulder blades – keep it on the rear delts.", "Pause for a second at the back."]
+              },
+              "avoid": { "ar": ["وزن تقيل وحركة قصيرة", "تشيل صدرك عن السندة"], "en": ["Heavy weight with short reps", "Lifting your chest off the pad"] },
               "videoQuery": "reverse pec deck machine how to",
-              "videoId": "JL8nHvZcAK8"
+              "videoId": "JL8nHvZcAK8",
+              "alt": {
+                "name": { "ar": "فتح عكسي بالكيبل", "en": "Cable reverse fly" },
+                "de": "Reverse Fly am Kabelzug",
+                "machine": "4004",
+                "setup": {
+                  "ar": "البكرتين بمستوى الكتف بدون مسكات (امسك الكيبل). كل إيد بتمسك الكيبل العكسي، وافتح لبرا.",
+                  "en": "Both pulleys at shoulder height, no handles (hold the cable). Cross your arms to grab the opposite cables and open out."
+                },
+                "why": { "ar": "نفس العضلة إذا الجهاز مشغول.", "en": "Same muscle when the machine is busy." },
+                "videoQuery": "cable reverse fly rear delt how to",
+                "videoId": "IloCYmYWayM"
+              }
             },
             {
               "id": "d3-shrugs",
@@ -593,8 +1457,26 @@
                 "ar": "دنبل بكل إيد والإيدين ممدودين. ارفع الكتفين لفوق باتجاه الدينتين بدون ما تدوّرهم.",
                 "en": "A dumbbell in each hand, arms straight. Lift your shoulders straight up toward your ears – no rolling."
               },
+              "coach": {
+                "ar": ["وقفة ثانيتين فوق – هون الفايدة.", "اسحب الكتف شوي لورا مع الطلعة."],
+                "en": ["Hold 2 seconds at the top – that's where the work is.", "Pull the shoulders slightly back as you rise."]
+              },
+              "avoid": { "ar": ["تدوير الكتف", "تثني الكوع"], "en": ["Rolling the shoulders", "Bending the elbows"] },
               "videoQuery": "dumbbell shrugs how to",
-              "videoId": "cJRVVxmytaM"
+              "videoId": "cJRVVxmytaM",
+              "alt": {
+                "name": { "ar": "هز رقبة بالسميث", "en": "Smith machine shrugs" },
+                "de": "Shrugs an der Multipresse",
+                "machine": null,
+                "equipment": { "ar": "جهاز سميث", "en": "Smith machine", "de": "Multipresse" },
+                "setup": {
+                  "ar": "البار بمستوى نص الفخد، مسكة بعرض الكتف. ارفع الكتفين لفوق ووقّف.",
+                  "en": "Bar at mid-thigh, shoulder-width grip. Shrug straight up and hold."
+                },
+                "why": { "ar": "إذا الدنابل التقيلة مشغولة.", "en": "When the heavy dumbbells are taken." },
+                "videoQuery": "smith machine shrugs how to",
+                "videoId": "cT5_GyOXIgE"
+              }
             }
           ]
         }
@@ -614,13 +1496,30 @@
           "de": "Gluteus-Maschine",
           "sets": 3,
           "reps": { "ar": "١٢–١٥", "en": "12–15" },
-          "machine": "glute",
+          "machine": "3005",
           "setup": {
-            "ar": "اسندي صدرك وكوعيكي عالسندات، وحطي رجل عالدعسة. ادفشي لورا/لفوق من الكعب وارجعي ببطء.",
-            "en": "Rest your chest and forearms on the pads, one foot on the plate. Push back/up through the heel and return slowly."
+            "ar": "عدّلي ارتفاع سندة الصدر، اسندي صدرك وامسكي المسكات، وحطي رجل عالدعسة. ادفشي لورا/لفوق من الكعب وارجعي ببطء.",
+            "en": "Adjust the chest pad height, lean on it and hold the handles, one foot on the plate. Push back/up through the heel and return slowly."
           },
+          "coach": {
+            "ar": ["ادفشي بالكعب مو بأصابع الرجل.", "اعصري الأرداف فوق ثانية، ولا تقوّسي ضهرك.", "ابدئي بالرجل الأضعف."],
+            "en": ["Push through the heel, not the toes.", "Squeeze the glute for a second at the top without arching your back.", "Start with the weaker leg."]
+          },
+          "avoid": { "ar": ["تقويس أسفل الضهر بآخر الحركة", "سرعة"], "en": ["Arching the lower back at the top", "Rushing"] },
           "videoQuery": "glute kickback machine how to",
-          "videoId": "WhtxQnm4254"
+          "videoId": "WhtxQnm4254",
+          "alt": {
+            "name": { "ar": "Hip Thrust على الجهاز", "en": "Hip thrust machine" },
+            "de": "Pure Kraft Booty Booster",
+            "machine": "4352",
+            "setup": {
+              "ar": "ضهرك عالسندة والحزام/الرول فوق الحوض. ادفشي بالكعب لفوق لحد ما يصير الجسم خط مستقيم، اعصري ونزلي.",
+              "en": "Back on the pad, roller over your hips. Drive through the heels until your body is straight, squeeze and lower."
+            },
+            "why": { "ar": "أقوى تمرين للأرداف – Gold's Krefeld فيه كمان Bootybuilder بالـ Functional.", "en": "The strongest glute builder – Gold's Krefeld also has a Bootybuilder in the functional area." },
+            "videoQuery": "hip thrust machine how to",
+            "videoId": ""
+          }
         },
         {
           "id": "mai-d3-abduction",
@@ -628,13 +1527,31 @@
           "de": "Abduktoren-Maschine",
           "sets": 3,
           "reps": { "ar": "١٥", "en": "15" },
-          "machine": "abd",
+          "machine": "3028",
           "setup": {
-            "ar": "السندات عالركب من برا وضهرك عالمسند. افتحي الرجلين لبرا وارجعي ببطء بدون ما يخبط الوزن.",
-            "en": "Pads on the outside of your knees, back on the rest. Open your legs outward and return slowly without letting the stack slam."
+            "ar": "عدّلي منظم المدى (ROM) لحتى تبدئي بالرجلين قريبين. السندات عالركب من برا وضهرك عالمسند.",
+            "en": "Set the range-of-motion lever so you start with legs close together. Pads on the outside of your knees, back on the rest."
           },
+          "coach": {
+            "ar": ["جرّبي تميلي لقدام شوي – بيشتغل الأرداف العلوية أكتر.", "وقفة ثانية بالفتحة، ورجعة بطيئة بدون ما يخبط الوزن."],
+            "en": ["Try leaning forward slightly – it hits the upper glutes more.", "Pause at the open position, return slowly without the stack touching."]
+          },
+          "avoid": { "ar": ["ترجعي بسرعة والوزن بيخبط"], "en": ["Snapping back and banging the stack"] },
           "videoQuery": "hip abduction machine how to",
-          "videoId": "OjI5OpV6IWA"
+          "videoId": "OjI5OpV6IWA",
+          "alt": {
+            "name": { "ar": "فتح أجرين بالمطاط", "en": "Banded seated abduction" },
+            "de": "Abduktion mit Miniband",
+            "machine": null,
+            "equipment": { "ar": "مطاطة صغيرة (Miniband)", "en": "Miniband", "de": "Miniband" },
+            "setup": {
+              "ar": "المطاطة فوق الركب، اقعدي عطرف المقعد وافتحي الركب لبرا ورجعي ببطء.",
+              "en": "Band above the knees, sit on the edge of a bench and push the knees out, return slowly."
+            },
+            "why": { "ar": "Minibands موجودين بالـ Functional – ما في انتظار.", "en": "Minibands are in the functional area – no waiting." },
+            "videoQuery": "seated banded hip abduction mini band",
+            "videoId": "evslMlzxhuU"
+          }
         },
         {
           "id": "mai-d3-pallof",
@@ -642,17 +1559,32 @@
           "de": "Pallof Press am Kabelzug",
           "sets": 3,
           "reps": { "ar": "١٠ لكل جهة", "en": "10 per side" },
-          "note": {
-            "ar": "للبطن والخصر بدون ما تكبّر الخصر.",
-            "en": "For abs and waist without thickening the waist."
-          },
-          "machine": "cable",
+          "note": { "ar": "للبطن والخصر بدون ما تكبّر الخصر.", "en": "For abs and waist without thickening the waist." },
+          "machine": "4004",
           "setup": {
             "ar": "البكرة بمستوى الصدر مع مسكة وحدة. وقفي جنب الجهاز، المسكة عند صدرك، ومدّي إيديكي لقدام بدون ما يلف جسمك.",
             "en": "Pulley at chest height with a single handle. Stand side-on, handle at your chest, and press straight out without letting your torso rotate."
           },
+          "coach": {
+            "ar": ["كل ما بعدتي عن الجهاز صار أصعب.", "وقفي ثانيتين والإيدين ممدودين – قاومي اللفّة."],
+            "en": ["The further from the machine, the harder it gets.", "Hold 2 seconds with arms extended – resist the twist."]
+          },
+          "avoid": { "ar": ["جسمك بيلف مع الكيبل", "الكتف بيطلع"], "en": ["Torso rotating with the cable", "Shrugging"] },
           "videoQuery": "pallof press how to",
-          "videoId": "ma2OjgP5XDc"
+          "videoId": "ma2OjgP5XDc",
+          "alt": {
+            "name": { "ar": "بالوف برس بالمطاط", "en": "Band Pallof press" },
+            "de": "Pallof Press mit Widerstandsband",
+            "machine": null,
+            "equipment": { "ar": "مطاطة طويلة", "en": "Long resistance band", "de": "Widerstandsband" },
+            "setup": {
+              "ar": "اربطي المطاطة بعمود بمستوى الصدر. نفس الحركة: مدّي لقدام وقاومي اللفّة.",
+              "en": "Anchor the band to a post at chest height. Same move: press out and resist the twist."
+            },
+            "why": { "ar": "إذا برج الكيبل مشغول.", "en": "When the cable tower is busy." },
+            "videoQuery": "resistance band pallof press",
+            "videoId": "y1fOBVtANdM"
+          }
         }
       ]
     }

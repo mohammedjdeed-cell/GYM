@@ -33,7 +33,9 @@ export interface Draft {
 export interface Settings {
   lang: Lang
   profile: ProfileKey
-  rest: 0 | 60 | 90
+  rest: 0 | 60 | 90 | 120
+  /** exercises switched to option B, keyed "profile:exerciseId" */
+  alt: Record<string, boolean>
   household: string
   weight: Record<ProfileKey, boolean>
   weightUpdatedAt: Record<ProfileKey, number>
@@ -57,6 +59,7 @@ let state: State = {
     lang: 'ar',
     profile: 'mohammed',
     rest: 90,
+    alt: {},
     household: '',
     weight: { mohammed: false, mai: false },
     weightUpdatedAt: { mohammed: 0, mai: 0 },

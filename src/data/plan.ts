@@ -2,32 +2,48 @@ import raw from './exercises.json'
 
 export type Lang = 'ar' | 'en'
 export type L = { ar: string; en: string }
+export type LList = { ar: string[]; en: string[] }
 export type ProfileKey = 'mohammed' | 'mai'
 export type DayId = 'd1' | 'd2' | 'd3'
 
 export interface Machine {
   model: string
+  /** official German name as printed on gym80's site / the machine */
+  de: string
+  name: L
   /** file name inside public/assets/machines/ */
   photo: string
-  name: L
+  /** gym80's own YouTube video for this machine */
+  video?: string
+  /** true for multi-purpose stations (cable tower): their video isn't exercise-specific */
+  generic?: boolean
   url: string
 }
 
-export interface Exercise {
-  id: string
+/** One way of doing an exercise: the main version (A) or the alternative (B). */
+export interface Variant {
   name: L
   de: string
-  sets?: number
-  reps?: L
-  optional?: boolean
-  note?: L
   /** key into `machines`, or null when no gym80 machine is involved */
   machine: string | null
   equipment?: L & { de: string }
   setup: L
+  coach?: LList
+  avoid?: LList
   videoQuery: string
-  /** YouTube video id; empty string = popup falls back to a search button */
+  /** YouTube how-to video id; empty = only the gym80 video (or a search button) */
   videoId: string
+}
+
+export interface Exercise extends Variant {
+  id: string
+  sets?: number
+  reps?: L
+  optional?: boolean
+  /** Ghaith's original note */
+  note?: L
+  /** option B: when the machine is busy or too hard */
+  alt?: Variant & { why: L }
 }
 
 export interface Group {
@@ -67,8 +83,17 @@ export const PROFILES: Record<ProfileKey, L> = {
 export const getDay = (id: string): Day => plan.days.find((d) => d.id === id) ?? plan.days[0]
 export const setsOf = (ex: Exercise) => ex.sets ?? plan.defaults.sets
 export const repsOf = (ex: Exercise) => ex.reps ?? plan.defaults.reps
-export const machineOf = (ex: Exercise): Machine | null =>
-  ex.machine ? (plan.machines[ex.machine] ?? null) : null
+export const machineOf = (v: Variant): Machine | null => (v.machine ? (plan.machines[v.machine] ?? null) : null)
+
+/** Videos for a variant: gym80's official machine video first (if machine-specific), then the how-to. */
+export function videosOf(v: Variant): { kind: 'gym80' | 'howto'; id: string }[] {
+  const m = machineOf(v)
+  const list: { kind: 'gym80' | 'howto'; id: string }[] = []
+  if (m?.video && !m.generic) list.push({ kind: 'gym80', id: m.video })
+  if (v.videoId) list.push({ kind: 'howto', id: v.videoId })
+  if (!list.length && m?.video) list.push({ kind: 'gym80', id: m.video })
+  return list
+}
 
 const allMaiExtras = plan.days.flatMap((d) => d.maiExtras)
 
