@@ -8,7 +8,8 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /households/{code}/profiles/{profileId} {
-      allow read, write: if code.size() >= 6 && profileId in ['mohammed', 'mai'];
+      allow read: if code.size() >= 6;
+      allow write: if code.size() >= 6 && profileId in ['mohammed', 'mai'];
     }
     match /households/{code}/sessions/{sessionId} {
       allow read, delete: if code.size() >= 6;

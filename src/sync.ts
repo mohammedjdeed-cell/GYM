@@ -10,10 +10,14 @@ import { PROFILES, type DayId, type ProfileKey } from './data/plan'
 import { kvGet, kvSet } from './db'
 import type { Session, SetLog, Settings } from './store'
 
+// The household's Firebase project. These web config values are public identifiers, not secrets
+// (access is controlled by firestore.rules and the household code). The VITE_FIREBASE_* variables
+// override them, e.g. to point a fork at another project.
+const env = import.meta.env
 const config = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY as string | undefined,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID as string | undefined,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID as string | undefined,
+  apiKey: (env.VITE_FIREBASE_API_KEY as string | undefined) || 'AIzaSyBeTogU-axCpYib8SZgNBkegxU6hbbNz4o',
+  projectId: (env.VITE_FIREBASE_PROJECT_ID as string | undefined) || 'gym-e9b75',
+  appId: (env.VITE_FIREBASE_APP_ID as string | undefined) || '1:934849865049:web:3162a4e7768d2389e09848',
 }
 export const syncConfigured = Boolean(config.apiKey && config.projectId)
 

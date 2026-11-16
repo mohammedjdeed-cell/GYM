@@ -91,18 +91,11 @@ To share history between both phones:
    (e.g. `eur3` or `europe-west3`) and start in **production mode**.
 3. Open the **Rules** tab, replace everything with the contents of
    [`firestore.rules`](firestore.rules), and click **Publish**.
-4. **Project settings (⚙) → General → Your apps → Web (`</>`)**: register a web app (no hosting
-   needed). Firebase shows a `firebaseConfig` block – you need three values from it:
-
-   | Firebase config | Environment variable |
-   |---|---|
-   | `apiKey` | `VITE_FIREBASE_API_KEY` |
-   | `projectId` | `VITE_FIREBASE_PROJECT_ID` |
-   | `appId` | `VITE_FIREBASE_APP_ID` |
-
-5. Add those three variables on your host (Vercel: project → Settings → Environment Variables)
-   and **redeploy**. For local development copy `.env.example` to `.env` and fill them in.
-6. On each phone open ⚙ **Settings → Sync**, enter the same **household code** (at least 6
+4. The project's web config (`apiKey`, `projectId`, `appId`) is already built into
+   `src/sync.ts`, so there is nothing to configure on the host. To point the app at a different
+   Firebase project, set `VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_PROJECT_ID` and
+   `VITE_FIREBASE_APP_ID` (see `.env.example`) and redeploy.
+5. On each phone open ⚙ **Settings → Sync**, enter the same **household code** (at least 6
    characters) and tap Save. That's it – no accounts.
 
 How it works: sessions are always saved on the phone first and pushed when there is a connection
