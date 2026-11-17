@@ -3,10 +3,10 @@
 A mobile-first PWA for following and tracking the 3-day gym plan at Gold's Gym (gym80 machines).
 Arabic (RTL, default) and English, green palette, automatic dark mode, works offline.
 
-- **Home** – profile switcher, today's suggested day, this week's progress, streak
-- **Week** – schedule, training rules, useful German gym words
+- **Home** – your own interface after Google sign-in, today's suggested day, this week's progress, streak
+- **Week** – your sessions (move/skip a day, synced to Google Calendar), training rules, useful German gym words
 - **Workout** – exercises by muscle group, set ticks, optional 60/90 s rest timer, machine and video popups
-- **History** – per-profile calendar and list of finished sessions
+- **History** – went/missed calendar, membership money used/lost, finished sessions
 - **Settings** (⚙) – language, rest timer, weight logging per profile, sync
 
 Stack: React + Vite + TypeScript + Tailwind, `vite-plugin-pwa`, IndexedDB, optional Firebase.
@@ -79,42 +79,65 @@ The build is a static site in `dist/` and uses relative paths, so it works on an
 *Settings → Pages → Build and deployment → Source* and choose **GitHub Actions**. Every push to
 `main` then builds and publishes the site.
 
-For sync, add the three `VITE_FIREBASE_*` values (see below) as environment variables on the host
-(Vercel/Netlify: project settings → Environment variables; GitHub Pages: repo
-*Settings → Secrets and variables → Actions → Variables*), then redeploy.
+Add the site's domain to Firebase Authentication's authorized domains (see below).
 
 On the phone: open the site in Chrome → menu → **Add to Home screen / Install app**.
 
-## Sync between two phones (Firebase, optional)
+## Sign-in, sync and Google Calendar (one-time setup)
 
-Without Firebase the app works fully, storing everything on the phone (IndexedDB).
-To share history between both phones:
+Everybody signs in with their own Google account. Inside the household each name (Mohammed, Mai)
+can be claimed by exactly one account, so each of you gets your own interface, and once both of
+you have signed in nobody else can get at the data – even with the household code.
 
-1. Go to [console.firebase.google.com](https://console.firebase.google.com) and create a project
-   (Google Analytics is not needed).
-2. **Build → Firestore Database → Create database.** Choose a European location
-   (e.g. `eur3` or `europe-west3`) and start in **production mode**.
-3. Open the **Rules** tab, replace everything with the contents of
-   [`firestore.rules`](firestore.rules), and click **Publish**.
-4. The project's web config (`apiKey`, `projectId`, `appId`) is already built into
-   `src/sync.ts`, so there is nothing to configure on the host. To point the app at a different
-   Firebase project, set `VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_PROJECT_ID` and
-   `VITE_FIREBASE_APP_ID` (see `.env.example`) and redeploy.
-5. On each phone open ⚙ **Settings → Sync**, enter the same **household code** (at least 6
-   characters) and tap Save. That's it – no accounts.
+All of this happens in the Firebase project `gym-e9b75`, whose web config is built into
+`src/firebase.ts` (override with the `VITE_FIREBASE_*` variables in `.env.example`).
 
-How it works: sessions are always saved on the phone first and pushed when there is a connection
-(after finishing a workout, when the app opens, when it comes back online, or via "Sync now").
-Both profiles' history ends up on both phones.
+1. **Firestore rules** – [console.firebase.google.com](https://console.firebase.google.com) →
+   project → **Firestore Database → Rules**, replace everything with [`firestore.rules`](firestore.rules),
+   **Publish**.
+2. **Google sign-in** – **Authentication → Get started → Sign-in method → Google → Enable**, pick
+   a support email, **Save**. Then **Authentication → Settings → Authorized domains → Add domain**
+   and add the site's domain (e.g. `your-app.vercel.app`; `localhost` is there already).
+3. **Google Calendar API** – [console.cloud.google.com](https://console.cloud.google.com), select
+   the same project (`gym-e9b75`) → **APIs & Services → Library** → search "Google Calendar API" →
+   **Enable**.
+4. **Consent screen** – Google Cloud → **Google Auth Platform** (APIs & Services → OAuth consent
+   screen):
+   - *Audience*: leave it in **Testing** and add both Gmail addresses under **Test users**. Only
+     test users can sign in, which is exactly what you want.
+   - *Data access* → **Add or remove scopes** → tick `…/auth/calendar.events` → Save.
+5. Open the app on each phone → **Sign in with Google** → allow the calendar → enter the same
+   **household code** (at least 6 characters) → tap your name.
 
-Data layout in Firestore: `households/{code}/profiles/{mohammed|mai}` and
-`households/{code}/sessions/{id}` (each session document contains its set logs).
+How sync works: sessions are always saved on the phone first and pushed when there is a
+connection (after finishing a workout, when the app opens, when it comes back online, or via
+"Sync now"). Both people's history ends up on both phones; each sees their own interface.
 
-Security note: there are no accounts, so the household code is the only secret. The rules let
-anyone who knows the code read and write that household's gym log, and nobody can list the codes.
-The Firebase web `apiKey` is not a secret (it is visible in every Firebase web app), so the
-protection is the code – pick one that isn't guessable. The free "Spark" plan is far more than two
-people need.
+Firestore layout: `users/{uid}`, `households/{code}/claims/{mohammed|mai}`,
+`households/{code}/profiles|schedule|sessions/…`.
+
+### Schedule, attendance and money
+
+- Default days: Day 1 Monday, Day 2 Wednesday, Day 3 Friday. In **Week → Your sessions** tap
+  **Move** to put a session on another day of the same week, skip it, or put it back. "Move Mai's
+  session too" applies the same change to the partner.
+- **History** marks every day: gold = went, red = missed, dashed = planned. A workout on an
+  unplanned day of the same week makes up for a missed one.
+- **Money:** the monthly fee (Settings → Membership, default €30) is split over that month's
+  planned sessions. Each session you went to is money used, each missed or skipped one is money
+  lost. The card also shows the cost per actual visit, both of you this month, and the total since
+  joining (the "Member since" date in Settings).
+
+### Google Calendar
+
+Each person's planned sessions (last 6 weeks and next 5) go into **their own** Google Calendar:
+🏋️ planned (with a reminder an hour before, at the gym time from Settings), ✅ green when you went
+(at the real time you trained), ❌ red when missed with the money lost, ⏭ skipped, ↪ made up.
+Moving a session in the app moves the event. Only the app's own events are ever touched.
+
+Without a server, Google gives the app calendar access for one hour at a time. When the calendar
+has changes waiting and that hour is over, Home shows **Update calendar** – one tap, no password.
+
 ## Behaviour notes
 
 - **Themes:** each profile has its own look – onyx + gold for Mohammed, warm rose for Mai – in
@@ -132,5 +155,5 @@ people need.
 - Videos need a connection; everything else works offline after the first load.
 - The rest timer starts after each ticked set and vibrates + beeps at the end. Vibration needs
   Android Chrome; the screen must stay on for the timer to alert you.
-- Weight logging is off by default; turn it on per profile in Settings.
+- Weight logging is off by default; turn it on in Settings.
 - Streak = consecutive weeks (Mon–Sun) with at least one finished session.

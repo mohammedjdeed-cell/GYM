@@ -90,7 +90,21 @@
   }
 }
 
+/* attendance & money: same meaning in both themes */
+:root {
+  --miss: #d9463e;
+  --good: #15803d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --miss: #e5534b;
+    --good: #4ade80;
+  }
+}
+
 @theme inline {
+  --color-miss: var(--miss);
+  --color-good: var(--good);
   --font-sans: "Cairo", system-ui, sans-serif;
   --color-bg: var(--bg);
   --color-surface: var(--surface);

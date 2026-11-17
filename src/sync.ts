@@ -1,25 +1,17 @@
-// Optional Firebase (Cloud Firestore) sync. Without the VITE_FIREBASE_* variables the app is
-// local-only and the Firebase SDK is never even downloaded.
+// Firebase (Cloud Firestore) sync between the two phones. Requests are made as the signed-in
+// Google user; firestore.rules only lets the two claimed members of a household in.
 //
-// Data layout – the household code is part of the path, and firestore.rules only allows access
-// to documents under a code, never listing the codes themselves:
-//   households/{code}/profiles/{mohammed|mai}
-//   households/{code}/sessions/{sessionId}     (set logs are stored inside the session document)
-import type { Firestore } from 'firebase/firestore/lite'
+// Data layout:
+//   households/{code}/profiles/{mohammed|mai}   weight-logging switch
+//   households/{code}/schedule/{mohammed|mai}   moved/skipped sessions, membership start, fee
+//   households/{code}/sessions/{sessionId}      one workout (set logs inside)
 import { PROFILES, type DayId, type ProfileKey } from './data/plan'
 import { kvGet, kvSet } from './db'
+import { getDb } from './firebase'
+import type { Sched } from './schedule'
 import type { Session, SetLog, Settings } from './store'
 
-// The household's Firebase project. These web config values are public identifiers, not secrets
-// (access is controlled by firestore.rules and the household code). The VITE_FIREBASE_* variables
-// override them, e.g. to point a fork at another project.
-const env = import.meta.env
-const config = {
-  apiKey: (env.VITE_FIREBASE_API_KEY as string | undefined) || 'AIzaSyBeTogU-axCpYib8SZgNBkegxU6hbbNz4o',
-  projectId: (env.VITE_FIREBASE_PROJECT_ID as string | undefined) || 'gym-e9b75',
-  appId: (env.VITE_FIREBASE_APP_ID as string | undefined) || '1:934849865049:web:3162a4e7768d2389e09848',
-}
-export const syncConfigured = Boolean(config.apiKey && config.projectId)
+export const syncConfigured = true
 
 export interface RemoteProfile {
   key: ProfileKey
@@ -41,31 +33,38 @@ interface SessionDoc {
   syncedAt?: { toMillis(): number }
 }
 
-type Lite = typeof import('firebase/firestore/lite')
-let sdk: Promise<{ fs: Lite; db: Firestore }> | null = null
-const load = () =>
-  (sdk ??= Promise.all([import('firebase/app'), import('firebase/firestore/lite')]).then(([app, fs]) => ({
-    fs,
-    db: fs.getFirestore(app.initializeApp(config)),
-  })))
-
 /** Overlap when asking for "changes since last sync", to tolerate server clock jitter. */
 const OVERLAP_MS = 5 * 60_000
+const KEYS = Object.keys(PROFILES) as ProfileKey[]
 
-export async function syncAll(household: string, dirty: Session[], settings: Settings) {
-  const { fs, db } = await load()
+export async function syncAll(household: string, dirty: Session[], settings: Settings, schedule: Record<ProfileKey, Sched>) {
+  const { fs, db } = await getDb()
   const base = `households/${household}`
 
-  // 1. profiles: read both, then write ours where it is newer
-  const profileSnap = await fs.getDocs(fs.collection(db, `${base}/profiles`))
+  // 1. profiles + schedules: read both, then write ours where it is newer
+  const [profileSnap, schedSnap] = await Promise.all([
+    fs.getDocs(fs.collection(db, `${base}/profiles`)),
+    fs.getDocs(fs.collection(db, `${base}/schedule`)),
+  ])
   const profiles: RemoteProfile[] = profileSnap.docs.map((d) => ({
     key: d.id as ProfileKey,
     weightLogging: Boolean(d.data().weightLogging),
     updatedAt: Number(d.data().updatedAt ?? 0),
   }))
+  const schedules: Partial<Record<ProfileKey, Sched>> = {}
+  for (const d of schedSnap.docs) {
+    const r = d.data()
+    schedules[d.id as ProfileKey] = {
+      moves: (r.moves ?? {}) as Record<string, string>,
+      since: String(r.since ?? ''),
+      price: Number(r.price ?? 30),
+      updatedAt: Number(r.updatedAt ?? 0),
+    }
+  }
+
   const batch = fs.writeBatch(db)
   let writes = 0
-  for (const key of Object.keys(PROFILES) as ProfileKey[]) {
+  for (const key of KEYS) {
     const remote = profiles.find((p) => p.key === key)
     const localAt = settings.weightUpdatedAt[key] ?? 0
     if (!remote || localAt > remote.updatedAt) {
@@ -74,6 +73,12 @@ export async function syncAll(household: string, dirty: Session[], settings: Set
         weightLogging: settings.weight[key],
         updatedAt: localAt,
       })
+      writes++
+    }
+    const rs = schedules[key]
+    const ls = schedule[key]
+    if (!rs || ls.updatedAt > rs.updatedAt) {
+      batch.set(fs.doc(db, `${base}/schedule/${key}`), { ...ls })
       writes++
     }
   }
@@ -133,5 +138,5 @@ export async function syncAll(household: string, dirty: Session[], settings: Set
   })
   if (newest > cursor) await kvSet(cursorKey, newest)
 
-  return { sessions, profiles }
+  return { sessions, profiles, schedules }
 }

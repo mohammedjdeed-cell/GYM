@@ -7,6 +7,7 @@ import { Workout } from './screens/Workout'
 import { History } from './screens/History'
 import { Settings } from './screens/Settings'
 import { HeaderButtons } from './components/HeaderButtons'
+import { Login, Setup, Splash } from './screens/Gate'
 import { Icon, haptic } from './components/ui'
 
 function useRoute() {
@@ -29,7 +30,7 @@ function syncThemeColor() {
 }
 
 export default function App() {
-  const { ready, settings, sessions } = useStore()
+  const { ready, settings, sessions, auth, schedule } = useStore()
   const t = useT()
   const [page, arg] = useRoute()
   const { lang, profile } = settings
@@ -50,8 +51,11 @@ export default function App() {
   }, [])
 
   if (!ready) return null
+  if (auth.status === 'loading' || auth.memberStatus === 'loading') return <Splash />
+  if (auth.status === 'out') return <Login />
+  if (!auth.member) return <Setup />
 
-  const workoutDay: DayId = DAY_IDS.includes(arg as DayId) ? (arg as DayId) : suggestedDay(sessions, profile)
+  const workoutDay: DayId = DAY_IDS.includes(arg as DayId) ? (arg as DayId) : suggestedDay(sessions, profile, schedule[profile])
   const current = ['week', 'workout', 'history', 'settings'].includes(page) ? page : ''
 
   // the workout is a full-screen focus mode with its own controls

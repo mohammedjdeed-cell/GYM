@@ -2,21 +2,65 @@ rules_version = '2';
 
 // Paste this into Firebase console → Firestore Database → Rules → Publish.
 //
-// There are no user accounts. Everything lives under households/{code}/…, and the household
-// code is the secret: these rules allow reading and writing inside a code you already know, but
-// nobody can list which codes exist. Pick a code that isn't guessable.
+// Everyone must sign in with Google. Inside a household (households/{code}) each name –
+// "mohammed" and "mai" – can be claimed by exactly one Google account. Only those two accounts can
+// read or write the household's data; the code alone is no longer enough.
+//
+//   users/{uid}                          which household + name this account belongs to
+//   households/{code}/claims/{profile}   { uid } of the account that owns the name
+//   households/{code}/profiles|schedule|sessions/…
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /households/{code}/profiles/{profileId} {
-      allow read: if code.size() >= 6;
-      allow write: if code.size() >= 6 && profileId in ['mohammed', 'mai'];
+    function signedIn() {
+      return request.auth != null;
     }
-    match /households/{code}/sessions/{sessionId} {
-      allow read, delete: if code.size() >= 6;
-      allow create, update: if code.size() >= 6
+    function claimPath(code, profile) {
+      return /databases/$(database)/documents/households/$(code)/claims/$(profile);
+    }
+
+    match /users/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      // you can only point your account at a name you have actually claimed
+      allow write: if signedIn() && request.auth.uid == uid
         && request.resource.data.profile in ['mohammed', 'mai']
-        && request.resource.data.dayId in ['d1', 'd2', 'd3']
-        && request.resource.data.updatedAt is number;
+        && get(claimPath(request.resource.data.household, request.resource.data.profile)).data.uid == request.auth.uid;
+    }
+
+    match /households/{code} {
+      function member() {
+        return signedIn()
+          && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+          && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.household == code;
+      }
+
+      match /claims/{profile} {
+        allow read: if signedIn() && code.size() >= 6;
+        // first come, first served; nobody can take over a claimed name
+        allow create: if signedIn() && code.size() >= 6
+          && profile in ['mohammed', 'mai']
+          && request.resource.data.uid == request.auth.uid;
+        allow update: if signedIn() && resource.data.uid == request.auth.uid
+          && request.resource.data.uid == request.auth.uid;
+        allow delete: if signedIn() && resource.data.uid == request.auth.uid;
+      }
+      match /profiles/{profileId} {
+        allow read: if member();
+        allow write: if member() && profileId in ['mohammed', 'mai'];
+      }
+      match /schedule/{profileId} {
+        allow read: if member();
+        allow write: if member() && profileId in ['mohammed', 'mai']
+          && request.resource.data.moves is map
+          && request.resource.data.updatedAt is number;
+      }
+      match /sessions/{sessionId} {
+        allow read: if member();
+        allow create, update: if member()
+          && request.resource.data.profile in ['mohammed', 'mai']
+          && request.resource.data.dayId in ['d1', 'd2', 'd3']
+          && request.resource.data.updatedAt is number;
+        allow delete: if false; // deletions are soft (deleted: true) so they reach the other phone
+      }
     }
   }
 }

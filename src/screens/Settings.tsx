@@ -1,19 +1,125 @@
-import { useState } from 'react'
-import { PROFILES, type ProfileKey } from '../data/plan'
+import { PROFILES } from '../data/plan'
 import { locale, num } from '../i18n'
-import { pendingCount, setWeightLogging, syncNow, updateSettings, useStore, useT } from '../store'
-import { syncConfigured } from '../sync'
+import {
+  connectCalendar,
+  pendingCount,
+  setWeightLogging,
+  signOut,
+  syncNow,
+  updateSched,
+  updateSettings,
+  useStore,
+  useT,
+} from '../store'
 import { Card, Segmented, Toggle } from '../components/ui'
 
 export function Settings() {
-  const { settings, sessions, sync } = useStore()
+  const { settings, sessions, sync, auth, cal, schedule } = useStore()
   const t = useT()
-  const { lang } = settings
-  const [code, setCode] = useState(settings.household)
+  const { lang, profile } = settings
   const pending = pendingCount(sessions)
+  const sched = schedule[profile]
+  const time = (at: number) => new Intl.DateTimeFormat(locale(lang), { timeStyle: 'short' }).format(at)
 
   return (
     <>
+      <Card className="mb-3">
+        <h3 className="mb-2 font-bold">{t('account')}</h3>
+        <div className="flex items-center gap-3">
+          {auth.user?.photo ? (
+            <img src={auth.user.photo} alt="" referrerPolicy="no-referrer" className="h-12 w-12 rounded-full" />
+          ) : (
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent font-extrabold text-onaccent">
+              {PROFILES[profile][lang].slice(0, 2)}
+            </span>
+          )}
+          <div className="min-w-0 flex-1">
+            <div className="font-bold" data-testid="signed-in-as">{t('signedInAs', { n: PROFILES[profile][lang] })}</div>
+            <div className="truncate text-sm text-muted" dir="ltr">{auth.user?.email}</div>
+          </div>
+        </div>
+        <button
+          data-testid="sign-out"
+          onClick={() => confirm(t('confirmSignOut')) && void signOut()}
+          className="mt-3 min-h-12 w-full rounded-xl border border-line font-bold"
+        >
+          {t('signOut')}
+        </button>
+      </Card>
+
+      <Card className="mb-3">
+        <div className="flex items-center justify-between gap-2">
+          <h3 className="font-bold">{t('calTitle')}</h3>
+          <Toggle on={settings.calendar} onChange={(v) => updateSettings({ calendar: v })} label={t('calSyncOn')} />
+        </div>
+        <p className="text-sm text-muted">{t('calHint')}</p>
+        {settings.calendar && (
+          <>
+            <label className="mt-3 flex items-center justify-between gap-3">
+              <span className="text-sm font-semibold">{t('gymTime')}</span>
+              <input
+                type="time"
+                dir="ltr"
+                value={settings.gymTime}
+                onChange={(e) => e.target.value && updateSettings({ gymTime: e.target.value })}
+                className="h-12 rounded-xl border border-line bg-bg px-3 text-base"
+                data-testid="gym-time"
+              />
+            </label>
+            <button
+              data-testid="cal-update"
+              onClick={() => void connectCalendar()}
+              disabled={cal.status === 'syncing'}
+              className="mt-3 min-h-12 w-full rounded-xl bg-accent font-bold text-onaccent disabled:opacity-50"
+            >
+              {cal.status === 'syncing' ? t('calSyncing') : t('calUpdate')}
+            </button>
+            <p className="mt-2 text-sm text-muted" data-testid="cal-status">
+              {cal.status === 'ok'
+                ? t('calOk', { t: time(cal.at) })
+                : cal.status === 'needs-auth'
+                  ? t('calNeeds', { n: cal.pending })
+                  : cal.status === 'error'
+                    ? t('calErr', { e: cal.error ?? '' })
+                    : ''}
+            </p>
+            <p className="mt-1 text-xs text-muted">{t('calTokenNote')}</p>
+          </>
+        )}
+      </Card>
+
+      <Card className="mb-3">
+        <h3 className="mb-2 font-bold">{t('membership')}</h3>
+        <label className="flex items-center justify-between gap-3">
+          <span className="text-sm font-semibold">{t('fee')}</span>
+          <input
+            type="number"
+            inputMode="decimal"
+            min={0}
+            step="0.01"
+            dir="ltr"
+            defaultValue={sched.price}
+            onBlur={(e) => {
+              const v = Number(e.target.value)
+              if (v >= 0 && v !== sched.price) updateSched(profile, { price: v })
+            }}
+            className="h-12 w-28 rounded-xl border border-line bg-bg px-3 text-base"
+            data-testid="fee"
+          />
+        </label>
+        <label className="mt-2 flex items-center justify-between gap-3">
+          <span className="text-sm font-semibold">{t('since')}</span>
+          <input
+            type="date"
+            dir="ltr"
+            value={sched.since}
+            onChange={(e) => e.target.value && updateSched(profile, { since: e.target.value })}
+            className="h-12 rounded-xl border border-line bg-bg px-3 text-base"
+            data-testid="since"
+          />
+        </label>
+        <p className="mt-1 text-xs text-muted">{t('sinceHint')}</p>
+      </Card>
 
       <Card className="mb-3">
         <h3 className="mb-2 font-bold">{t('language')}</h3>
@@ -43,65 +149,31 @@ export function Settings() {
       </Card>
 
       <Card className="mb-3">
-        <h3 className="font-bold">{t('weightLog')}</h3>
-        <p className="text-sm text-muted">{t('weightLogHint')}</p>
-        {(Object.keys(PROFILES) as ProfileKey[]).map((p) => (
-          <div key={p} className="flex items-center justify-between border-b border-line py-1 last:border-0">
-            <span className="font-semibold">{PROFILES[p][lang]}</span>
-            <Toggle on={settings.weight[p]} onChange={(v) => setWeightLogging(p, v)} label={`${t('weightLog')} – ${PROFILES[p][lang]}`} />
+        <div className="flex items-center justify-between gap-2">
+          <div>
+            <h3 className="font-bold">{t('weightLog')}</h3>
+            <p className="text-sm text-muted">{t('weightLogHint')}</p>
           </div>
-        ))}
+          <Toggle on={settings.weight[profile]} onChange={(v) => setWeightLogging(profile, v)} label={t('weightLog')} />
+        </div>
       </Card>
 
       <Card>
         <h3 className="font-bold">{t('sync')}</h3>
-        {!syncConfigured ? (
-          <p className="mt-1 text-sm text-muted" data-testid="sync-off">{t('syncOffHint')}</p>
-        ) : (
-          <>
-            <label className="mt-2 block text-sm font-semibold text-muted" htmlFor="household">{t('household')}</label>
-            <div className="mt-1 flex gap-2">
-              <input
-                id="household"
-                dir="ltr"
-                autoCapitalize="none"
-                autoCorrect="off"
-                value={code}
-                onChange={(e) => setCode(e.target.value)}
-                className="h-12 min-w-0 flex-1 rounded-xl border border-line bg-bg px-3 text-base"
-              />
-              <button
-                onClick={() => {
-                  updateSettings({ household: code.trim().toLowerCase() })
-                  void syncNow()
-                }}
-                disabled={code.trim().length < 6}
-                className="min-h-12 rounded-xl bg-accent px-4 font-bold text-onaccent disabled:opacity-40"
-              >
-                {t('save')}
-              </button>
-            </div>
-            <p className="mt-1 text-xs text-muted">{t('householdHint')}</p>
-
-            <button
-              onClick={() => void syncNow()}
-              disabled={settings.household.length < 6 || sync.status === 'syncing'}
-              className="mt-3 min-h-12 w-full rounded-xl border border-line bg-bg font-bold disabled:opacity-40"
-            >
-              {sync.status === 'syncing' ? t('syncing') : t('syncNow')}
-            </button>
-            <p className="mt-2 text-sm text-muted">
-              {settings.household.length < 6
-                ? t('syncNeedCode')
-                : sync.status === 'error'
-                  ? t('syncErr', { e: sync.error ?? '' })
-                  : sync.status === 'ok'
-                    ? t('syncOk', { t: new Intl.DateTimeFormat(locale(lang), { timeStyle: 'short' }).format(sync.at) })
-                    : ''}
-              {pending > 0 && ` · ${t('pending', { n: pending })}`}
-            </p>
-          </>
-        )}
+        <p className="mt-1 text-sm text-muted">
+          {t('household')}: <b dir="ltr">{settings.household}</b>
+        </p>
+        <button
+          onClick={() => void syncNow()}
+          disabled={sync.status === 'syncing'}
+          className="mt-3 min-h-12 w-full rounded-xl border border-line bg-bg font-bold disabled:opacity-40"
+        >
+          {sync.status === 'syncing' ? t('syncing') : t('syncNow')}
+        </button>
+        <p className="mt-2 text-sm text-muted">
+          {sync.status === 'error' ? t('syncErr', { e: sync.error ?? '' }) : sync.status === 'ok' ? t('syncOk', { t: time(sync.at) }) : ''}
+          {pending > 0 && ` · ${t('pending', { n: pending })}`}
+        </p>
       </Card>
     </>
   )

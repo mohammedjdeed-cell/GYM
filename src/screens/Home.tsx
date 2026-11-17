@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { DAY_IDS, PROFILES, exercisesFor, getDay, machineOf, plan, setsOf, type Exercise, type ProfileKey } from '../data/plan'
+import { DAY_IDS, PROFILES, exercisesFor, getDay, machineOf, plan, setsOf, type Exercise } from '../data/plan'
 import { locale, num } from '../i18n'
 import {
   dateKey,
@@ -8,14 +8,16 @@ import {
   sessionsOf,
   suggestedDay,
   thisWeek,
-  updateSettings,
   useStore,
   useT,
+  visitDates,
   weekStart,
   weekStreak,
 } from '../store'
+import { addDays, attendance, weekOf } from '../schedule'
 import { machinePhotoUrl } from '../components/ExerciseSheets'
 import { HeaderButtons } from '../components/HeaderButtons'
+import { CalendarChip } from '../components/CalendarChip'
 import { Card, De, Icon, haptic } from '../components/ui'
 
 function Thumb({ ex }: { ex: Exercise }) {
@@ -33,17 +35,19 @@ function Thumb({ ex }: { ex: Exercise }) {
 }
 
 export function Home() {
-  const { settings, sessions, drafts } = useStore()
+  const { settings, sessions, drafts, schedule } = useStore()
   const t = useT()
   const { lang, profile } = settings
   const now = new Date()
+  const wk = weekOf(dateKey(now))
+  const { slots } = attendance(schedule[profile], visitDates(sessions, profile), wk, addDays(wk, 6), dateKey(now))
 
   const week = thisWeek(sessions, profile, now)
   const doneDays = new Set(week.map((s) => s.dayId))
   const doneDates = new Set(week.map((s) => s.date))
   const weekCount = Math.min(3, doneDays.size)
   const inProgress = DAY_IDS.find((d) => draftSetsDone(drafts[draftKey(profile, d)]) > 0)
-  const dayId = inProgress ?? suggestedDay(sessions, profile, now)
+  const dayId = inProgress ?? suggestedDay(sessions, profile, schedule[profile], now)
   const day = getDay(dayId)
   const exs = exercisesFor(day, profile)
   const totalSets = exs.reduce((n, e) => n + setsOf(e), 0)
@@ -66,31 +70,7 @@ export function Home() {
         <HeaderButtons />
       </header>
 
-      <div className="mt-4 grid grid-cols-2 gap-1.5 rounded-[22px] bg-surface2 p-1.5" role="group" aria-label={t('whoTrains')}>
-        {(Object.keys(PROFILES) as ProfileKey[]).map((p) => (
-          <button
-            key={p}
-            data-testid={`profile-${p}`}
-            aria-pressed={profile === p}
-            onClick={() => {
-              haptic()
-              updateSettings({ profile: p })
-            }}
-            className={`flex h-14 items-center justify-center gap-2 rounded-2xl text-base font-extrabold transition-all ${
-              profile === p ? 'bg-surface text-ink shadow-sm' : 'text-muted'
-            }`}
-          >
-            <span
-              className={`flex h-9 w-9 items-center justify-center rounded-full text-xs ${
-                profile === p ? 'bg-accent text-onaccent' : 'bg-line text-muted'
-              }`}
-            >
-              {PROFILES[p][lang].slice(0, 2)}
-            </span>
-            {PROFILES[p][lang]}
-          </button>
-        ))}
-      </div>
+      <CalendarChip />
 
       <section className="mt-4 overflow-hidden rounded-[32px] border border-line bg-linear-to-b from-hero to-surface p-5">
         <div className="flex items-center gap-2 text-sm font-bold text-accentink">
@@ -150,29 +130,33 @@ export function Home() {
             const d = new Date(ws)
             d.setDate(ws.getDate() + i)
             const key = dateKey(d)
-            const planned = plan.days.findIndex((x) => x.weekday === d.getDay())
+            const slot = slots.find((x) => x.date === key && x.status !== 'skipped')
+            const planned = slot ? DAY_IDS.indexOf(slot.dayId) : -1
             const trained = doneDates.has(key)
+            const missed = slot?.status === 'missed'
             const today = key === dateKey(now)
             return (
-              <div key={key}>
+              <a key={key} href="#/week" data-testid={`strip-${key}`}>
                 <div className="text-xs font-bold text-muted">{wdNarrow.format(d)}</div>
                 <div
                   className={`mx-auto mt-1 flex h-10 w-10 items-center justify-center rounded-full text-sm font-extrabold ${
                     trained
                       ? 'bg-accent text-onaccent'
-                      : today
-                        ? 'border-2 border-accent text-accentink'
-                        : planned >= 0
-                          ? 'border-2 border-dashed border-line'
-                          : 'text-muted'
+                      : missed
+                        ? 'bg-miss text-white'
+                        : today
+                          ? 'border-2 border-accent text-accentink'
+                          : planned >= 0
+                            ? 'border-2 border-dashed border-accent/60'
+                            : 'text-muted'
                   }`}
                 >
-                  {trained ? <Icon name="check" className="h-5 w-5" /> : num(d.getDate(), lang)}
+                  {trained ? <Icon name="check" className="h-5 w-5" /> : missed ? <Icon name="x" className="h-5 w-5" /> : num(d.getDate(), lang)}
                 </div>
                 <div className="mt-0.5 h-4 text-[10px] font-extrabold text-accentink">
                   {planned >= 0 ? `${t('day')} ${num(planned + 1, lang)}` : ''}
                 </div>
-              </div>
+              </a>
             )
           })}
         </div>
