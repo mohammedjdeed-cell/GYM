@@ -11,6 +11,7 @@ import {
   useStore,
   useT,
   visitDates,
+  doneList,
   weekStart,
   weekStreak,
 } from '../store'
@@ -40,7 +41,7 @@ export function Home() {
   const { lang, profile } = settings
   const now = new Date()
   const wk = weekOf(dateKey(now))
-  const { slots } = attendance(schedule[profile], visitDates(sessions, profile), wk, addDays(wk, 6), dateKey(now))
+  const { slots } = attendance(schedule[profile], visitDates(sessions, profile), wk, addDays(wk, 6), dateKey(now), doneList(sessions, profile))
 
   const week = thisWeek(sessions, profile, now)
   const doneDays = new Set(week.map((s) => s.dayId))

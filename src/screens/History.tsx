@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { PROFILES, getDay, type ProfileKey } from '../data/plan'
 import { locale, num } from '../i18n'
-import { deleteSession, euro, longDate, partnerOf, sessionsOf, useStore, useT, visitDates, weekStreak } from '../store'
+import { deleteSession, euro, longDate, partnerOf, doneList, sessionsOf, useStore, useT, visitDates, weekStreak } from '../store'
 import { attendance, dateKey, monthMoney } from '../schedule'
 import { Card } from '../components/ui'
 
@@ -33,7 +33,7 @@ export function History() {
   const from = dateKey(month)
   const to = dateKey(new Date(month.getFullYear(), month.getMonth() + 1, 0))
   const visits = new Set(visitDates(sessions, profile))
-  const { slots } = attendance(sched, [...visits], from, to, todayK)
+  const { slots } = attendance(sched, [...visits], from, to, todayK, doneList(sessions, profile))
   const slotOn = new Map(slots.filter((x) => x.status !== 'covered').map((x) => [x.date, x]))
   const money = (p: ProfileKey) => monthMoney(schedule[p], visitDates(sessions, p), month.getFullYear(), month.getMonth(), todayK)
   const m = money(profile)
