@@ -1,6 +1,11 @@
 import { connectCalendar, useStore, useT } from '../store'
 import { Icon, haptic } from './ui'
 
+/** Short, readable text for a calendar error (Google's own messages can be very long). */
+export function calErrorText(t: ReturnType<typeof useT>, error?: string) {
+  return error === 'api-off' ? t('calApiOff') : t('calErr', { e: error ?? '' })
+}
+
 /** Shown only when Google Calendar has changes waiting and needs one tap to get a fresh permission. */
 export function CalendarChip() {
   const { cal } = useStore()
@@ -18,8 +23,8 @@ export function CalendarChip() {
       <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-soft text-accentink">
         <Icon name="calendar" className="h-5 w-5" />
       </span>
-      <span className="min-w-0 flex-1 text-sm font-bold">
-        {cal.status === 'error' ? t('calErr', { e: cal.error ?? '' }) : t('calNeeds', { n: cal.pending })}
+      <span className="line-clamp-3 min-w-0 flex-1 break-words text-sm font-bold">
+        {cal.status === 'error' ? calErrorText(t, cal.error) : t('calNeeds', { n: cal.pending })}
       </span>
       <span className="flex-none rounded-full bg-accent px-3 py-1 text-xs font-extrabold text-onaccent">{t('calUpdate')}</span>
     </button>

@@ -12,6 +12,7 @@ import {
   useT,
 } from '../store'
 import { Card, Segmented, Toggle } from '../components/ui'
+import { calErrorText } from '../components/CalendarChip'
 
 export function Settings() {
   const { settings, sessions, sync, auth, cal, schedule } = useStore()
@@ -80,7 +81,7 @@ export function Settings() {
                 : cal.status === 'needs-auth'
                   ? t('calNeeds', { n: cal.pending })
                   : cal.status === 'error'
-                    ? t('calErr', { e: cal.error ?? '' })
+                    ? calErrorText(t, cal.error)
                     : ''}
             </p>
             <p className="mt-1 text-xs text-muted">{t('calTokenNote')}</p>

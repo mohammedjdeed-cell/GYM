@@ -224,6 +224,7 @@ const dict = {
   calUpdate: ['حدّث التقويم', 'Update calendar'],
   calSyncing: ['عم يحدّث التقويم…', 'Updating calendar…'],
   calErr: ['التقويم: {e}', 'Calendar: {e}'],
+  calApiOff: ['التقويم مش شغّال لسا: لازم تفعّل Google Calendar API بـ Google Cloud', 'Calendar is not switched on yet: enable the Google Calendar API in Google Cloud'],
   calTokenNote: ['Google بيعطي التطبيق إذن لمدة ساعة، فأحياناً رح تحتاج كبسة «حدّث التقويم».', 'Google grants access for an hour at a time, so now and then you\'ll tap “Update calendar”.'],
   gymTime: ['وقت الجيم المعتاد', 'Usual gym time'],
   calGym: ['الجيم', 'Gym'],

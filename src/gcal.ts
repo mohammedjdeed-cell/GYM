@@ -53,6 +53,7 @@ async function call(token: string, method: string, url: string, body?: unknown) 
     const msg = await res.text()
     // missing calendar permission → ask again; anything else (API disabled, quota) is a real error
     if (/insufficient.*scope|ACCESS_TOKEN_SCOPE_INSUFFICIENT/i.test(msg)) throw new CalendarAuthError('scope')
+    if (/SERVICE_DISABLED|has not been used|is disabled/i.test(msg)) throw new Error('api-off')
     throw new Error(msg.match(/"message":\s*"([^"]+)/)?.[1] ?? `HTTP 403`)
   }
   return res
