@@ -29,7 +29,14 @@ export type CalCache = Record<string, { h: string; date: string }>
 export class CalendarAuthError extends Error {}
 
 /** Google event ids allow only a–v and 0–9. */
-export const eventId = (kind: 's' | 'x', profileIdx: number, date: string) => `g${kind}${profileIdx}${date.replace(/-/g, '')}`
+export const eventId = (kind: 's' | 'e', profileIdx: number, date: string) => `g${kind}${profileIdx}${date.replace(/-/g, '')}`
+
+/** Google's own reason for a failed call, kept short. */
+async function why(res: Response) {
+  const text = await res.text().catch(() => '')
+  const msg = text.match(/"message":\s*"([^"]+)/)?.[1]
+  return `Google Calendar: HTTP ${res.status}${msg ? ` – ${msg.slice(0, 120)}` : ''}`
+}
 
 const hash = (b: EventBody) => JSON.stringify(b)
 
@@ -73,12 +80,12 @@ async function upsert(token: string, d: Desired, known: boolean) {
     // it instead, which also brings a deleted event back
     if (res.status === 409) res = await put()
   }
-  if (!res.ok) throw new Error(`Google Calendar: HTTP ${res.status}`)
+  if (!res.ok) throw new Error(await why(res))
 }
 
 async function remove(token: string, id: string) {
   const res = await call(token, 'DELETE', `${API}/${id}`)
-  if (!res.ok && res.status !== 404 && res.status !== 410) throw new Error(`Google Calendar: HTTP ${res.status}`)
+  if (!res.ok && res.status !== 404 && res.status !== 410) throw new Error(await why(res))
 }
 
 /** Applies the difference. Returns the new cache (also on failure, with what did get through). */
